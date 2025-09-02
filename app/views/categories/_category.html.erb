@@ -4,8 +4,8 @@
     <%= turbo_stream_from category %>
     <div><%= category.name %></div>
   </div>
-  <div class="flex flex-col sm:flex-row gap-4">
-    <%= link_to "Edit", edit_category_path(category), class: "btn btn-soft hover:btn-primary my-auto" %>
-    <%= button_to "Destroy", category, method: :delete, class: "btn btn-error btn-soft hover:btn-error my-auto", data: { turbo_confirm: "Are you sure?" } %>
+  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+    <%= link_to "Edit", edit_category_path(category), class: "btn btn-soft hover:btn-primary" %>
+    <%= button_to "Destroy", category, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Are you sure?" } %>
   </div>
 </li>

@@ -1,0 +1,26 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg w-full max-w-lg sm:w-lg mx-auto">
+  <legend class="fieldset-legend"><%= content_for(:title) %></legend>
+
+  <%= form_with(model: quote, class: "contents") do |form| %>
+    <% if quote.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+        <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+        <ul class="list-disc ml-6">
+          <% quote.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.label :quote, class: "label" %>
+    <%= form.textarea :quote, class: "textarea w-full" %>
+
+    <%= form.label :author, class: "label" %>
+    <%= form.text_field :author, class: "input w-full" %>
+
+    <%= form.submit class: "btn btn-primary mt-4" %>
+    <%= link_to "Back", quotes_path, class: "btn btn-outline" %>
+  <% end %>
+</fieldset>

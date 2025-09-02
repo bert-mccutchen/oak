@@ -3,6 +3,8 @@ class Setting < ApplicationRecord
 
   acts_as_list
 
+  after_commit :clear_cache
+
   validates :slug, :default, :value_type, presence: true
 
   enum :value_type, {
@@ -28,12 +30,18 @@ class Setting < ApplicationRecord
   end
 
   def self.[](slug)
-    Setting.find_by(slug:)&.parsed_value
+    Rails.cache.fetch("setting/#{slug}") do
+      Setting.find_by(slug:)&.parsed_value
+    end
   end
 
   private
 
   def defaulted_value
     value.presence || default
+  end
+
+  def clear_cache
+    Rails.cache.delete("setting/#{slug}")
   end
 end

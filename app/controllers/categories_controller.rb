@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-   before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all.order(:position)
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to @category, status: :see_other
+      redirect_to @category, notice: "Category updated.", status: :see_other
     else
       Rails.logger.error(@category.errors.full_messages)
       render :edit, status: :unprocessable_content

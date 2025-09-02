@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-   before_action :set_bookmark, only: %i[show edit update destroy]
+  before_action :set_bookmark, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all.includes(:bookmarks).order(:position)
@@ -28,7 +28,7 @@ class BookmarksController < ApplicationController
 
   def update
     if @bookmark.update(bookmark_params)
-      redirect_to @bookmark, status: :see_other
+      redirect_to @bookmark, notice: "Bookmark updated.", status: :see_other
     else
       Rails.logger.error(@bookmark.errors.full_messages)
       render :edit, status: :unprocessable_content

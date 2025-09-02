@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :applications, param: :token
   resources :bookmarks, param: :token
   resources :categories, param: :token
   resources :icons
+  resources :quotes, param: :token do
+    collection do
+      get :reroll_daily
+    end
+  end
   resources :settings, param: :slug, only: %i[index update]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  get "home/index", as: :home
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -16,6 +23,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-
-  get "home/index", as: :home
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_29_011800) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_02_162340) do
   create_table "applications", force: :cascade do |t|
     t.integer "icon_id", null: false
     t.string "token", null: false
@@ -57,6 +57,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_29_011800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug", "format", "theme"], name: "index_icons_on_slug_and_format_and_theme", unique: true
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "token", null: false
+    t.text "quote", null: false
+    t.string "author", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_quotes_on_token", unique: true
   end
 
   create_table "settings", force: :cascade do |t|

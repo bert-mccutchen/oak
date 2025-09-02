@@ -1,0 +1,20 @@
+<li class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= quote_path(quote) %>">
+  <% if quote.daily_pick? %>
+    <div class="tooltip" data-tip="Daily Quote">
+      <div class="text-4xl font-black underline opacity-30 tabular-nums my-auto"><%= quote.position.to_s.rjust(2, '0') %></div>
+    </div>
+  <% else %>
+    <div class="text-4xl font-thin opacity-30 tabular-nums my-auto"><%= quote.position.to_s.rjust(2, '0') %></div>
+  <% end %>
+  <div class="my-auto">
+    <%= turbo_stream_from quote %>
+    <p class="border-l-2 pl-2">
+      <span class="font-thin"><%= quote.quote %></span><br>
+      <span class="font-medium"><%= quote.author %></span>
+    </p>
+  </div>
+  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+    <%= link_to "Edit", edit_quote_path(quote), class: "btn btn-soft hover:btn-primary" %>
+    <%= button_to "Destroy", quote, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+</li>

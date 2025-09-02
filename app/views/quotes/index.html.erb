@@ -1,0 +1,33 @@
+<% content_for :title, "Quotes" %>
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
+    <h1 class="font-bold text-4xl">Quotes</h1>
+    <div class="flex flex-row justify-between gap-4">
+      <%= link_to new_quote_path, class: "btn btn-primary btn-soft" do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+      <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
+        <%= link_to reroll_daily_quotes_path, class: "btn hover:btn-primary" do %>
+          <i class="fa-solid fa-dice-d20 fill-primary"></i>
+        <% end %>
+      </div>
+      <%= link_to root_path, class: "btn hover:btn-primary" do %>
+        <i class="fa-regular fa-house fill-primary"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <%= turbo_stream_from :quotes %>
+  <% if @quotes.any? %>
+    <ul class="list bg-base-200 rounded-box shadow-md" data-controller="sortable" data-sortable-animation-value="100" data-sortable-resource-name-value="quote">
+      <%= render @quotes %>
+    </ul>
+  <% else %>
+    <p class="text-center my-10">No quotes found.</p>
+  <% end %>
+</div>

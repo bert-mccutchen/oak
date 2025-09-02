@@ -24,14 +24,6 @@
         <%= form.label :description, Setting.find_by(slug: :greetings_enabled).description %>
       <% end %>
 
-      <%= form_with(model: Setting.find_by(slug: :wise_words_enabled), class: "w-full") do |form| %>
-        <%= form.label :name, class: "label text-lg font-bold w-full" do %>
-          <%= form.check_box :value, checked: Setting.find_by(slug: :wise_words_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
-          <%= Setting.find_by(slug: :wise_words_enabled).name %>
-        <% end %>
-        <%= form.label :description, Setting.find_by(slug: :wise_words_enabled).description %>
-      <% end %>
-
       <%= form_with(model: Setting.find_by(slug: :morning_greeting), class: "w-full") do |form| %>
         <%= form.label :name, Setting.find_by(slug: :morning_greeting).name, class: "label text-lg font-bold" %>
         <div class="join join-vertical sm:join-horizontal w-full">
@@ -71,6 +63,16 @@
         </div>
         <%= form.label :description, Setting.find_by(slug: :night_greeting).description %>
       <% end %>
+
+      <%= form_with(model: Setting.find_by(slug: :quotes_enabled), class: "w-full") do |form| %>
+        <%= form.label :name, class: "label text-lg font-bold w-full" do %>
+          <%= form.check_box :value, checked: Setting.find_by(slug: :quotes_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
+          <%= Setting.find_by(slug: :quotes_enabled).name %>
+        <% end %>
+        <%= form.label :description, Setting.find_by(slug: :quotes_enabled).description %>
+      <% end %>
+
+      <%= link_to "Manage Quotes", quotes_path, class: "btn hover:btn-neutral btn-outline" %>
     </fieldset>
 
     <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg gap-4">

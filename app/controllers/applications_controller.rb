@@ -28,7 +28,7 @@ class ApplicationsController < ApplicationController
 
   def update
     if @application.update(application_params)
-      redirect_to @application, status: :see_other
+      redirect_to @application, notice: "Application updated.", status: :see_other
     else
       Rails.logger.error(@application.errors.full_messages)
       render :edit, status: :unprocessable_content
