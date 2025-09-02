@@ -21,13 +21,12 @@ Setting.create!(
 )
 
 Setting.create!(
-  slug: "wise_words_enabled",
-  name: "Show Wise Words",
-  description: "Whether or not to show wise words.",
+  slug: "quotes_enabled",
+  name: "Show Quotes",
+  description: "Whether or not to show quotes.",
   default: 1,
   value_type: :boolean
 )
-
 
 Setting.create!(
   slug: "morning_greeting",
