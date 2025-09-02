@@ -12,7 +12,7 @@
         <i class="fa-solid fa-plus"></i>
       <% end %>
       <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
-        <%= link_to reroll_daily_quotes_path, class: "btn hover:btn-primary" do %>
+        <%= link_to reroll_daily_quotes_path, class: "btn hover:btn-primary", data: { turbo_prefetch: false } do %>
           <i class="fa-solid fa-dice-d20 fill-primary"></i>
         <% end %>
       </div>

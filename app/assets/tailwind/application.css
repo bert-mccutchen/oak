@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Montserrat";
+  --font-ubuntu: "Ubuntu";
+}
+
 @plugin "./daisyui.js" {
   themes: all;
 }

@@ -21,7 +21,7 @@
           <%= form.check_box :value, checked: Setting.find_by(slug: :greetings_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
           <%= Setting.find_by(slug: :greetings_enabled).name %>
         <% end %>
-        <%= form.label :description, Setting.find_by(slug: :greetings_enabled).description %>
+        <%= form.label :description, Setting.find_by(slug: :greetings_enabled).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :morning_greeting), class: "w-full") do |form| %>
@@ -31,7 +31,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :morning_greeting).description %>
+        <%= form.label :description, Setting.find_by(slug: :morning_greeting).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :afternoon_greeting), class: "w-full") do |form| %>
@@ -41,7 +41,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :afternoon_greeting).description %>
+        <%= form.label :description, Setting.find_by(slug: :afternoon_greeting).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :evening_greeting), class: "w-full") do |form| %>
@@ -51,7 +51,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :evening_greeting).description %>
+        <%= form.label :description, Setting.find_by(slug: :evening_greeting).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :night_greeting), class: "w-full") do |form| %>
@@ -61,7 +61,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :night_greeting).description %>
+        <%= form.label :description, Setting.find_by(slug: :night_greeting).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :quotes_enabled), class: "w-full") do |form| %>
@@ -69,7 +69,7 @@
           <%= form.check_box :value, checked: Setting.find_by(slug: :quotes_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
           <%= Setting.find_by(slug: :quotes_enabled).name %>
         <% end %>
-        <%= form.label :description, Setting.find_by(slug: :quotes_enabled).description %>
+        <%= form.label :description, Setting.find_by(slug: :quotes_enabled).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= link_to "Manage Quotes", quotes_path, class: "btn hover:btn-neutral btn-outline" %>
@@ -83,7 +83,7 @@
           <%= form.check_box :value, checked: Setting.find_by(slug: :date_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
           <%= Setting.find_by(slug: :date_enabled).name %>
         <% end %>
-        <%= form.label :description, Setting.find_by(slug: :date_enabled).description %>
+        <%= form.label :description, Setting.find_by(slug: :date_enabled).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :date_format), class: "w-full") do |form| %>
@@ -93,7 +93,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :date_format).description %>
+        <%= form.label :description, Setting.find_by(slug: :date_format).description, class: "text-base-content/48" %>
         <a href="https://apidock.com/ruby/DateTime/strftime" class="link">Directive Documentation</a>
       <% end %>
 
@@ -123,7 +123,7 @@
           <%= form.check_box :value, checked: Setting.find_by(slug: :time_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
           <%= Setting.find_by(slug: :time_enabled).name %>
         <% end %>
-        <%= form.label :description, Setting.find_by(slug: :time_enabled).description %>
+        <%= form.label :description, Setting.find_by(slug: :time_enabled).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :time_format), class: "w-full") do |form| %>
@@ -133,7 +133,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :time_format).description %>
+        <%= form.label :description, Setting.find_by(slug: :time_format).description, class: "text-base-content/48" %>
         <a href="https://apidock.com/ruby/DateTime/strftime" class="link">Directive Documentation</a>
       <% end %>
 
@@ -161,7 +161,7 @@
       <%= form_with(model: Setting.find_by(slug: :time_zone), class: "w-full") do |form| %>
         <%= form.label :name, Setting.find_by(slug: :time_zone).name, class: "label text-lg font-bold" %>
         <%= form.select :value, options_from_collection_for_select(ActiveSupport::TimeZone.all, :name, :to_s, Setting[:time_zone]), {}, class: "select w-full", onchange: "this.form.submit()" %>
-        <%= form.label :description, Setting.find_by(slug: :time_zone).description %>
+        <%= form.label :description, Setting.find_by(slug: :time_zone).description, class: "text-base-content/48" %>
       <% end %>
     </fieldset>
 
@@ -173,13 +173,13 @@
           <%= form.check_box :value, checked: Setting.find_by(slug: :weather_enabled).parsed_value, class: "toggle", onchange: "this.form.submit()" %>
           <%= Setting.find_by(slug: :weather_enabled).name %>
         <% end %>
-        <%= form.label :description, Setting.find_by(slug: :weather_enabled).description %>
+        <%= form.label :description, Setting.find_by(slug: :weather_enabled).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :temperature_unit), class: "w-full") do |form| %>
         <%= form.label :name, Setting.find_by(slug: :temperature_unit).name, class: "label text-lg font-bold" %>
         <%= form.select :value, [['Celsius', 'celsius'], ['Fahrenheit', 'fahrenheit']], {}, class: "select w-full", onchange: "this.form.submit()" %>
-        <%= form.label :description, Setting.find_by(slug: :temperature_unit).description %>
+        <%= form.label :description, Setting.find_by(slug: :temperature_unit).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :latitude), class: "w-full") do |form| %>
@@ -189,7 +189,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :latitude).description %>
+        <%= form.label :description, Setting.find_by(slug: :latitude).description, class: "text-base-content/48" %>
       <% end %>
 
       <%= form_with(model: Setting.find_by(slug: :longitude), class: "w-full") do |form| %>
@@ -199,7 +199,7 @@
 
           <%= form.submit class: "btn btn-primary btn-soft" %>
         </div>
-        <%= form.label :description, Setting.find_by(slug: :longitude).description %>
+        <%= form.label :description, Setting.find_by(slug: :longitude).description, class: "text-base-content/48" %>
       <% end %>
     </fieldset>
   </div>

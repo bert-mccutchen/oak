@@ -1,9 +1,9 @@
 <li class="list-row hover:bg-base-300 cursor-grab" data-url="<%= bookmark_path(bookmark) %>">
-  <div class="text-4xl font-thin opacity-30 tabular-nums my-auto"><%= bookmark.position.to_s.rjust(2, '0') %></div>
+  <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto"><%= bookmark.position.to_s.rjust(2, '0') %></div>
   <div class="my-auto">
     <%= turbo_stream_from bookmark %>
     <div><%= bookmark.name %></div>
-    <div class="text-xs font-semibold opacity-60"><%= bookmark.url %></div>
+    <div class="text-xs font-semibold opacity-60 text-base-content/48"><%= bookmark.url %></div>
   </div>
   <div class="flex flex-col sm:flex-row gap-4 my-auto">
     <%= link_to "Edit", edit_bookmark_path(bookmark), class: "btn btn-soft hover:btn-primary" %>

@@ -13,7 +13,7 @@
       <% end %>
       <% if Setting[:quotes_enabled] %>
         <p class="border-l-2 pl-2">
-          <span class="font-thin"><%= @quote.quote %></span><br>
+          <span class="font-light"><%= @quote.quote %></span><br>
           <span class="font-medium"><%= @quote.author %></span>
         </p>
       <% end %>
@@ -25,15 +25,15 @@
   <%= link_to "Applications", applications_path, class: "text-2xl font-bold mb-4 uppercase" %>
 
   <%= turbo_stream_from :applications %>
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
     <%= render partial: "application_puck", collection: @applications, as: :application %>
   </div>
 
   <%= link_to "Bookmarks", bookmarks_path, class: "text-2xl font-bold mt-12 mb-4 uppercase" %>
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
     <% @categories.each do |category| %>
-      <div class="flex flex-col gap-4">
-        <%= link_to category.name, category_path(category), class: "text-lg font-bold uppercase" %>
+      <div class="flex flex-col gap-2">
+        <%= link_to category.name, category_path(category), class: "text-lg text-base-content/32 font-bold uppercase" %>
         <% category.bookmarks.order(:position).each do |bookmark| %>
           <%= link_to bookmark.name, bookmark.url, target: :blank, class: "hover:border-l-2 hover:pl-2 transition-all" %>
         <% end %>
