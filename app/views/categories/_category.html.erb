@@ -1,4 +1,4 @@
-<li class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= category_path(category) %>">
+<li id="<%= category.token %>" class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= category_path(category) %>">
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto"><%= category.position.to_s.rjust(2, '0') %></div>
   <div class="my-auto">
     <%= turbo_stream_from category %>

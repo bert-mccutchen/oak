@@ -1,4 +1,4 @@
-<li class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= application_path(application) %>">
+<li id="<%= application.token %>" class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= application_path(application) %>">
   <%= icon_tag application.icon, class: "size-10 fill-primary my-auto" %>
   <div class="my-auto">
     <%= turbo_stream_from application %>

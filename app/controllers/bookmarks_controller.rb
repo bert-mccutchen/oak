@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    redirect_to bookmarks_path
+    redirect_to bookmarks_path(anchor: @bookmark.token)
   end
 
   def new

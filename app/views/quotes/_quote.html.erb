@@ -1,4 +1,4 @@
-<li class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= quote_path(quote) %>">
+<li id="<%= quote.token %>" class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= quote_path(quote) %>">
   <% if quote.daily_pick? %>
     <div class="tooltip" data-tip="Daily Quote">
       <div class="text-4xl font-ubuntu font-black underline opacity-30 tabular-nums my-auto"><%= quote.position.to_s.rjust(2, '0') %></div>

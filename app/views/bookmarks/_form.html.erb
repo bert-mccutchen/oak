@@ -1,7 +1,8 @@
 <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg w-full max-w-lg sm:w-lg mx-auto">
   <legend class="fieldset-legend"><%= content_for(:title) %></legend>
 
-  <%= form_with(model: bookmark, class: "contents") do |form| %>
+  <%# Turbo is disabled to allow for redirects with anchors: https://github.com/hotwired/turbo/issues/211 %>
+  <%= form_with(model: bookmark, class: "contents", data: { turbo: false }) do |form| %>
     <% if bookmark.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
         <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
@@ -25,6 +26,6 @@
     <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a category" }, class: "select w-full" %>
 
     <%= form.submit class: "btn btn-primary mt-4" %>
-    <%= link_to "Back", bookmarks_path, class: "btn btn-outline" %>
+    <%= link_to "Back", bookmarks_path(anchor: bookmark.token), class: "btn btn-outline" %>
   <% end %>
 </fieldset>
