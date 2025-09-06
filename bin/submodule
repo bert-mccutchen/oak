@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Add the selfhst/icons repo as a submodule.
-git submodule add --force git@github.com:selfhst/icons.git ./vendor/images/selfhst/icons
+git submodule add --force https://github.com/selfhst/icons.git ./vendor/images/selfhst/icons
 
 # Update the selfhst/icons submodule to only sparse-checkout the svg and png directories.
 rm -f .git/modules/vendor/images/selfhst/icons/info/sparse-checkout
