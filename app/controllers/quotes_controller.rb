@@ -44,7 +44,7 @@ class QuotesController < ApplicationController
   def reroll_daily
     Rails.cache.delete("quote/daily_pick")
 
-    redirect_to quotes_path, notice: "Daily pick rerolled!", status: :see_other
+    redirect_back fallback_location: quotes_path, notice: "Daily pick rerolled!", status: :see_other
   end
 
   private
