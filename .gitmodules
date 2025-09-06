@@ -1,4 +1,4 @@
 [submodule "icons"]
-	path = icons
+	path = vendor/images/selfhst/icons
 	url = git@github.com:selfhst/icons.git
 	ignore = dirty
