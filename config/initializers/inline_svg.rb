@@ -3,18 +3,10 @@ require_relative "../../app/helpers/icons_helper"
 class IconAssetFileLoader < InlineSvg::AssetFile
   extend IconsHelper
 
-  def self.named(filename)
-    return colorize_svg(icon_from_path(filename)) if filename.start_with?("/icons/")
+  def self.named(icon_variant_or_filename)
+    return colorize_svg(icon_variant_or_filename) if icon_variant_or_filename.is_a?(IconVariant)
 
     super
-  end
-
-  def self.icon_from_path(path)
-    Icon.find_by!(
-      slug: path.delete_prefix("/icons/").delete_suffix(".svg"),
-      format: :svg,
-      theme: :light
-    )
   end
 end
 

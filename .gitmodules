@@ -1,0 +1,3 @@
+[submodule "vendor/images/selfhst/icons"]
+	path = vendor/images/selfhst/icons
+	url = git@github.com:selfhst/icons.git

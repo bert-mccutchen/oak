@@ -9,13 +9,13 @@
 
     <div class="flex flex-col gap-4">
       <% if Setting[:greetings_enabled] %>
-        <h1 class="text-5xl font-bold"><%= @greeting %></h1>
+        <h1 class="text-5xl font-bold"><%= Current.greeting %></h1>
       <% end %>
 
       <% if Setting[:quotes_enabled] %>
         <p class="border-l-2 pl-2">
-          <span class="font-light"><%= @quote.quote %></span><br>
-          <span class="font-medium"><%= @quote.author %></span>
+          <span class="font-light"><%= Current.quote.quote %></span><br>
+          <span class="font-medium"><%= Current.quote.author %></span>
         </p>
       <% end %>
     </div>

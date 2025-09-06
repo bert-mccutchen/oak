@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_05_180423) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_06_172646) do
   create_table "applications", force: :cascade do |t|
-    t.integer "icon_id", null: false
+    t.integer "icon_variant_id", null: false
     t.string "token", null: false
     t.string "name", null: false
     t.string "description"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_05_180423) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["icon_id"], name: "index_applications_on_icon_id"
+    t.index ["icon_variant_id"], name: "index_applications_on_icon_variant_id"
     t.index ["position"], name: "index_applications_on_position"
     t.index ["token"], name: "index_applications_on_token", unique: true
   end
@@ -48,15 +48,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_05_180423) do
     t.index ["token"], name: "index_categories_on_token", unique: true
   end
 
-  create_table "icons", force: :cascade do |t|
-    t.string "slug", null: false
-    t.string "name", null: false
-    t.string "tags"
+  create_table "icon_variants", force: :cascade do |t|
+    t.integer "icon_id", null: false
     t.integer "format", null: false
     t.integer "theme", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug", "format", "theme"], name: "index_icons_on_slug_and_format_and_theme", unique: true
+    t.index ["icon_id", "format", "theme"], name: "index_icon_variants_on_icon_id_and_format_and_theme", unique: true
+    t.index ["icon_id"], name: "index_icon_variants_on_icon_id"
+  end
+
+  create_table "icons", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "name", null: false
+    t.string "tags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_icons_on_slug", unique: true
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -92,6 +100,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_05_180423) do
     t.index ["slug"], name: "index_themes_on_slug", unique: true
   end
 
-  add_foreign_key "applications", "icons"
+  add_foreign_key "applications", "icon_variants"
   add_foreign_key "bookmarks", "categories"
+  add_foreign_key "icon_variants", "icons"
 end

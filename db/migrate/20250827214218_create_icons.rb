@@ -4,12 +4,10 @@ class CreateIcons < ActiveRecord::Migration[8.0]
       t.string :slug, null: false
       t.string :name, null: false
       t.string :tags
-      t.integer :format, null: false
-      t.integer :theme, null: false
 
       t.timestamps
     end
 
-    add_index :icons, %i[slug format theme], unique: true
+    add_index :icons, :slug, unique: true
   end
 end
