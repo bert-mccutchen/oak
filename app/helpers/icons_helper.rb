@@ -43,7 +43,7 @@ module IconsHelper
   end
 
   def icon_color
-    Current.theme.color_primary
+    oklch_to_hex(Current.theme.color_primary)
   end
 
   # I don't really like this, but I need a hex value for ImageMagick.
