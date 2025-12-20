@@ -30,7 +30,7 @@
   <%= turbo_stream_from :bookmarks %>
   <% if @categories.any? %>
     <div class="flex flex-col gap-8">
-      <% @categories.find_each do |category| %>
+      <% @categories.each do |category| %>
         <div>
            <%= turbo_stream_from category %>
           <h2 class="font-bold text-2xl mb-2"><%= category.name %></h2>
