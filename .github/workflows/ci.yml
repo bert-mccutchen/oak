@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install RMagick dependencies
-        run: sudo apt-get install libmagickwand-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install RMagick dependencies
-        run: sudo apt-get install libmagickwand-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install RMagick dependencies
-        run: sudo apt-get install libmagickwand-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -59,7 +59,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install RMagick dependencies
-        run: sudo apt-get install libmagickwand-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
