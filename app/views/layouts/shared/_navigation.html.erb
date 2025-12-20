@@ -1,0 +1,22 @@
+<div class="dropdown dropdown-bottom dropdown-start fixed left-4 top-4 z-20">
+  <%= link_to settings_path, tabindex: 0, role: "button", class: "group btn btn-ghost btn-sm" do %>
+    <%= inline_svg_tag "icon.svg", class: "size-6 fill-primary/25 group-hover:fill-primary" %>
+  <% end %>
+  <ul tabindex="-1" class="menu dropdown-content backdrop-blur-xl rounded-box shadow-2xl border border-neutral">
+    <% unless controller_name == "home" %>
+      <li class="first:font-bold"><%= link_to "Home", home_path %></li>
+    <% end %>
+    <% unless controller_name == "settings" %>
+      <li class="first:font-bold"><%= link_to "Settings", settings_path %></li>
+    <% end %>
+    <% unless controller_name == "applications" %>
+      <li><%= link_to "Applications", applications_path %></li>
+    <% end %>
+    <% unless controller_name == "bookmarks" %>
+      <li><%= link_to "Bookmarks", bookmarks_path %></li>
+    <% end %>
+    <% unless controller_name == "themes" %>
+      <li><%= link_to "Themes", themes_path %></li>
+    <% end %>
+  </ul>
+</div>
