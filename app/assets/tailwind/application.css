@@ -10,10 +10,17 @@
 
 @plugin "./daisyui.mjs";
 
+/* Makes the Turbo progress bar match the current theme. */
 .turbo-progress-bar {
   @apply bg-primary;
 }
 
+/* Animates lazy-loaded Turbo frames. */
 turbo-frame[busy] {
   @apply animate-pulse;
+}
+
+/* Makes anchor links to clear the header. */
+[id]:target {
+  @apply scroll-mt-16;
 }
