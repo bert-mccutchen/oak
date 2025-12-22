@@ -10,14 +10,15 @@
 
 @plugin "./daisyui.mjs";
 
+/* Adds a utility class to use DaisyUI's noise anywhere. */
 @utility noise {
   background-size: auto,calc(var(--noise)*100%);
   background-image: none,var(--fx-noise);
 }
 
-/* Makes the Turbo progress bar match the current theme. */
-.turbo-progress-bar {
-  @apply bg-primary;
+/* Makes anchor links clear the header. */
+[id]:target {
+  @apply scroll-mt-16;
 }
 
 /* Animates lazy-loaded Turbo frames. */
@@ -25,9 +26,9 @@ turbo-frame[busy] {
   @apply animate-pulse;
 }
 
-/* Makes anchor links to clear the header. */
-[id]:target {
-  @apply scroll-mt-16;
+/* Makes the Turbo progress bar match the current theme. */
+.turbo-progress-bar {
+  @apply bg-primary;
 }
 
 /* Makes Pagy pagination match the current theme. */
