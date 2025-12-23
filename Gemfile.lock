@@ -214,6 +214,10 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.3)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
@@ -278,6 +282,10 @@ GEM
     public_suffix (6.0.2)
     puma (6.6.1)
       nio4r (~> 2.0)
+    puppeteer-ruby (0.45.6)
+      concurrent-ruby (>= 1.1, < 1.4)
+      mime-types (>= 3.0)
+      websocket-driver (>= 0.6.0)
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.0)
@@ -476,6 +484,7 @@ DEPENDENCIES
   pagy (~> 43.2)
   propshaft
   puma (>= 5.0)
+  puppeteer-ruby (~> 0.45.6)
   rails (~> 8.0.2)
   ransack (~> 4.4)
   rmagick

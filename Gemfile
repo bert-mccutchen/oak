@@ -91,6 +91,8 @@ group :development do
   gem "binding_of_caller"
 
   gem "openssl", "~> 4.0"
+
+  gem "puppeteer-ruby", "~> 0.45.6"
 end
 
 group :test do

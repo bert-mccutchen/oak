@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+./bin/rails db:drop:all db:setup
+./bin/rails r db/seeds/demo.rb
+./bin/rails r script/doc_images.rb
