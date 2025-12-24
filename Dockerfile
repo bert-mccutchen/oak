@@ -25,6 +25,9 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+# Remove the need to share secret keys in this FOSS project.
+ENV SECRET_KEY_BASE_DUMMY=1
+
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
