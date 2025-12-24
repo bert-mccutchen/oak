@@ -53,6 +53,8 @@ docker run -d -it -p 3000:80 -v /path/on/host:/rails/storage ghcr.io/bert-mccutc
 
 ![Quotes Page](docs/assets/quotes.png)
 
+![Themes Page](docs/assets/themes.png)
+
 ![New Theme Page](docs/assets/new_theme.png)
 
 <details>
