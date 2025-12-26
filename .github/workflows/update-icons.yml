@@ -2,16 +2,12 @@ name: Update Icons
 
 on:
   workflow_dispatch:
-  schedule:
-    # Runs every day at 00:00 UTC
-    - cron: '0 0 * * *'
-
-env:
-  GIT_EMAIL: "251524733+berts-icon-bot[bot]@users.noreply.github.com"
-  GIT_NAME: berts-icon-bot[bot]
+  # schedule:
+  #   # Runs every day at 00:00 UTC
+  #   - cron: '0 0 * * *'
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,13 +20,10 @@ jobs:
       - name: Update Submodule (selfh.st/icons)
         run: bin/submodule
 
-      - name: Configure Git
-        run: |
-          git config --global user.email ${{ env.GIT_EMAIL }}
-          git config --global user.name ${{ env.GIT_NAME }}
-
       - name: Push Changes
         run: |
+          git config user.email 251524733+berts-icon-bot[bot]@users.noreply.github.com
+          git config user.name berts-icon-bot[bot]
           git add .
           git commit -m "chore: updated selfh.st/icons submodule"
           git push
