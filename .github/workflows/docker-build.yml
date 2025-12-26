@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+*'
+  schedule:
+    # Runs every day at 01:00 UTC
+    # Runs after submodule update (selfh.st/icons)
+    - cron: '0 1 * * *'
 
 env:
   # Use docker.io for Docker Hub if empty
