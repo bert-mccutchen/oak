@@ -4,12 +4,21 @@ module IconsHelper
   include ActionView::Helpers::AssetUrlHelper
 
   def icon_tag(icon, **opts)
+    return no_icon_tag(**opts) unless icon
+
     path = icon_path(icon.best_variant.slug, format: icon.best_variant.format)
 
     if icon.best_variant.svg?
       inline_svg_tag(icon.best_variant, **opts)
     else
       image_tag("#{path}?theme=#{Current.theme.token}", **opts)
+    end
+  end
+
+  def no_icon_tag(**opts)
+    classes = [ "flex border border-primary rounded-box", opts[:class] ].join(" ")
+    content_tag(:div, class: classes) do
+      tag.i(**opts, class: "fa-solid fa-question m-auto text-primary")
     end
   end
 

@@ -4,7 +4,7 @@ class Icon < ApplicationRecord
   identifies_by :slug
   broadcasts_refreshes
 
-  has_many :applications, dependent: :destroy
+  has_many :applications, dependent: :nullify
   has_many :icon_variants, dependent: :destroy
 
   validates :slug, :name, presence: true
