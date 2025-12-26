@@ -7,8 +7,8 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  GIT_EMAIL: bot@bertm.dev
-  GIT_NAME: Bert Bot
+  GIT_EMAIL: "251524733+berts-icon-bot[bot]@users.noreply.github.com"
+  GIT_NAME: berts-icon-bot[bot]
 
 jobs:
   build:
