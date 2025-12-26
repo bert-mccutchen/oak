@@ -4,7 +4,7 @@
   <%= turbo_stream_from :applications %>
 
   <% if @applications.any? %>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
       <%= render partial: "application", collection: @applications, as: :application %>
     </div>
   <% else %>

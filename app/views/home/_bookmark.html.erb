@@ -2,5 +2,5 @@
 <div class="hover:border-l-2 hover:pl-2 transition-all">
   <%= turbo_stream_from bookmark, class: "hidden" %>
 
-  <%= link_to bookmark.name, bookmark.url, target: :blank %>
+  <%= link_to bookmark.name, bookmark.url, target: :blank, class: "block text-nowrap overflow-hidden text-ellipsis" %>
 </div>
