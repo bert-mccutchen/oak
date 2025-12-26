@@ -1,6 +1,32 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="100 100 1724 824">
 	<style>
+		@keyframes leafy {
+			from {
+				transform: rotate(0);
+			}
+
+			1% {
+				transform: rotate(0.75deg);
+			}
+
+			2% {
+				transform: rotate(-0.75deg);
+			}
+
+			3% {
+				transform: rotate(0.75deg);
+			}
+
+			4% {
+				transform: rotate(-0.75deg);
+			}
+
+			5% {
+				transform: rotate(0);
+			}
+		}
+
     path, text {
       fill: black;
       font-family: Georgia;
@@ -11,6 +37,11 @@
         fill: white;
       }
     }
+
+		.leaf {
+			animation: leafy 10s ease-in-out infinite;
+			transform-origin: 30% 100%;
+		}
   </style>
 	<text x="52%" y="100%" font-size="800px">ak</text>
 	<!-- Circle -->
@@ -61,6 +92,7 @@ M173.967392,486.130096
 z" />
 	<!-- Leaf -->
 	<path
+		class="leaf"
 		d="
 M359.004028,489.006866
 	C349.316956,480.050415 339.636658,471.480347 332.619537,460.630524
