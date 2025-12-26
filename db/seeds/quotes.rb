@@ -42,7 +42,7 @@ QUOTES = [
   { quote: "The fool doth think he is wise, but the wise man knows himself to be a fool.", author: "William Shakespeare" },
   { quote: "The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom.", author: "Isaac Asimov" },
   { quote: "Count your age by friends, not years. Count your life by smiles, not tears.", author: "John Lennon" },
-  { quote: "Hold fast to dreams, For if dreams die Life is a broken-winged bird,That cannot fly.", author: "Langston Hughes" },
+  { quote: "Hold fast to dreams. For if dreams die. Life is a broken-winged bird. That cannot fly.", author: "Langston Hughes" },
   { quote: "Never laugh at live dragons.", author: "J.R.R. Tolkein" },
   { quote: "The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. 'Do it yourself'. Yes, that's it.", author: "Linus Torvalds" },
   { quote: "Intelligence is the ability to avoid doing work, yet getting the work done.", author: "Linus Torvalds" },
