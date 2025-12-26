@@ -3,7 +3,7 @@
 	<style>
     path, text {
       fill: black;
-			font-family: Georgia;
+      font-family: Georgia;
     }
 
     @media (prefers-color-scheme: dark) {
