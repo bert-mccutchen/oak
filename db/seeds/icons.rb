@@ -5,6 +5,14 @@ class IconHash < Hash
     super(key.downcase.to_sym, format_value(value))
   end
 
+  def slug
+    self[:slug]
+  end
+
+  def record_attributes
+    { slug: self[:reference], **self.slice(:name, :tags) }
+  end
+
   def valid_format?
     self[:svg] || self[:png]
   end
@@ -20,24 +28,27 @@ ICONS_MANIFEST_PATH = Rails.root.join("vendor/images/selfhst/icons/index.json")
 ICONS_MANIFEST = JSON.load_file!(ICONS_MANIFEST_PATH, object_class: IconHash)
 GROUPED_ICONS_MANIFEST = ICONS_MANIFEST.group_by { it[:reference] }
 
-icons = ICONS_MANIFEST.filter(&:valid_format?).map do |icon|
-  { slug: icon[:reference], **icon.slice(:name, :tags) }
-end
+valid_icons = ICONS_MANIFEST.filter(&:valid_format?)
 
-Icon.upsert_all(icons, unique_by: :slug)
+# Delete all icons that have been removed or are no longer valid.
+Icon.where.not(slug: valid_icons.map(&:slug)).destroy_all
 
+# Upsert icons that are in the manifest and valid.
+Icon.upsert_all(valid_icons.map(&:record_attributes), unique_by: :slug)
+
+# Upsert all icon variants for icons that are in the database.
 icon_variants = Icon.find_each.flat_map do |icon|
   variants = []
 
-  GROUPED_ICONS_MANIFEST[icon.slug].each do |variant|
-    if variant[:svg] && variant[:light]
+  GROUPED_ICONS_MANIFEST[icon.slug].each do |icon_hash|
+    if icon_hash[:svg] && icon_hash[:light]
       variants << { icon_id: icon.id, format: :svg, theme: :light }
     end
 
-    if variant[:png]
+    if icon_hash[:png]
       variants << { icon_id: icon.id, format: :png, theme: :default }
-      variants << { icon_id: icon.id, format: :png, theme: :light } if variant[:light]
-      variants << { icon_id: icon.id, format: :png, theme: :dark } if variant[:dark]
+      variants << { icon_id: icon.id, format: :png, theme: :light } if icon_hash[:light]
+      variants << { icon_id: icon.id, format: :png, theme: :dark } if icon_hash[:dark]
     end
   end
 
@@ -45,16 +56,6 @@ icon_variants = Icon.find_each.flat_map do |icon|
 end
 
 IconVariant.upsert_all(icon_variants, unique_by: %i[icon_id format theme])
-
-# Delete icons that are no longer in icons array
-Icon.where.not(slug: icons.map { it[:slug] }).delete_all
-
-# Delete icon variants that are no longer in icon_variants array
-IconVariant.find_each do |icon_variant|
-  next if icon_variants.any? { it[:icon_id] == icon_variant.icon_id && it[:format] == icon_variant.format.to_sym && it[:theme] == icon_variant.theme.to_sym }
-
-  icon_variant.destroy
-end
 
 # Delete icons without variants
 Icon.where.missing(:icon_variants).delete_all

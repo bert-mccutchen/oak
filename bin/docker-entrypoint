@@ -9,6 +9,9 @@ fi
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
+
+  # Re-seed the icons (upsert)
+  ./bin/rails r db/seeds/icons.rb
 fi
 
 exec "${@}"

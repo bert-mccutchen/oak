@@ -10,5 +10,5 @@ class Application < ApplicationRecord
 
   belongs_to :icon
 
-  validates :icon, :token, :name, :url, presence: true
+  validates :token, :name, :url, presence: true
 end

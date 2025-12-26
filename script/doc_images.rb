@@ -12,7 +12,7 @@ def screenshot(browser, url:, path:, wait_for_turbo: false)
   page.screenshot(path:)
 end
 
-Puppeteer.launch(headless: true, args: [ "--window-size=1920,1800" ]) do |browser|
+Puppeteer.launch(headless: true, args: [ "--window-size=1920,1080" ]) do |browser|
   # Screenshot the theme editing.
   Setting.find_by(slug: "theme").update!(value: Theme.find_by(name: "Gruvbox").token)
   screenshot(browser, url: "http://127.0.0.1:3000/themes/new", path: "#{screenshots_dir}/new_theme.png", wait_for_turbo: true)
