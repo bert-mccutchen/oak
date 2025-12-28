@@ -174,6 +174,57 @@ chown 1000:1000 /mnt/cache/appdata/oak
 ![Wireframe Homepage](docs/assets/themes/wireframe.png)
 </details>
 
+## Mobile Screenshots
+
+| | | | |
+|---|---|---|---|
+| ![Applications Page](docs/assets/mobile_applications.png) | ![Bookmarks Page](docs/assets/mobile_bookmarks.png) | ![Categories Page](docs/assets/mobile_categories.png) | ![Settings Page](docs/assets/mobile_settings.png) |
+| ![Quotes Page](docs/assets/mobile_quotes.png) | ![Themes Page](docs/assets/mobile_themes.png) | ![New Theme Page](docs/assets/mobile_new_theme.png) |
+
+<details>
+<summary><b>Standard Themes (Mobile)</b></summary>
+
+| Abyss | Acid | Aqua | Autumn |
+|---|---|---|---|
+| ![Abyss Homepage](docs/assets/themes/mobile_abyss.png) | ![Acid Homepage](docs/assets/themes/mobile_acid.png) | ![Aqua Homepage](docs/assets/themes/mobile_aqua.png) | ![Autumn Homepage](docs/assets/themes/mobile_autumn.png) |
+
+| Black | Bumblebee | Business | Caramellatte |
+|---|---|---|---|
+| ![Black Homepage](docs/assets/themes/mobile_black.png) | ![Bumblebee Homepage](docs/assets/themes/mobile_bumblebee.png) | ![Business Homepage](docs/assets/themes/mobile_business.png) | ![Caramellatte Homepage](docs/assets/themes/mobile_caramellatte.png) |
+
+| Cmyk | Coffee | Corporate | Cupcake |
+|---|---|---|---|
+| ![Cmyk Homepage](docs/assets/themes/mobile_cmyk.png) | ![Coffee Homepage](docs/assets/themes/mobile_coffee.png) | ![Corporate Homepage](docs/assets/themes/mobile_corporate.png) | ![Cupcake Homepage](docs/assets/themes/mobile_cupcake.png) |
+
+| Cyberpunk | Dark | Dim | Dracula |
+|---|---|---|---|
+| ![Cyberpunk Homepage](docs/assets/themes/mobile_cyberpunk.png) | ![Dark Homepage](docs/assets/themes/mobile_dark.png) | ![Dim Homepage](docs/assets/themes/mobile_dim.png) | ![Dracula Homepage](docs/assets/themes/mobile_dracula.png) |
+
+| Emerald | Fantasy | Forest | Garden |
+|---|---|---|---|
+| ![Emerald Homepage](docs/assets/themes/mobile_emerald.png) | ![Fantasy Homepage](docs/assets/themes/mobile_fantasy.png) | ![Forest Homepage](docs/assets/themes/mobile_forest.png) | ![Garden Homepage](docs/assets/themes/mobile_garden.png) |
+
+| Halloween | Lemonade | Light | Lofi |
+|---|---|---|---|
+| ![Halloween Homepage](docs/assets/themes/mobile_halloween.png) | ![Lemonade Homepage](docs/assets/themes/mobile_lemonade.png) | ![Light Homepage](docs/assets/themes/mobile_light.png) | ![Lofi Homepage](docs/assets/themes/mobile_lofi.png) |
+
+| Luxury | Night | Nord | Pastel |
+|---|---|---|---|
+| ![Luxury Homepage](docs/assets/themes/mobile_luxury.png) | ![Night Homepage](docs/assets/themes/mobile_night.png) | ![Nord Homepage](docs/assets/themes/mobile_nord.png) | ![Pastel Homepage](docs/assets/themes/mobile_pastel.png) |
+
+| Retro | Silk | Sunset | Synthwave |
+|---|---|---|---|
+| ![Retro Homepage](docs/assets/themes/mobile_retro.png) | ![Silk Homepage](docs/assets/themes/mobile_silk.png) | ![Sunset Homepage](docs/assets/themes/mobile_sunset.png) | ![Synthwave Homepage](docs/assets/themes/mobile_synthwave.png) |
+
+| Valentine | Winter | Wireframe |
+|---|---|---|
+| ![Valentine Homepage](docs/assets/themes/mobile_valentine.png) | ![Winter Homepage](docs/assets/themes/mobile_winter.png) | ![Wireframe Homepage](docs/assets/themes/mobile_wireframe.png) |
+</details>
+
 ## Thanks
 
 Big thanks to [DaisyUI](https://github.com/saadeghi/daisyui) for the component library and themes. Also [Flame](https://github.com/pawelmalak/flame), which has been the inpiration and my homepage for many years.
+
+### Legal Attributions
+
+Icons are modified and colored programatically to match the user's theme. Icons are provided by [selfh.st/icons](https://github.com/selfhst/icons/blob/main/LICENSE), and [Font Awesome Free](https://fontawesome.com/license/free) under CC BY 4.0.
