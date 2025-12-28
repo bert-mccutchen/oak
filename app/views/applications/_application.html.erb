@@ -1,6 +1,9 @@
-<li id="<%= application.token %>" class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= application_path(application) %>">
+<li id="<%= application.token %>" class="list-row hover:bg-base-300" data-sortable-update-url="<%= application_path(application) %>">
+  <div class="flex cursor-grab">
+    <i class="fa-solid fa-grip-vertical my-auto"></i>
+  </div>
   <%= icon_tag application.icon, class: "size-10 fill-primary my-auto" %>
-  <div class="my-auto">
+  <div class="list-col-grow my-auto">
     <%= turbo_stream_from application %>
     <div><%= application.name %></div>
     <div class="text-xs font-semibold opacity-60 text-base-content/48"><%= application.url %></div>

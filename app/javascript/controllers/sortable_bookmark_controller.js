@@ -3,12 +3,17 @@ import Sortable from "sortablejs"
 import { patch } from "@rails/request.js"
 
 export default class SortableBookmarkController extends Controller {
+  static values = {
+    handle: String
+  }
+
   connect() {
     this.sortable = new Sortable(this.element, {
       group: "bookmarks",
       animation: 100,
       onAdd: this.#onChange.bind(this),
-      onUpdate: this.#onChange.bind(this)
+      onUpdate: this.#onChange.bind(this),
+      handle: this.handleValue
     })
   }
 

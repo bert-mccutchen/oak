@@ -24,7 +24,13 @@
 
   <%= turbo_stream_from :quotes %>
   <% if @quotes.any? %>
-    <ul class="list bg-base-200 rounded-box shadow-md" data-controller="sortable" data-sortable-animation-value="100" data-sortable-resource-name-value="quote">
+    <ul
+      class="list bg-base-200 rounded-box shadow-md"
+      data-controller="sortable"
+      data-sortable-animation-value="100"
+      data-sortable-resource-name-value="quote"
+      data-sortable-handle-value=".cursor-grab"
+    >
       <%= render @quotes %>
     </ul>
   <% else %>

@@ -24,7 +24,13 @@
 
   <%= turbo_stream_from :categories %>
   <% if @categories.any? %>
-    <ul class="list bg-base-200 rounded-box shadow-md" data-controller="sortable" data-sortable-animation-value="100" data-sortable-resource-name-value="category">
+    <ul
+      class="list bg-base-200 rounded-box shadow-md"
+      data-controller="sortable"
+      data-sortable-animation-value="100"
+      data-sortable-resource-name-value="category"
+      data-sortable-handle-value=".cursor-grab"
+    >
       <%= render @categories %>
     </ul>
   <% else %>

@@ -19,7 +19,13 @@
 
   <%= turbo_stream_from :applications %>
   <% if @applications.any? %>
-    <ul class="list bg-base-200 rounded-box shadow-md" data-controller="sortable" data-sortable-animation-value="100" data-sortable-resource-name-value="application">
+    <ul
+      class="list bg-base-200 rounded-box shadow-md"
+      data-controller="sortable"
+      data-sortable-animation-value="100"
+      data-sortable-resource-name-value="application"
+      data-sortable-handle-value=".cursor-grab"
+    >
       <%= render @applications %>
     </ul>
   <% else %>

@@ -31,7 +31,12 @@
            <%= turbo_stream_from category %>
           <h2 class="font-bold text-2xl mb-2"><%= category.name %></h2>
           <% if category.bookmarks.any? %>
-            <ul class="list bg-base-200 rounded-box shadow-md" data-controller="sortable-bookmark" data-id="<%= category.id %>">
+            <ul
+              class="list bg-base-200 rounded-box shadow-md"
+              data-controller="sortable-bookmark"
+              data-sortable-bookmark-handle-value=".cursor-grab"
+              data-id="<%= category.id %>"
+            >
               <%= render category.bookmarks.order(:position) %>
             </ul>
           <% else %>

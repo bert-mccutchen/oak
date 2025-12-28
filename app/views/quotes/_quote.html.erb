@@ -1,4 +1,7 @@
-<li id="<%= quote.token %>" class="list-row hover:bg-base-300 cursor-grab" data-sortable-update-url="<%= quote_path(quote) %>">
+<li id="<%= quote.token %>" class="list-row hover:bg-base-300" data-sortable-update-url="<%= quote_path(quote) %>">
+  <div class="flex cursor-grab">
+    <i class="fa-solid fa-grip-vertical my-auto"></i>
+  </div>
   <% if quote.daily_pick? %>
     <div class="tooltip" data-tip="Daily Quote">
       <div class="text-4xl font-ubuntu font-black underline opacity-30 tabular-nums my-auto"><%= quote.position.to_s.rjust(2, '0') %></div>
@@ -6,7 +9,7 @@
   <% else %>
     <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto"><%= quote.position.to_s.rjust(2, '0') %></div>
   <% end %>
-  <div class="my-auto">
+  <div class="list-col-grow my-auto">
     <%= turbo_stream_from quote %>
     <p class="border-l-2 pl-2">
       <span class="font-light"><%= quote.quote %></span><br>
