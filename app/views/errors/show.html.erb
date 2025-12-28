@@ -2,7 +2,7 @@
   <h1 class="text-[40vw] sm:text-[35vw] lg:text-[35vw] xl:text-[30vw] font-extrabold opacity-10"><%= @status_code %></h1>
 </div>
 <div class="fixed left-0 top-0 w-full h-full justify-center items-center flex flex-col gap-8">
-  <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center font-extrabold"><%= Rack::Utils::HTTP_STATUS_CODES[@status_code] %></h2>
+  <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center font-extrabold"><%= error_message(status: @status_code) %></h2>
   <%= link_to root_path, class: "btn btn-primary" do %>
     <i class="fa-regular fa-house fill-primary"></i> Go Home
   <% end %>

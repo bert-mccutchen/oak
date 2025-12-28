@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pagy::Method
+  include ErrorsHelper
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
@@ -27,12 +28,5 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone(&block)
     Time.use_zone(Setting["time_zone"], &block)
-  end
-
-  def handle_error(error, status:)
-    Rails.logger.error(error.full_message)
-    raise if Rails.env.development?
-
-    redirect_to error_path(status)
   end
 end
