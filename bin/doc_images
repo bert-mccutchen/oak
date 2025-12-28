@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# Desktop
 ./bin/rails db:drop:all db:setup
 ./bin/rails r db/seeds/demo.rb
-./bin/rails r script/doc_images.rb
+./bin/rails r script/doc_images.rb "desktop" 1920 1080
+./bin/rails r script/doc_images.rb "mobile" 375 812
