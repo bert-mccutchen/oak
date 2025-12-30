@@ -11,13 +11,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install RMagick dependencies
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
@@ -26,13 +29,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install RMagick dependencies
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
@@ -41,13 +47,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install RMagick dependencies
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
@@ -56,19 +65,26 @@ jobs:
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
+
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+
       - name: Install RMagick dependencies
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libmagickwand-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
       - name: Run tests
         env:
           RAILS_ENV: test
         run: bin/rails db:test:prepare test test:system
+
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
