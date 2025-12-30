@@ -1,6 +1,7 @@
 module ErrorsHelper
   def handle_error(error, status:)
     Rails.logger.error(error.full_message)
+    puts error.full_message if ENV["CI"].present?
     raise if Rails.env.development?
 
     redirect_to error_path(status), status:
