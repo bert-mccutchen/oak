@@ -22,8 +22,8 @@ jobs:
 
       - name: Push Changes
         run: |
-          git config user.email 251524733+berts-icon-bot[bot]@users.noreply.github.com
-          git config user.name berts-icon-bot[bot]
+          git config user.email 251524733+berts-bot[bot]@users.noreply.github.com
+          git config user.name berts-bot[bot]
           git add .
           git commit -m "chore: updated selfh.st/icons submodule" || true
           git push
