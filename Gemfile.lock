@@ -511,7 +511,7 @@ DEPENDENCIES
   ransack (~> 4.4)
   rmagick
   rubocop-rails-omakase
-  simplecov (~> 0.22.0)
+  simplecov
   solid_cable
   solid_cache
   solid_queue
