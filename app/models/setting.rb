@@ -8,7 +8,7 @@ class Setting < ApplicationRecord
 
   after_commit :clear_cache
 
-  validates :slug, :default, :value_type, presence: true
+  validates :slug, :name, :description, :default, :value_type, presence: true
 
   enum :value_type, {
     boolean: 0,
