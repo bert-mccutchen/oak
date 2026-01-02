@@ -3,13 +3,13 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "72c556db893596363919f69a8baada52f28b74affdf034c66e44dfcb08339dba",
+      "fingerprint": "1d70067a8a38c6001518c5a750fd33b94d444ccda94530587f10c62f6a2e7d04",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
       "file": "app/views/home/_bookmark.html.erb",
       "line": 5,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to((Unresolved Model).new.name, (Unresolved Model).new.url, :target => :blank, :class => \"block text-nowrap overflow-hidden text-ellipsis\")",
+      "code": "link_to((Unresolved Model).new.name, (Unresolved Model).new.url, :target => :_blank, :class => \"block text-nowrap overflow-hidden text-ellipsis\")",
       "render_path": [
         {
           "type": "template",
