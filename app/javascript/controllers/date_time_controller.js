@@ -19,7 +19,13 @@ export default class DateTimeController extends Controller {
     if (this.interval) clearInterval(this.interval)
   }
 
+  #synchronize(fn) {
+    setTimeout(fn, 1000 - new Date().getMilliseconds())
+  }
+
   #update() {
-    this.element.innerHTML = this.timeZone(this.formatValue, new Date())
+    this.#synchronize(() => {
+      this.element.innerHTML = this.timeZone(this.formatValue, new Date())
+    })
   }
 }
