@@ -1,16 +1,18 @@
 <%= button_tag button_content, type: :button, class: button_classes, onclick: show_script %>
 
 <%= tag.dialog id:, class: "modal", data: { theme: "dark" } do %>
-  <div class="modal-box w-auto max-w-full p-0 bg-base-100/50 backdrop-blur">
-    <div class="grid grid-cols-22 gap-1 p-4">
-      <% TAILWIND_COLOR_VALUES.each do |color, value| %>
-        <%= @form.radio_button @method, value, class: "btn p-0 size-5 sm:size-7 md:size-8 lg:size-10 bg-#{color} outline-white checked:outline checked:border-base-100 checked:shadow-none hover:scale-150 hover:outline-none", data: @options[:data] %>
-      <% end %>
+  <div class="modal-box max-w-4xl p-0 bg-base-100/50 backdrop-blur">
+    <div class="overflow-x-auto m-4">
+      <div class="grid grid-cols-22 gap-1 min-w-3xl">
+        <% TAILWIND_COLOR_VALUES.each do |color, value| %>
+          <%= @form.radio_button @method, value, class: "btn p-0 size-auto aspect-square bg-#{color} outline-white checked:outline checked:border-base-100 checked:shadow-none hover:scale-150 hover:outline-none", data: @options[:data] %>
+        <% end %>
+      </div>
     </div>
     <div class="modal-action m-0 p-4 bg-base-100/20">
       <%# Not only does this allow for resetting colors, but it also allows for cloning DaisyUI themes that do not use Tailwind color steps. %>
       <div class="mr-auto tooltip tooltip-right" data-tip="Reset">
-        <%= @form.radio_button @method, @value, class: "btn size-10 checked:outline-none checked:border-base-100 checked:shadow-none hover:scale-110", style: "background-color: #{@value}", data: @options[:data] %>
+        <%= @form.radio_button @method, @value, class: "btn aspect-square checked:outline-none checked:border-base-100 checked:shadow-none hover:scale-110", style: "background-color: #{@value}", data: @options[:data] %>
       </div>
       <%= button_tag "Close", type: :button, class: "btn", onclick: close_script %>
     </div>
