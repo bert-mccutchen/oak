@@ -2,6 +2,7 @@ class Current < ActiveSupport::CurrentAttributes
   attribute :theme, default: -> { defaulted_theme }
   attribute :greeting, default: -> { timed_greeting }
   attribute :quote, default: -> { Quote.daily_pick }
+  attribute :icon_color # Used for homepage previews when theming.
 
   def self.daytime?
     Time.use_zone(Setting[:time_zone]) do

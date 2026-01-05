@@ -6,12 +6,17 @@ module IconsHelper
   def icon_tag(icon, **opts)
     return no_icon_tag(**opts) unless icon
 
-    path = icon_path(icon.best_variant.slug, format: icon.best_variant.format)
+    path = icon_path(
+      icon.best_variant.slug,
+      theme: Current.theme.token,
+      color: Current.icon_color,
+      format: icon.best_variant.format
+    )
 
     if icon.best_variant.svg?
       inline_svg_tag(icon.best_variant, **opts)
     else
-      image_tag("#{path}?theme=#{Current.theme.token}", **opts)
+      image_tag(path, **opts)
     end
   end
 
@@ -24,24 +29,26 @@ module IconsHelper
 
   protected
 
-  def colorize_svg(icon_variant)
-    Rails.cache.fetch(icon_variant, expires_in: 12.hours) do
+  def colorize_svg(icon_variant, color = "var(--color-primary)")
+    Rails.cache.fetch([ icon_variant, color ], expires_in: 12.hours) do
       File.read(icon_asset_path(icon_variant))
-          .gsub(/fill:(\s+)?#[0-9A-Fa-f]+/i, "fill:var(--color-primary)")
-          .gsub(/stroke:(\s+)?#[0-9A-Fa-f]+/i, "stroke:var(--color-primary)")
-          .gsub(/stop-color:(\s+)?#[0-9A-Fa-f]+/i, "stop-color:var(--color-primary)")
+          .gsub(/fill:(\s+)?#[0-9A-Fa-f]+/i, "fill:#{color}")
+          .gsub(/stroke:(\s+)?#[0-9A-Fa-f]+/i, "stroke:#{color}")
+          .gsub(/stop-color:(\s+)?#[0-9A-Fa-f]+/i, "stop-color:#{color}")
     end
   end
 
-  def colorize_png(icon_variant)
-    Rails.cache.fetch([ icon_variant, icon_color ], expires_in: 12.hours) do
+  def colorize_png(icon_variant, color = nil)
+    hex_color = oklch_to_hex(color || Current.theme.color_primary)
+
+    Rails.cache.fetch([ icon_variant, hex_color ], expires_in: 12.hours) do
       image = Magick::Image.read(icon_asset_path(icon_variant)).first
       image.format = "PNG"
       image.fuzz = "10%"
 
       image.quantize(256, Magick::GRAYColorspace)
           .transparent("white")
-          .colorize(0.9, 0.9, 0.9, icon_color)
+          .colorize(0.9, 0.9, 0.9, hex_color)
           .to_blob
     end
   end
@@ -50,10 +57,6 @@ module IconsHelper
 
   def icon_asset_path(icon_variant)
     image_path(Rails.root.join(icon_variant.path))
-  end
-
-  def icon_color
-    oklch_to_hex(Current.theme.color_primary)
   end
 
   # I don't really like this, but I need a hex value for ImageMagick.

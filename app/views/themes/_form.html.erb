@@ -230,7 +230,7 @@
       <% end %>
     </div>
     <div class="bg-base-100 -mt-3 p-8 rounded-box w-full hidden lg:block">
-      <%= turbo_frame_tag :home, src: home_preview_path, loading: :lazy, data: { theme_editor_target: "preview" } do %>
+      <%= turbo_frame_tag :home, src: home_preview_path(color: theme.color_primary), loading: :lazy, data: { theme_editor_target: "preview" } do %>
         <div class="w-full text-xl text-center skeleton-text animate-pulse">
           Loading Preview
         </div>

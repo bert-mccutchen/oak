@@ -28,6 +28,17 @@ export default class ThemeEditorController extends Controller {
 
   settingsValueChanged() {
     document.getElementById(this.styleIdValue).innerText = this.styles
+
+    this.#preview()
+  }
+
+  #preview() {
+    const [url, query_string] = this.previewTarget.src.split("?")
+
+    const params = new URLSearchParams(query_string)
+    params.set('color', this.setting("color_primary"))
+
+    this.previewTarget.src = `${url}?${params.toString()}`
     this.previewTarget.reload()
   }
 

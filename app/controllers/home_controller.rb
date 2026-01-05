@@ -4,5 +4,9 @@ class HomeController < ApplicationController
     @categories = Category.all.includes(:bookmarks).order(:position)
   end
 
-  def preview = index
+  def preview
+    Current.icon_color = params.expect(:color)
+
+    index
+  end
 end
