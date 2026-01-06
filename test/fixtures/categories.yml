@@ -3,3 +3,4 @@
 languages:
   token: "languages"
   name: "Languages"
+  position: 1

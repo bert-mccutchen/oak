@@ -44,7 +44,10 @@ class QuotesController < ApplicationController
   def reroll_daily
     Rails.cache.delete("quote/daily_pick")
 
-    redirect_back fallback_location: quotes_path, info: "Daily pick rerolled!", status: :see_other
+    position = Quote.daily_pick.position
+    alert = position.in?([ 1, 20 ]) ? "You rolled a natural #{position}!" : "You rolled a #{position}."
+
+    redirect_back fallback_location: quotes_path, info: alert, status: :see_other
   end
 
   private

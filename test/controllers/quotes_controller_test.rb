@@ -61,9 +61,31 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
     assert_flash :warning, "Quote destroyed."
   end
 
-  test "should reroll the daily quote" do
-    get reroll_daily_quotes_url
+  test "should reroll the daily quote with a message" do
+    Quote.first.update(position: 2)
 
-    assert_flash :info, "Daily pick rerolled!"
+    Quote.stub :daily_pick, Quote.first do
+      get reroll_daily_quotes_url
+
+      assert_flash :info, "You rolled a 2."
+    end
+  end
+
+  test "should reroll the daily quote with a special message for a nat 1" do
+    Quote.stub :daily_pick, Quote.first do
+      get reroll_daily_quotes_url
+
+      assert_flash :info, "You rolled a natural 1!"
+    end
+  end
+
+  test "should reroll the daily quote with a special message for a nat 20" do
+    Quote.first.update(position: 20)
+
+    Quote.stub :daily_pick, Quote.first do
+      get reroll_daily_quotes_url
+
+      assert_flash :info, "You rolled a natural 20!"
+    end
   end
 end

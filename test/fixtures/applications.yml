@@ -5,9 +5,11 @@ unifi:
   icon: "unifi"
   name: "UniFi OS"
   url: "https://unifi/login"
+  position: 1
 
 unraid:
   token: "unraid"
   icon: "unraid"
   name: "Unraid"
   url: "https://unraid.local"
+  position: 2

@@ -5,9 +5,11 @@ ruby:
   token: "ruby"
   name: "Ruby"
   url: "https://www.ruby-lang.org"
+  position: 1
 
 javascript:
   category: "languages"
   token: "javascript"
   name: "JavaScript"
   url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  position: 2

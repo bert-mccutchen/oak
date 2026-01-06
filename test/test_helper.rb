@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "minitest/mock"
 require "webmock/minitest"
 
 # SimpleCov does not work with parallel workers by default.
