@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :icons, param: :slug, only: %i[index show]
   resources :quotes, param: :token do
     collection do
-      get :reroll_daily
+      patch :reroll_daily
     end
   end
   resources :settings, param: :slug, only: %i[index update]

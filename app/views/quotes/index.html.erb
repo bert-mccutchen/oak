@@ -10,7 +10,7 @@
         <% end %>
       </div>
       <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
-        <%= link_to reroll_daily_quotes_path, class: "btn hover:btn-primary", data: { turbo_prefetch: false } do %>
+        <%= link_to reroll_daily_quotes_path, method: :patch, class: "btn hover:btn-primary", data: { turbo_method: :patch, turbo_prefetch: false } do %>
           <i class="fa-solid fa-dice-d20 fill-primary"></i>
         <% end %>
       </div>

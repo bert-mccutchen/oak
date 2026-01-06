@@ -65,7 +65,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
     Quote.first.update(position: 2)
 
     Quote.stub :daily_pick, Quote.first do
-      get reroll_daily_quotes_url
+      patch reroll_daily_quotes_url
 
       assert_flash :info, "You rolled a 2."
     end
@@ -73,7 +73,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should reroll the daily quote with a special message for a nat 1" do
     Quote.stub :daily_pick, Quote.first do
-      get reroll_daily_quotes_url
+      patch reroll_daily_quotes_url
 
       assert_flash :info, "You rolled a natural 1!"
     end
@@ -83,7 +83,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
     Quote.first.update(position: 20)
 
     Quote.stub :daily_pick, Quote.first do
-      get reroll_daily_quotes_url
+      patch reroll_daily_quotes_url
 
       assert_flash :info, "You rolled a natural 20!"
     end
