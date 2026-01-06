@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def current_controller?(name)
+    controller_name == name.to_s
+  end
+
   def notice_tag(type, message, duration: 1000)
     data = { controller: "notice", notice_duration_value: duration, turbo_permanent: true }
 

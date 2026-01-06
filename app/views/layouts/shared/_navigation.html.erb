@@ -3,19 +3,19 @@
     <%= inline_svg_tag "icon.svg", class: "size-6 fill-primary/25 group-hover:fill-primary" %>
   <% end %>
   <ul id="navigation_dropdown" tabindex="-1" class="menu dropdown-content backdrop-blur-xl rounded-box shadow-2xl border border-neutral">
-    <% unless controller_name == "home" %>
+    <% unless current_controller?(:home) %>
       <li class="first:font-bold"><%= link_to "Home", root_path %></li>
     <% end %>
-    <% unless controller_name == "settings" %>
+    <% unless current_controller?(:settings) %>
       <li class="first:font-bold"><%= link_to "Settings", settings_path %></li>
     <% end %>
-    <% unless controller_name == "applications" %>
+    <% unless current_controller?(:applications) %>
       <li><%= link_to "Applications", applications_path %></li>
     <% end %>
-    <% unless controller_name == "bookmarks" %>
+    <% unless current_controller?(:bookmarks) || !Setting[:bookmarks_enabled] %>
       <li><%= link_to "Bookmarks", bookmarks_path %></li>
     <% end %>
-    <% unless controller_name == "themes" %>
+    <% unless current_controller?(:themes) %>
       <li><%= link_to "Themes", themes_path %></li>
     <% end %>
   </ul>
