@@ -1,4 +1,9 @@
-<div class="navbar fixed top-0 left-0 w-full p-4 bg-base-100/50 backdrop-blur-xl z-10"></div>
+<%# iOS 26 introduces many bugs with Safari changing the phone status bar color. In this case, backdrop blur is breaking it when switching themes. %>
+<% if ios? %>
+  <div class="navbar fixed top-0 left-0 w-full p-0 bg-base-100 z-10"></div>
+<% else %>
+  <div class="navbar fixed top-0 left-0 w-full p-0 bg-base-100/50 backdrop-blur-xl z-10"></div>
+<% end %>
 
 <%# These needs to exist outside the navbar for the backdrop blur to work. %>
 <%= render "layouts/shared/navigation" %>

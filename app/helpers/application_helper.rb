@@ -3,6 +3,10 @@ module ApplicationHelper
     controller_name == name.to_s
   end
 
+  def ios?
+    /(iPhone|iPad|iPod|CriOS)/.match?(request.user_agent)
+  end
+
   def notice_tag(type, message, duration: 1000)
     data = { controller: "notice", notice_duration_value: duration, turbo_permanent: true }
 
