@@ -10,6 +10,8 @@
 
 @plugin "./daisyui.mjs";
 
+@custom-variant hocus (&:hover, &:focus);
+
 /* Adds a utility class to use DaisyUI's noise anywhere. */
 @utility noise {
   background-size: auto, calc(var(--noise) * 100%);

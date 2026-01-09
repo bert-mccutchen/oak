@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :settings, param: :slug, only: %i[index update]
   resources :themes, param: :token
+  resource :search, only: %i[show]
 
   get "home/index", as: :home
   get "home/preview", as: :home_preview

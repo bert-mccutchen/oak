@@ -13,6 +13,7 @@ _100% opinionated — based on [Flame](https://github.com/pawelmalak/flame) and 
   - Icons change color with your theme.
 - Keep common bookmarks handy. (optional)
   - Organize them with categories.
+- Global <kbd>⌘</kbd> + <kbd>K</kbd> search for quick access.
 - Greetings for good vibes. (optional)
 - Daily quotes for extra wisdom. (optional)
 - Local weather conditions. (optional)

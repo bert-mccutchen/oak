@@ -11,4 +11,12 @@ class Application < ApplicationRecord
   belongs_to :icon, optional: true
 
   validates :token, :name, :url, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name url]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end

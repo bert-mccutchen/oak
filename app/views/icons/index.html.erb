@@ -2,7 +2,18 @@
 
 <%= turbo_frame_tag :icons, class: "w-full" do %>
   <%= search_form_for @q, class: "w-full p-4", data: { controller: "debounce", turbo: true, turbo_permanent: true } do |f| %>
-    <%= f.search_field :name_cont, class: "input w-full", data: { action: "keydown->debounce#submit" } %>
+    <label class="input w-full">
+      <i class="fa-solid fa-magnifying-glass text-base-content/48"></i>
+      <%= f.search_field :name_or_tags_cont,
+        placeholder: "Search",
+        autofocus: true,
+        autocomplete: :off,
+        autocorrect: :off,
+        autocapitalize: :off,
+        spellcheck: false,
+        data: { action: "keydown->debounce#submit" } %>
+      <kbd class="kbd kbd-sm" data-action="click->icon-picker-form#closeModal">esc</kbd>
+    </label>
   <% end %>
 
   <table class="table table-xs">
@@ -11,11 +22,18 @@
         <%= render @icons %>
       </tbody>
     <% else %>
-      <tfoot>No icons found.</tfoot>
+      <tfoot>
+        <div class="text-center mx-4 mb-4">
+          <p class="text-lg pb-2"><i class="fa-solid fa-heart-crack"></i> No icons found.</p>
+          <p>Consider contributing to <a href="https://github.com/selfhst/icons" target="_blank" class="hover:underline hover:text-primary">selfh.st/icons</a>.</p>
+        </div>
+      </tfoot>
     <% end %>
   </table>
 
-  <div class="mt-2 p-2 w-full text-center">
-    <%== @pagy.series_nav slots: 3, anchor_string: 'data-turbo="true"' %>
-  </div>
+  <% if @pagy.pages > 1 %>
+    <div class="my-2 p-2 w-full text-center">
+      <%== @pagy.series_nav slots: 3, anchor_string: 'data-turbo="true"' %>
+    </div>
+  <% end %>
 <% end %>

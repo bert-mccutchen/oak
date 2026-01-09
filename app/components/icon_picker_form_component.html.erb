@@ -12,13 +12,10 @@
     <%= button_tag "Change Icon", type: :button, class: "btn flex-grow border border-base-content/20", data: { action: "click->icon-picker-form#showModal" } %>
   </div>
 
-  <%= tag.dialog class: "modal", data: { icon_picker_form_target: "modal" } do %>
-    <div class="modal-box p-0 bg-base-100/50 backdrop-blur max-w-xs">
+  <dialog class="modal", data-icon-picker-form-target="modal">
+    <div class="modal-box p-0 bg-base-100/80 backdrop-blur max-w-xs">
       <%= helpers.turbo_frame_tag :icons, src: icons_path, loading: :lazy %>
-      <div class="modal-action m-0 p-4 bg-base-100/20">
-        <%= button_tag "Close", type: :button, class: "btn btn-sm", data: { action: "click->icon-picker-form#closeModal" } %>
-      </div>
     </div>
-    <%= tag.div class: "modal-backdrop", data: { action: "click->icon-picker-form#closeModal" } %>
-  <% end %>
+    <div class="modal-backdrop", data-action="click->icon-picker-form#closeModal"></div>
+  </dialog>
 </div>

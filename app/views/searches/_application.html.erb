@@ -1,0 +1,7 @@
+<%= link_to application.url, id: application.token, class: "list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer", target: "_blank", data: { search_target: "result" } do %>
+  <%= icon_tag application.icon, class: "size-5 fill-primary my-auto" %>
+  <div class="my-auto">
+    <div><%= application.name %></div>
+    <div class="text-xs font-semibold opacity-60 text-base-content/48"><%= application.url %></div>
+  </div>
+<% end %>
