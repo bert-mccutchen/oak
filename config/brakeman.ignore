@@ -32,6 +32,72 @@
         79
       ],
       "note": "Intentional feature of the application."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "71c5ee677df4d904b8dca73e5d27d328e82d8439457724a7c1bc7ac7afa638c8",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/searches/_application.html.erb",
+      "line": 1,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "searches/show",
+          "line": 20,
+          "file": "app/views/searches/show.html.erb",
+          "rendered": {
+            "name": "searches/_application",
+            "file": "app/views/searches/_application.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "searches/_application"
+      },
+      "user_input": "(Unresolved Model).new.url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "Intentional feature of the application."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "b7ab7ec8b65b2182818ad05cce7016b9aea58b147bb86b305cb2a4d26491883a",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/searches/_bookmark.html.erb",
+      "line": 1,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "searches/show",
+          "line": 21,
+          "file": "app/views/searches/show.html.erb",
+          "rendered": {
+            "name": "searches/_bookmark",
+            "file": "app/views/searches/_bookmark.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "searches/_bookmark"
+      },
+      "user_input": "(Unresolved Model).new.url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "Intentional feature of the application."
     }
   ],
   "brakeman_version": "7.1.2"
