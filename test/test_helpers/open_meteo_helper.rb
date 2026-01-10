@@ -15,3 +15,7 @@ end
 class ActionDispatch::IntegrationTest
   include OpenMeteoHelper
 end
+
+class ActionView::TestCase
+  include OpenMeteoHelper
+end

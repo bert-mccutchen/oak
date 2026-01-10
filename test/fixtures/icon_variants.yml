@@ -39,3 +39,18 @@ unraid_png_dark:
   icon: "unraid"
   format: "png"
   theme: "dark"
+
+dokploy_png_default:
+  icon: "dokploy"
+  format: "png"
+  theme: "default"
+
+dokploy_png_light:
+  icon: "dokploy"
+  format: "png"
+  theme: "light"
+
+dokploy_png_dark:
+  icon: "dokploy"
+  format: "png"
+  theme: "dark"

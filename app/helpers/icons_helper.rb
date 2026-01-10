@@ -3,6 +3,7 @@ require_relative "color_helper"
 
 module IconsHelper
   include ActionView::Helpers::AssetUrlHelper
+  include InlineSvg::ActionView::Helpers
   include ColorHelper
 
   def icon_tag(icon, **opts)

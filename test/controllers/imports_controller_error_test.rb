@@ -9,6 +9,6 @@ class ImportsControllerErrorTest < ActionDispatch::IntegrationTest
     post imports_path(import: { host: "http://flame.local" })
 
     assert_response :unprocessable_content
-    assert_select "label.text-error", /Flame Error \(404\)/
+    assert_dom "label.text-error", /Flame Error \(404\)/
   end
 end
