@@ -2,9 +2,14 @@
   <div class="hero-content text-center">
     <div class="max-w-lg flex flex-col gap-6">
       <p>You don't have any applications yet, lets add one.</p>
-      <%= link_to new_application_path, class: "btn btn-primary btn-soft mx-auto" do %>
-        <i class="fa-solid fa-plus"></i> New Application
-      <% end %>
+      <div class="flex flex-wrap justify-center gap-2">
+        <%= link_to new_application_path, class: "btn btn-primary btn-soft" do %>
+          <i class="fa-solid fa-plus"></i> New Application
+        <% end %>
+        <%= link_to new_import_path, class: "btn btn-primary btn-soft" do %>
+          <i class="fa-solid fa-file-import"></i> Import from Flame
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

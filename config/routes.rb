@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :bookmarks, param: :token
   resources :categories, param: :token
   resources :icons, param: :slug, only: %i[index show]
+  resources :imports, only: %i[new create]
   resources :quotes, param: :token do
     collection do
       patch :reroll_daily

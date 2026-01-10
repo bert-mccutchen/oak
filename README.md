@@ -19,6 +19,7 @@ _100% opinionated — based on [Flame](https://github.com/pawelmalak/flame) and 
 - Local weather conditions. (optional)
 - Completely customizable.
 - 100% mobile friendly.
+- Migrate from [Flame](https://github.com/pawelmalak/flame) with a built-in import utility.
 
 ### Uhh... No Logins?
 

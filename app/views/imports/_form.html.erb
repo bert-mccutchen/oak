@@ -1,0 +1,13 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg w-full max-w-lg sm:w-lg mx-auto">
+  <legend class="fieldset-legend"><%= content_for(:title) %></legend>
+
+  <%= form_with(model: import, class: "contents", data: { turbo_confirm: "Confirm import of import all applications, categories, and bookmarks from Flame.", confirm_button: "Continue" }) do |form| %>
+    <%= form.label :host %>
+    <%= form.url_field :host, required: true, placeholder: "http://localhost:5030", class: "w-full validator" %>
+
+    <div class="divider"></div>
+
+    <%= form.submit "Import", class: "btn btn-primary" %>
+    <%= link_to "Back", root_path, class: "btn btn-outline" %>
+  <% end %>
+</fieldset>
