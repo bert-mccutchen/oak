@@ -1,8 +1,12 @@
 require "test_helper"
 
 class DateTimeHelperTest < ActionView::TestCase
-  # August 6th 1991 - the first website launched.
-  SIGNIFICANT_DATE = Time.new(1991, 8, 6, 17, 4, 2).freeze
+  setup do
+    Time.use_zone(Setting[:time_zone]) do
+      # August 6th 1991 - the first website launched.
+      @significant_date = Time.new(1991, 8, 6, 17, 4, 2).freeze
+    end
+  end
 
   test "should not render if date is disabled" do
     Setting.find_by(slug: :date_enabled).update(value: false)
@@ -18,7 +22,7 @@ class DateTimeHelperTest < ActionView::TestCase
 
   test "should render the date with the format from settings" do
     Time.use_zone(Setting[:time_zone]) do
-      travel_to SIGNIFICANT_DATE do
+      travel_to @significant_date do
         assert_includes date_tag, "Tuesday, August 06 1991"
       end
     end
@@ -26,7 +30,7 @@ class DateTimeHelperTest < ActionView::TestCase
 
   test "should render the time with the format from settings" do
     Time.use_zone(Setting[:time_zone]) do
-      travel_to SIGNIFICANT_DATE do
+      travel_to @significant_date do
         assert_includes time_tag, "5:04:02 pm"
       end
     end
