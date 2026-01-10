@@ -266,7 +266,7 @@ class OklchPickerFormComponent < ViewComponent::Base
   end
 
   def button_classes
-    [ BUTTON_CLASSES, @options[:class] ].flatten.join(" ")
+    token_list(BUTTON_CLASSES, @options[:class])
   end
 
   def show_script = "#{id}.showModal()"

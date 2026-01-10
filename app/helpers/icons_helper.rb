@@ -23,8 +23,7 @@ module IconsHelper
   end
 
   def no_icon_tag(**opts)
-    classes = [ "flex border border-primary rounded-box", opts[:class] ].join(" ")
-    content_tag(:div, class: classes) do
+    content_tag(:div, class: token_list("flex border border-primary rounded-box", opts[:class])) do
       tag.i(**opts, class: "fa-solid fa-question m-auto text-primary")
     end
   end
