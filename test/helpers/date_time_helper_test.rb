@@ -2,10 +2,11 @@ require "test_helper"
 
 class DateTimeHelperTest < ActionView::TestCase
   setup do
-    Time.use_zone(Setting[:time_zone]) do
-      # August 6th 1991 - the first website launched.
-      @significant_date = Time.new(1991, 8, 6, 17, 4, 2).freeze
-    end
+    # August 6th 1991 - the first website launched.
+    @significant_date =
+      Time.use_zone(Setting[:time_zone]) do
+        Time.zone.local(1991, 8, 6, 17, 4, 2).freeze
+      end
   end
 
   test "should not render if date is disabled" do
