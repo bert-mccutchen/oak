@@ -5,7 +5,7 @@
       <p>This category does not have any bookmarks.</p>
       <div class="flex flex-col sm:flex-row gap-4 mx-auto">
         <div class="tooltip tooltip-bottom" data-tip="New Bookmark">
-          <%= link_to new_bookmark_path, class: "btn btn-soft hover:btn-primary" do %>
+          <%= link_to new_bookmark_path(category: category.token), class: "btn btn-soft hover:btn-primary" do %>
             <i class="fa-solid fa-plus"></i>
           <% end %>
         </div>

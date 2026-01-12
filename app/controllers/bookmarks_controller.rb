@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[new]
 
   def index
     @categories = Category.all.includes(:bookmarks).order(:position)
@@ -10,7 +11,7 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = Bookmark.new
+    @bookmark = Bookmark.new(category: @category)
   end
 
   def edit
@@ -45,6 +46,10 @@ class BookmarksController < ApplicationController
 
   def set_bookmark
     @bookmark = Bookmark.find_by!(token: params.expect(:token))
+  end
+
+  def set_category
+    @category = Category.find_by(token: params[:category])
   end
 
   def bookmark_params
