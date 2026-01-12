@@ -1,0 +1,107 @@
+#!/usr/bin/env ruby
+
+require "open-uri"
+require "json"
+
+module GitHub
+  UnknownRelease = Class.new(StandardError)
+
+  class Release
+    API_URL = "https://api.github.com/repos/saadeghi/daisyui/releases"
+
+    def initialize(data)
+      @data = data
+    end
+
+    def tag = @data[:tag_name]
+    def published_at = Time.parse(@data[:published_at])
+
+    def asset_url(name)
+      @data[:assets].find { |a| a[:name] == name }[:browser_download_url]
+    end
+
+    def download_asset(name, destination)
+      IO.copy_stream(URI.open(asset_url(name)), destination)
+    end
+
+    def self.find(tag)
+      new(fetch("#{API_URL}/tags/#{tag}"))
+    rescue OpenURI::HTTPError => e
+      raise UnknownRelease, "Unknown release version: \"#{VERSION}\"" if e.message.include?("404")
+      raise
+    end
+
+    def self.all
+      fetch(API_URL).map { |v| new(v) }
+    end
+
+    def self.latest
+      all.first.tag
+    end
+
+    private
+
+    def self.parse(data)
+      JSON.parse(data, symbolize_names: true)
+    end
+    private_class_method :parse
+
+    def self.fetch(url)
+      parse(URI.open(url).read)
+    end
+    private_class_method :fetch
+  end
+end
+
+VERSION = ARGV[1] || GitHub::Release.latest
+
+def asset_path(file)
+  "app/assets/tailwind/#{file}"
+end
+
+def print_installed_version
+  matches = File.read(asset_path("daisyui.mjs")).match(/"(?<version>[0-9]+.[0-9]+.[0-9]+)"/)
+
+  puts (matches ? matches[:version] : "Unknown")
+end
+
+def print_versions
+  puts "Latest DaisyUI Versions:"
+
+  GitHub::Release.all.each do |release|
+    puts "  #{release.tag} - released #{release.published_at.strftime("%B %d %Y")}"
+  end
+end
+
+def print_version_install
+  release = GitHub::Release.find(VERSION)
+
+  %w[daisyui.mjs daisyui-theme.mjs].each do |file|
+    file_path = asset_path(file)
+
+    puts "Downloading #{release.asset_url(file)} to #{file_path}"
+    release.download_asset(file, file_path)
+  end
+end
+
+def print_usage
+  puts "Usage:\n"\
+       "  bin/daisyui install [VERSION|latest]\n"\
+       "  bin/daisyui version\n"\
+       "  bin/daisyui versions"
+end
+
+begin
+  case ARGV[0]
+  when "version"
+    print_installed_version
+  when "versions"
+    print_versions
+  when "install"
+    print_version_install
+  else
+    print_usage
+  end
+rescue GitHub::UnknownRelease => e
+  puts e.message
+end
