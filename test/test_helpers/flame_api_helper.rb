@@ -4,6 +4,7 @@ module FlameApiHelper
     "data": [
       {
         "name": "Home Assistant",
+        "description": "Home Automation",
         "url": "http://home.local",
         "orderId": 2
       },

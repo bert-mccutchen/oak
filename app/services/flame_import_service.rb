@@ -1,7 +1,7 @@
 
 class FlameImportService
   def initialize(host)
-    @base_api_url = "#{host}/api"
+    @host = host
   end
 
   def import!
@@ -14,7 +14,7 @@ class FlameImportService
   private
 
   def api_get(resource)
-    url = URI("#{@base_api_url}/#{resource}")
+    url = URI.join(@host, "/api/#{resource}")
     response = Net::HTTP.get_response(url)
 
     if response.is_a?(Net::HTTPSuccess)
@@ -33,6 +33,7 @@ class FlameImportService
       Application.create(
         icon: application_icon(flame_application[:name]),
         name: flame_application[:name],
+        description: flame_application[:description],
         url: flame_application[:url],
         position: flame_application[:orderId]
       )

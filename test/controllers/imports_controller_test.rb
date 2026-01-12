@@ -13,7 +13,7 @@ class ImportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should import applications" do
     assert_difference("Application.count", 2) do
-      post imports_path(import: { host: "http://flame.local" })
+      post imports_path(import: { host: "http://flame.local/" })
     end
 
     assert_redirected_to root_url
@@ -22,7 +22,7 @@ class ImportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should import categories" do
     assert_difference("Category.count", 2) do
-      post imports_path(import: { host: "http://flame.local" })
+      post imports_path(import: { host: "http://flame.local/" })
     end
 
     assert_redirected_to root_url
@@ -31,7 +31,7 @@ class ImportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should import bookmarks" do
     assert_difference("Bookmark.count", 5) do
-      post imports_path(import: { host: "http://flame.local" })
+      post imports_path(import: { host: "http://flame.local/" })
     end
 
     assert_redirected_to root_url
