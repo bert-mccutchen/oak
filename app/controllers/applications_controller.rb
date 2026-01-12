@@ -48,6 +48,6 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.expect(application: %i[icon_id name url position])
+    params.expect(application: %i[icon_id name description url position])
   end
 end

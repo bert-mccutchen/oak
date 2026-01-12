@@ -18,6 +18,9 @@
     <%= form.label :name %>
     <%= form.text_field :name, required: true, class: "w-full validator" %>
 
+    <%= form.label :description, "Description (optional)" %>
+    <%= form.text_field :description, class: "w-full" %>
+
     <%= form.label :url %>
     <%= form.url_field :url, required: true, class: "w-full validator" %>
 

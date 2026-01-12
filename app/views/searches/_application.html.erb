@@ -1,9 +1,12 @@
 <li>
-  <%= link_to application.url, id: application.token, class: "list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer", target: "_blank", data: { search_target: "result" } do %>
+  <%= link_to application.url, id: application.token, class: "group list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer", target: "_blank", data: { search_target: "result" } do %>
     <%= icon_tag application.icon, class: "size-5 fill-primary my-auto" %>
     <div class="my-auto">
-      <div><%= application.name %></div>
-      <div class="text-xs font-semibold opacity-60 text-base-content/48"><%= application.url %></div>
+      <div class="line-clamp-1"><%= application.name %></div>
+      <div class="text-xs line-clamp-1 text-base-content/48">
+        <%= tag.span(application.description, class: "group-hocus:hidden") if application.description.present? %>
+        <%= tag.span(application.url, class: token_list("hidden group-hocus:inline" => application.description.present?)) %>
+      </div>
     </div>
   <% end %>
 </li>

@@ -5,7 +5,7 @@
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
   <div class="list-col-grow my-auto">
     <%= turbo_stream_from category %>
-    <div><%= category.name %></div>
+    <div class="line-clamp-1"><%= category.name %></div>
   </div>
   <div class="flex flex-col sm:flex-row gap-4 my-auto">
     <div class="tooltip" data-tip="Edit">
