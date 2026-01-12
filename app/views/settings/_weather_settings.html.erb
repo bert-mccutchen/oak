@@ -2,7 +2,7 @@
   <legend class="fieldset-legend">Weather Settings</legend>
 
   <%= render "settings/inputs/toggle", setting: Setting.find_by(slug: :weather_enabled) %>
-  <%= render "settings/inputs/select", setting: Setting.find_by(slug: :temperature_unit), options: [['Celsius', 'celsius'], ['Fahrenheit', 'fahrenheit']] %>
+  <%= render "settings/inputs/select", setting: Setting.find_by(slug: :temperature_unit), options: [%w[Celsius celsius], %w[Fahrenheit fahrenheit]] %>
 
   <%= render "settings/inputs/text", setting: Setting.find_by(slug: :latitude) %>
   <%= render "settings/inputs/text", setting: Setting.find_by(slug: :longitude) %>

@@ -62,7 +62,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should reroll the daily quote with a message" do
-    Quote.first.update(position: 2)
+    Quote.first.update!(position: 2)
 
     Quote.stub :daily_pick, Quote.first do
       patch reroll_daily_quotes_url
@@ -80,7 +80,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should reroll the daily quote with a special message for a nat 20" do
-    Quote.first.update(position: 20)
+    Quote.first.update!(position: 20)
 
     Quote.stub :daily_pick, Quote.first do
       patch reroll_daily_quotes_url

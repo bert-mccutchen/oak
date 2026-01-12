@@ -6,13 +6,13 @@ class WeatherHelperTest < ActionView::TestCase
   end
 
   test "should not render temperature if weather is disabled" do
-    Setting.find_by(slug: :weather_enabled).update(value: false)
+    settings(:weather_enabled).update!(value: false)
 
     assert_nil temperature_tag
   end
 
   test "should not render weather icon if weather is disabled" do
-    Setting.find_by(slug: :weather_enabled).update(value: false)
+    settings(:weather_enabled).update!(value: false)
 
     assert_nil weather_icon_tag
   end

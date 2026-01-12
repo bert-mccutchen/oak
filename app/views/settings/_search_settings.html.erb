@@ -1,0 +1,19 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg gap-4">
+  <legend class="fieldset-legend">Search Settings</legend>
+
+  <%= render "settings/inputs/select",
+             setting: Setting.find_by(slug: :search_hotkey),
+             options: SearchesHelper::DEFAULT_HOTKEYS %>
+
+  <%= render "settings/inputs/select",
+             setting: Setting.find_by(slug: :web_search_provider),
+             options: SearchesHelper::DEFAULT_WEB_SEARCH_PROVIDERS,
+             include_blank: "Custom" %>
+
+  <% if custom_web_search_provider? %>
+    <%= render "settings/inputs/url",
+        setting: Setting.find_by(slug: :web_search_provider),
+        name: "Custom Web Search Provider URL",
+        description: "Blank URLS will disable web search." %>
+  <% end %>
+</fieldset>

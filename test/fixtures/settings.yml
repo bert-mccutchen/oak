@@ -131,3 +131,22 @@ longitude:
   description: "The longitude of your city showing weather information."
   default: -75.695000 # Canada's Capital
   value_type: "float"
+
+
+##
+# Search Settings
+#
+search_hotkey:
+  slug: "search_hotkey"
+  name: "Search Hotkey"
+  description: "The hotkey to show the search pop-up."
+  default: "meta+k"
+  value_type: "string"
+
+web_search_provider:
+  slug: "web_search_provider"
+  name: "Web Search Provider"
+  description: "The search engine provider to use when performing web searches."
+  default: "https://duckduckgo.com"
+  value: "https://duckduckgo.com"
+  value_type: "string"

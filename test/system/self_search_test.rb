@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class SearchTest < ApplicationSystemTestCase
+class SelfSearchTest < ApplicationSystemTestCase
   include OpenMeteoHelper
 
   setup do
-    stub_weather
+    settings(:weather_enabled).update!(value: false)
   end
 
   test "does not show the search by default" do
     [ root_url, settings_url, applications_url, bookmarks_url, categories_url, themes_url ].each do |url|
       visit url
 
-      within find("#search", visible: :all) do
+      within find("#self_search", visible: :all) do
         assert_not find("#q_name_cont", visible: :all).visible?
       end
     end
@@ -23,7 +23,7 @@ class SearchTest < ApplicationSystemTestCase
 
       page.send_keys [ :meta, "k" ]
 
-      within find("#search") do
+      within find("#self_search") do
         assert find("#q_name_cont").visible?
       end
     end

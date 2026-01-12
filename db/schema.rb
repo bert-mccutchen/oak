@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_26_181927) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_12_050257) do
   create_table "applications", force: :cascade do |t|
     t.integer "icon_id"
     t.string "token", null: false

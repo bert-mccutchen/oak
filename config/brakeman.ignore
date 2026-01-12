@@ -3,39 +3,6 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "1331484e004d48110b2be02d2b1a085d4a5a526d8e85ce1e0ea687bff529f27f",
-      "check_name": "LinkToHref",
-      "message": "Potentially unsafe model attribute in `link_to` href",
-      "file": "app/views/searches/_application.html.erb",
-      "line": 2,
-      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"group list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
-      "render_path": [
-        {
-          "type": "template",
-          "name": "searches/show",
-          "line": 20,
-          "file": "app/views/searches/show.html.erb",
-          "rendered": {
-            "name": "searches/_application",
-            "file": "app/views/searches/_application.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "searches/_application"
-      },
-      "user_input": "(Unresolved Model).new.url",
-      "confidence": "Weak",
-      "cwe_id": [
-        79
-      ],
-      "note": "Intentional feature of the application."
-    },
-    {
-      "warning_type": "Cross-Site Scripting",
-      "warning_code": 4,
       "fingerprint": "1d70067a8a38c6001518c5a750fd33b94d444ccda94530587f10c62f6a2e7d04",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
@@ -69,7 +36,40 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "b7ab7ec8b65b2182818ad05cce7016b9aea58b147bb86b305cb2a4d26491883a",
+      "fingerprint": "76c75c219fda9f7fdc706363f2d2446320a7c93c6190aea1730ed2bd39521b6a",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/searches/_application.html.erb",
+      "line": 2,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"group list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "searches/_self_search",
+          "line": 19,
+          "file": "app/views/searches/_self_search.html.erb",
+          "rendered": {
+            "name": "searches/_application",
+            "file": "app/views/searches/_application.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "searches/_application"
+      },
+      "user_input": "(Unresolved Model).new.url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "Intentional feature of the application."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "ba0e6d078356e4b028a72efcec1731e9ed4f80d2ea57b88f962a573900d909e5",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
       "file": "app/views/searches/_bookmark.html.erb",
@@ -79,9 +79,9 @@
       "render_path": [
         {
           "type": "template",
-          "name": "searches/show",
-          "line": 21,
-          "file": "app/views/searches/show.html.erb",
+          "name": "searches/_self_search",
+          "line": 20,
+          "file": "app/views/searches/_self_search.html.erb",
           "rendered": {
             "name": "searches/_bookmark",
             "file": "app/views/searches/_bookmark.html.erb"

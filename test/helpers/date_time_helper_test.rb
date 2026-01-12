@@ -10,13 +10,13 @@ class DateTimeHelperTest < ActionView::TestCase
   end
 
   test "should not render if date is disabled" do
-    Setting.find_by(slug: :date_enabled).update(value: false)
+    settings(:date_enabled).update!(value: false)
 
     assert_nil date_tag
   end
 
   test "should not render if time is disabled" do
-    Setting.find_by(slug: :time_enabled).update(value: false)
+    settings(:time_enabled).update!(value: false)
 
     assert_nil time_tag
   end

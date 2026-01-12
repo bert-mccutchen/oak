@@ -1,7 +1,15 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class NoticeController extends Controller {
-  static targets = ["modal", "frame", "input", "result"]
+  static targets = [
+    "modal",
+    "frame",
+    "selfSearch",
+    "webSearch",
+    "selfInput",
+    "webInput",
+    "result"
+  ]
 
   static values = {
     url: String,
@@ -9,10 +17,10 @@ export default class NoticeController extends Controller {
   }
 
   focusIndexValueChanged() {
-    if (!this.hasInputTarget) return
+    if (!this.hasSelfInputTarget) return
 
     if (this.focusIndexValue === -1) {
-      this.inputTarget.focus()
+      this.selfInputTarget.focus()
     } else {
       this.resultTargets[this.focusIndexValue].focus()
     }
@@ -27,8 +35,25 @@ export default class NoticeController extends Controller {
   }
 
   hotkey(event) {
+    if (this.modalTarget.open) return
+
     event.preventDefault()
     this.show()
+  }
+
+  switch(event) {
+    if (!this.hasWebInputTarget) return
+
+    event.preventDefault()
+
+    this.selfSearchTarget.classList.toggle("hidden")
+    this.webSearchTarget.classList.toggle("hidden")
+
+    if (this.selfSearchTarget.classList.contains("hidden")) {
+      this.webInputTarget.focus()
+    } else {
+      this.selfInputTarget.focus()
+    }
   }
 
   navigate(event) {

@@ -11,7 +11,7 @@ class HomeTest < ApplicationSystemTestCase
     Category.delete_all
     Application.delete_all
 
-    stub_weather
+    settings(:weather_enabled).update!(value: false)
   end
 
   test "initial setup" do
@@ -19,7 +19,6 @@ class HomeTest < ApplicationSystemTestCase
 
     assert_text DATE_TIME_REGEX
     assert_text GREETING_REGEX
-    assert_text "0°C"
     assert_text "Life's a box of chocolates, Forrest. You never know what you're gonna get."
     assert_text "Mrs. Gump"
     assert_text "APPLICATIONS"

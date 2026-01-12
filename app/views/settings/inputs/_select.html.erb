@@ -1,6 +1,6 @@
-<%# locals: (setting:, options:) %>
+<%# locals: (setting:, options:, include_blank: nil) %>
 <%= form_with(model: setting, class: "w-full") do |form| %>
   <%= form.label :name, setting.name, class: "text-lg font-bold" %>
-  <%= form.select :value, options, {}, class: "w-full", onchange: "this.form.requestSubmit()" %>
+  <%= form.select :value, options, { include_blank: }, class: "w-full", onchange: "this.form.requestSubmit()" %>
   <span class="block text-base-content/48"><%= setting.description %></span>
 <% end %>

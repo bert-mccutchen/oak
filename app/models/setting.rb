@@ -36,6 +36,10 @@ class Setting < ApplicationRecord
     end
   end
 
+  def self.raw_value(slug)
+    Setting.find_by!(slug:).value
+  end
+
   private
 
   def defaulted_value

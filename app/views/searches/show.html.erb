@@ -1,23 +1,6 @@
 <% content_for :title, "Search" %>
 
 <%= turbo_frame_tag :search, class: "w-full" do %>
-  <%= search_form_for @q, url: search_path, class: "w-full p-4", data: { controller: "debounce", turbo: true, turbo_permanent: true } do |f| %>
-    <label class="input w-full">
-      <i class="fa-solid fa-magnifying-glass text-base-content/48"></i>
-      <%= f.search_field :name_cont,
-        placeholder: "Search",
-        autofocus: true,
-        autocomplete: :off,
-        autocorrect: :off,
-        autocapitalize: :off,
-        spellcheck: false,
-        data: { search_target: "input", action: "keydown->debounce#submit" } %>
-      <kbd class="kbd kbd-sm" data-action="click->search#hide">esc</kbd>
-    </label>
-  <% end %>
-
-  <ul class="list rounded-box max-h-[50vh] overflow-scroll" data-action="keydown@document->search#navigate">
-    <%= render partial: "application", collection: @applications %>
-    <%= render partial: "bookmark", collection: @bookmarks %>
-  <ul>
+  <%= render "self_search" %>
+  <%= render "web_search" if web_search_provider_url.present? %>
 <% end %>
