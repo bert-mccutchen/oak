@@ -13,4 +13,8 @@ class Category < ApplicationRecord
   validates :token, :name, presence: true
 
   scope :enabled, -> { where(enabled: true) }
+
+  def positionable?
+    Setting[:categories_order] == "position"
+  end
 end

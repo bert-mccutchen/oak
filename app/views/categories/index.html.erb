@@ -9,6 +9,9 @@
           <i class="fa-solid fa-plus"></i>
         <% end %>
       </div>
+
+      <%= render "sort_toggle" %>
+
       <div class="tooltip tooltip-bottom" data-tip="Manage Bookmarks">
         <%= link_to bookmarks_path, class: "btn hover:btn-primary" do %>
           <i class="fa-regular fa-bookmark fill-primary"></i>

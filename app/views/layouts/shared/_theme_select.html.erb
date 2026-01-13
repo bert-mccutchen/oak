@@ -17,8 +17,9 @@
         </div>
       </li>
       <li></li>
+      <% setting = Setting.find_by(slug: :theme) %>
       <% Theme.enabled.where.not(id: Current.theme).order(:name).each do |theme| %>
-        <%= form_with(model: Setting.find_by(slug: :theme)) do |form| %>
+        <%= form_with(model: setting) do |form| %>
           <li>
             <%= form.button :value, class: "flex flex-row gap-2 w-42", value: theme.token do %>
               <%= render "layouts/shared/theme_icon", theme: theme.token %>

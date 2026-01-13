@@ -14,6 +14,10 @@ class Application < ApplicationRecord
 
   scope :enabled, -> { where(enabled: true) }
 
+  def positionable?
+    Setting[:applications_order] == "position"
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     %w[name url]
   end

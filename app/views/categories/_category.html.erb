@@ -1,7 +1,9 @@
 <li id="<%= category.token %>" class="list-row hover:bg-base-300" data-sortable-update-url="<%= category_path(category) %>">
-  <div class="flex cursor-grab">
-    <i class="fa-solid fa-grip-vertical my-auto"></i>
-  </div>
+  <% if category.positionable? %>
+    <div class="flex cursor-grab">
+      <i class="fa-solid fa-grip-vertical my-auto"></i>
+    </div>
+  <% end %>
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
   <div class="list-col-grow my-auto">
     <%= turbo_stream_from category %>

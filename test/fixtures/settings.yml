@@ -54,6 +54,26 @@ night_greeting:
   value_type: "string"
 
 ##
+# Application Settings
+#
+applications_order:
+  slug: "applications_order"
+  name: "Applications Order"
+  description: "The order of applications."
+  default: "position"
+  value_type: "string"
+
+##
+# Category Settings
+#
+categories_order:
+  slug: "categories_order"
+  name: "Categories Order"
+  description: "The order of categories."
+  default: "position"
+  value_type: "string"
+
+##
 # Bookmark Settings
 #
 bookmarks_enabled:
@@ -62,6 +82,13 @@ bookmarks_enabled:
   description: "Whether or not to show bookmarks."
   default: 1
   value_type: "boolean"
+
+bookmarks_order:
+  slug: "bookmarks_order"
+  name: "Bookmarks Order"
+  description: "The order of bookmarks."
+  default: "position"
+  value_type: "string"
 
 ##
 # Date/Time Settings

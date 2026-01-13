@@ -1,7 +1,9 @@
 <li id="<%= bookmark.token %>" class="list-row hover:bg-base-300" data-url="<%= bookmark_path(bookmark) %>">
-  <div class="flex cursor-grab">
-    <i class="fa-solid fa-grip-vertical my-auto"></i>
-  </div>
+  <% if bookmark.positionable? %>
+    <div class="flex cursor-grab">
+      <i class="fa-solid fa-grip-vertical my-auto"></i>
+    </div>
+  <% end %>
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
   <div class="list-col-grow my-auto">
     <%= turbo_stream_from bookmark %>

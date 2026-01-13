@@ -1,0 +1,15 @@
+<% setting = Setting.find_by(slug: :bookmarks_order) %>
+
+<% if setting.parsed_value == "position" %>
+  <div class="tooltip tooltip-bottom" data-tip="Sort Alphabetically">
+    <%= button_to setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-secondary btn-soft" do %>
+      <i class="fa-solid fa-arrow-down-a-z"></i>
+    <% end %>
+  </div>
+<% else %>
+  <div class="tooltip tooltip-bottom" data-tip="Sort Numerically">
+    <%= button_to setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-secondary btn-soft" do %>
+      <i class="fa-solid fa-arrow-down-1-9"></i>
+    <% end %>
+  </div>
+<% end %>

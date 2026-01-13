@@ -2,7 +2,7 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
 
   def index
-    @applications = Application.all.order(:position)
+    @applications = Application.all.order(applications_order)
   end
 
   def show
@@ -49,5 +49,9 @@ class ApplicationsController < ApplicationController
 
   def application_params
     params.expect(application: %i[icon_id name description url enabled position])
+  end
+
+  def applications_order
+    Setting[:applications_order]
   end
 end

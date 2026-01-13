@@ -54,6 +54,26 @@ Setting.find_or_initialize_by(slug: "night_greeting").update!(
 )
 
 ##
+# Application Settings
+#
+Setting.find_or_initialize_by(slug: "applications_order").update!(
+  name: "Applications Order",
+  description: "The order of applications.",
+  default: "position",
+  value_type: :string
+)
+
+##
+# Category Settings
+#
+Setting.find_or_initialize_by(slug: "categories_order").update!(
+  name: "Categories Order",
+  description: "The order of categories.",
+  default: "position",
+  value_type: :string
+)
+
+##
 # Bookmark Settings
 #
 Setting.find_or_initialize_by(slug: "bookmarks_enabled").update!(
@@ -61,6 +81,13 @@ Setting.find_or_initialize_by(slug: "bookmarks_enabled").update!(
   description: "Whether or not to show bookmarks.",
   default: 1,
   value_type: :boolean
+)
+
+Setting.find_or_initialize_by(slug: "bookmarks_order").update!(
+  name: "Bookmarks Order",
+  description: "The order of bookmarks.",
+  default: "position",
+  value_type: :string
 )
 
 ##

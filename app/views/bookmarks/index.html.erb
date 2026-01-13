@@ -9,6 +9,9 @@
           <i class="fa-solid fa-plus"></i>
         <% end %>
       </div>
+
+      <%= render "sort_toggle" %>
+
       <div class="tooltip tooltip-bottom" data-tip="Manage Categories">
         <%= link_to categories_path, class: "btn hover:btn-primary" do %>
           <i class="fa-solid fa-list-ul fill-primary"></i>
@@ -37,7 +40,7 @@
               data-sortable-bookmark-handle-value=".cursor-grab"
               data-id="<%= category.id %>"
             >
-              <%= render category.bookmarks.order(:position) %>
+              <%= render category.bookmarks.order(Setting[:bookmarks_order]) %>
             </ul>
           <% else %>
             <%= render "bookmarks/heros/bookmark_setup", category: %>

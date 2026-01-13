@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   before_action :set_category, only: %i[new]
 
   def index
-    @categories = Category.all.includes(:bookmarks).order(:position)
+    @categories = Category.all.includes(:bookmarks).order(categories_order)
   end
 
   def show
@@ -54,5 +54,9 @@ class BookmarksController < ApplicationController
 
   def bookmark_params
     params.expect(bookmark: %i[category_id name url enabled position])
+  end
+
+  def categories_order
+    Setting[:categories_order]
   end
 end

@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.all.order(:position)
+    @categories = Category.all.order(categories_order)
   end
 
   def show
@@ -49,5 +49,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.expect(category: %i[name enabled position])
+  end
+
+  def categories_order
+    Setting[:categories_order]
   end
 end
