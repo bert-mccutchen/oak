@@ -16,7 +16,7 @@
       <span class="font-medium"><%= quote.author %></span>
     </p>
   </div>
-  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
     <div class="tooltip" data-tip="Edit">
       <%= link_to edit_quote_path(quote), class: "btn btn-soft hover:btn-primary" do %>
         <i class="fa-solid fa-pen"></i>
@@ -28,5 +28,8 @@
         <i class="fa-solid fa-trash"></i>
       <% end %>
     </div>
+  </div>
+  <div class="sm:hidden flex items-center">
+    <%= render "fab", quote: %>
   </div>
 </li>
