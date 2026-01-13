@@ -13,13 +13,24 @@ _100% opinionated — based on [Flame](https://github.com/pawelmalak/flame) and 
   - Icons change color with your theme.
 - Keep common bookmarks handy. (optional)
   - Organize them with categories.
-- Global <kbd>⌘</kbd> + <kbd>K</kbd> search for quick access.
 - Greetings for good vibes. (optional)
 - Daily quotes for extra wisdom. (optional)
 - Local weather conditions. (optional)
 - Completely customizable.
 - 100% mobile friendly.
-- Migrate from [Flame](https://github.com/pawelmalak/flame) with a built-in import utility.
+
+#### And More!
+
+- Search
+  - Global application/bookmark search for quick access (<kbd>⌘</kbd> + <kbd>K</kbd>).
+  - Press tab from the global search to enter web search. (optional)
+  - Configurable hotkey and search engine.
+- Theme
+  - Create your own themes using a custom theme builder.
+  - Clone existing themes and tweak theme.
+  - Disable any theme you don't want to see.
+- Migrate
+  - Move from [Flame](https://github.com/pawelmalak/flame) to Oak easily with a built-in import utility.
 
 ### Uhh... No Logins?
 
@@ -70,110 +81,77 @@ chown 1000:1000 /mnt/cache/appdata/oak
 <details>
 <summary><b>Standard Themes</b></summary>
 
-#### Abyss
-![Abyss Homepage](docs/assets/themes/abyss.png)
+| Abyss | Acid |
+|---|---|
+| ![Abyss Homepage](docs/assets/themes/abyss.png) | ![Acid Homepage](docs/assets/themes/acid.png) |
 
-#### Acid
-![Acid Homepage](docs/assets/themes/acid.png)
+| Aqua | Autumn |
+|---|---|
+| ![Aqua Homepage](docs/assets/themes/aqua.png) | ![Autumn Homepage](docs/assets/themes/autumn.png) |
 
-#### Aqua
-![Aqua Homepage](docs/assets/themes/aqua.png)
+| Black | Bumblebee |
+|---|---|
+| ![Black Homepage](docs/assets/themes/black.png) | ![Bumblebee Homepage](docs/assets/themes/bumblebee.png) |
 
-#### Autumn
-![Autumn Homepage](docs/assets/themes/autumn.png)
+| Business | Caramellatte |
+|---|---|
+| ![Business Homepage](docs/assets/themes/business.png) | ![Caramellatte Homepage](docs/assets/themes/caramellatte.png) |
 
-#### Black
-![Black Homepage](docs/assets/themes/black.png)
+| Cmyk | Coffee |
+|---|---|
+| ![Cmyk Homepage](docs/assets/themes/cmyk.png) | ![Coffee Homepage](docs/assets/themes/coffee.png) |
 
-#### Bumblebee
-![Bumblebee Homepage](docs/assets/themes/bumblebee.png)
+| Corporate | Cupcake |
+|---|---|
+| ![Corporate Homepage](docs/assets/themes/corporate.png) | ![Cupcake Homepage](docs/assets/themes/cupcake.png) |
 
-#### Business
-![Business Homepage](docs/assets/themes/business.png)
+| Cyberpunk | Dark |
+|---|---|
+| ![Cyberpunk Homepage](docs/assets/themes/cyberpunk.png) | ![Dark Homepage](docs/assets/themes/dark.png) |
 
-#### Caramellatte
-![Caramellatte Homepage](docs/assets/themes/caramellatte.png)
+| Dim | Dracula |
+|---|---|
+| ![Dim Homepage](docs/assets/themes/dim.png) | ![Dracula Homepage](docs/assets/themes/dracula.png) |
 
-#### Cmyk
-![Cmyk Homepage](docs/assets/themes/cmyk.png)
+| Emerald | Fantasy |
+|---|---|
+| ![Emerald Homepage](docs/assets/themes/emerald.png) | ![Fantasy Homepage](docs/assets/themes/fantasy.png) |
 
-#### Coffee
-![Coffee Homepage](docs/assets/themes/coffee.png)
+| Forest | Garden |
+|---|---|
+| ![Forest Homepage](docs/assets/themes/forest.png) | ![Garden Homepage](docs/assets/themes/garden.png) |
 
-#### Corporate
-![Corporate Homepage](docs/assets/themes/corporate.png)
+| Halloween | Lemonade |
+|---|---|
+| ![Halloween Homepage](docs/assets/themes/halloween.png) | ![Lemonade Homepage](docs/assets/themes/lemonade.png) |
 
-#### Cupcake
-![Cupcake Homepage](docs/assets/themes/cupcake.png)
+| Light | Lofi |
+|---|---|
+| ![Light Homepage](docs/assets/themes/light.png) | ![Lofi Homepage](docs/assets/themes/lofi.png) |
 
-#### Cyberpunk
-![Cyberpunk Homepage](docs/assets/themes/cyberpunk.png)
+| Luxury | Night |
+|---|---|
+| ![Luxury Homepage](docs/assets/themes/luxury.png) | ![Night Homepage](docs/assets/themes/night.png) |
 
-#### Dark
-![Dark Homepage](docs/assets/themes/dark.png)
+| Nord | Pastel |
+|---|---|
+| ![Nord Homepage](docs/assets/themes/nord.png) | ![Pastel Homepage](docs/assets/themes/pastel.png) |
 
-#### Dim
-![Dim Homepage](docs/assets/themes/dim.png)
+| Retro | Silk |
+|---|---|
+| ![Retro Homepage](docs/assets/themes/retro.png) | ![Silk Homepage](docs/assets/themes/silk.png) |
 
-#### Dracula
-![Dracula Homepage](docs/assets/themes/dracula.png)
+| Sunset | Synthwave |
+|---|---|
+| ![Sunset Homepage](docs/assets/themes/sunset.png) | ![Synthwave Homepage](docs/assets/themes/synthwave.png) |
 
-#### Emerald
-![Emerald Homepage](docs/assets/themes/emerald.png)
+| Valentine | Winter |
+|---|---|
+| ![Valentine Homepage](docs/assets/themes/valentine.png) | ![Winter Homepage](docs/assets/themes/winter.png) |
 
-#### Fantasy
-![Fantasy Homepage](docs/assets/themes/fantasy.png)
-
-#### Forest
-![Forest Homepage](docs/assets/themes/forest.png)
-
-#### Garden
-![Garden Homepage](docs/assets/themes/garden.png)
-
-#### Halloween
-![Halloween Homepage](docs/assets/themes/halloween.png)
-
-#### Lemonade
-![Lemonade Homepage](docs/assets/themes/lemonade.png)
-
-#### Light
-![Light Homepage](docs/assets/themes/light.png)
-
-#### Lofi
-![Lofi Homepage](docs/assets/themes/lofi.png)
-
-#### Luxury
-![Luxury Homepage](docs/assets/themes/luxury.png)
-
-#### Night
-![Night Homepage](docs/assets/themes/night.png)
-
-#### Nord
-![Nord Homepage](docs/assets/themes/nord.png)
-
-#### Pastel
-![Pastel Homepage](docs/assets/themes/pastel.png)
-
-#### Retro
-![Retro Homepage](docs/assets/themes/retro.png)
-
-#### Silk
-![Silk Homepage](docs/assets/themes/silk.png)
-
-#### Sunset
-![Sunset Homepage](docs/assets/themes/sunset.png)
-
-#### Synthwave
-![Synthwave Homepage](docs/assets/themes/synthwave.png)
-
-#### Valentine
-![Valentine Homepage](docs/assets/themes/valentine.png)
-
-#### Winter
-![Winter Homepage](docs/assets/themes/winter.png)
-
-#### Wireframe
-![Wireframe Homepage](docs/assets/themes/wireframe.png)
+| Wireframe |
+|---|
+| ![Wireframe Homepage](docs/assets/themes/wireframe.png) |
 </details>
 
 ## Mobile Screenshots
