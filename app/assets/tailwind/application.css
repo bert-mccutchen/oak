@@ -18,6 +18,18 @@
   background-image: none, var(--fx-noise);
 }
 
+/* Mobile action button that is inline. */
+@layer components {
+  .action-button {
+    @apply fab relative z-0 bottom-auto inset-0;
+  }
+
+  .action-button-flower {
+    @apply fab-flower;
+  }
+}
+
+/* Toast for Rails alerts. */
 @layer components {
   .notice {
     @apply alert mt-2 bg-base-100/20 text-base-content shadow-md backdrop-blur-xl transition-all duration-750 ease-in-out;

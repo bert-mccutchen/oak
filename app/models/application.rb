@@ -12,6 +12,8 @@ class Application < ApplicationRecord
 
   validates :token, :name, :url, presence: true
 
+  scope :enabled, -> { where(enabled: true) }
+
   def self.ransackable_attributes(auth_object = nil)
     %w[name url]
   end

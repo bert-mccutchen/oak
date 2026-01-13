@@ -7,7 +7,13 @@
     <%= turbo_stream_from category %>
     <div class="line-clamp-1"><%= category.name %></div>
   </div>
-  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
+    <%= form_with(model: category, class: "my-auto") do |form| %>
+      <div class="tooltip" data-tip="Enabled">
+        <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
+      </div>
+    <% end %>
+
     <div class="tooltip" data-tip="Edit">
       <%= link_to edit_category_path(category), class: "btn btn-soft hover:btn-primary" do %>
         <i class="fa-solid fa-pen"></i>
@@ -19,5 +25,8 @@
         <i class="fa-solid fa-trash"></i>
       <% end %>
     </div>
+  </div>
+  <div class="sm:hidden">
+    <%= render "fab", category: %>
   </div>
 </li>

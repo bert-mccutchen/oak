@@ -53,6 +53,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.expect(bookmark: %i[category_id name url position])
+    params.expect(bookmark: %i[category_id name url enabled position])
   end
 end

@@ -1,0 +1,24 @@
+<%# locals: (category:) %>
+<div class="action-button action-button-flower relative z-0 bottom-auto inset-0">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle border border-base-content/50">
+    <i class="fa-solid fa-bars-progress"></i>
+  </div>
+
+  <span class="btn btn-circle btn-lg border border-base-content/50">✕</span>
+
+  <%= button_to category, method: :patch, params: { category: { enabled: !category.enabled } }, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+    <% if category.enabled %>
+      <i class="fa-solid fa-circle-check"></i>
+    <% else %>
+      <i class="fa-regular fa-circle"></i>
+    <% end %>
+  <% end %>
+
+  <%= link_to edit_category_path(category), class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+    <i class="fa-solid fa-pen"></i>
+  <% end %>
+
+  <%= button_to category, method: :delete, class: "btn shadow-lg btn-circle btn-soft btn-error border border-base-content/25", data: { turbo_confirm: "Confirm deletion of #{category.name}.", confirm_button: "Delete" } do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+</div>

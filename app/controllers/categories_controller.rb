@@ -48,6 +48,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.expect(category: %i[name position])
+    params.expect(category: %i[name enabled position])
   end
 end

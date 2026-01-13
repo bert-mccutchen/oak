@@ -11,4 +11,6 @@ class Category < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   validates :token, :name, presence: true
+
+  scope :enabled, -> { where(enabled: true) }
 end

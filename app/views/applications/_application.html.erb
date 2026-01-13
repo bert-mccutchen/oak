@@ -11,7 +11,13 @@
       <%= tag.span(application.url, class: token_list("hidden group-hover:inline" => application.description.present?)) %>
     </div>
   </div>
-  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
+    <%= form_with(model: application, class: "my-auto") do |form| %>
+      <div class="tooltip" data-tip="Enabled">
+        <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
+      </div>
+    <% end %>
+
     <div class="tooltip" data-tip="Edit">
       <%= link_to edit_application_path(application), class: "btn btn-soft hover:btn-primary" do %>
         <i class="fa-solid fa-pen"></i>
@@ -24,4 +30,8 @@
       <% end %>
     </div>
   </div>
+  <div class="sm:hidden">
+    <%= render "fab", application: %>
+  </div>
 </li>
+

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @applications = Application.includes(:icon).order(:position)
-    @categories = Category.all.includes(:bookmarks).order(:position)
+    @applications = Application.enabled.includes(:icon).order(:position)
+    @categories = Category.enabled.includes(:bookmarks).order(:position)
   end
 
   def preview

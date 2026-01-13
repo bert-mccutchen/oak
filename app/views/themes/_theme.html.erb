@@ -6,12 +6,13 @@
     <%= turbo_stream_from theme %>
     <div><%= theme.name %></div>
   </div>
-  <div class="flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
     <%= form_with(model: theme, class: "my-auto") do |form| %>
       <div class="tooltip" data-tip="Enabled">
         <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
       </div>
     <% end %>
+
     <% if theme.custom? %>
       <div class="tooltip" data-tip="Edit">
         <%= link_to edit_theme_path(theme), class: "btn btn-soft hover:btn-primary" do %>
@@ -31,5 +32,8 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+  <div class="sm:hidden">
+    <%= render "fab", theme: %>
   </div>
 </li>

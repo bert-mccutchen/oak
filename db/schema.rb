@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_12_050257) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_12_225131) do
   create_table "applications", force: :cascade do |t|
     t.integer "icon_id"
     t.string "token", null: false
     t.string "name", null: false
     t.string "description"
     t.string "url", null: false
+    t.boolean "enabled", default: true, null: false
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,6 +32,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_12_050257) do
     t.string "name", null: false
     t.string "url", null: false
     t.integer "position"
+    t.boolean "enabled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_bookmarks_on_category_id"
@@ -42,6 +44,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_12_050257) do
     t.string "token", null: false
     t.string "name", null: false
     t.integer "position"
+    t.boolean "enabled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["position"], name: "index_categories_on_position"
