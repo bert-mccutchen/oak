@@ -17,7 +17,8 @@
     </div>
   </div>
 
-  <%= turbo_stream_from :themes %>
+  <%# Disabling for now, there is an issue with redirects + broadcasts. %>
+  <%# turbo_stream_from :themes %>
   <% if @themes.any? %>
     <div class="flex flex-col gap-8">
       <% if @themes.custom.any? %>

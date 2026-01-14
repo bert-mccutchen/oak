@@ -20,7 +20,8 @@
     </div>
   </div>
 
-  <%= turbo_stream_from :applications %>
+  <%# Disabling for now, there is an issue with redirects + broadcasts. %>
+  <%# turbo_stream_from :applications %>
   <% if @applications.any? %>
     <ul
       class="list bg-base-200 rounded-box shadow-md"

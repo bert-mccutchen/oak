@@ -3,7 +3,8 @@
     <%= render "layouts/shared/theme_icon", theme: theme.token %>
   </div>
   <div class="my-auto">
-    <%= turbo_stream_from theme %>
+    <%# Disabling for now, there is an issue with redirects + broadcasts. %>
+    <%# turbo_stream_from theme %>
     <div><%= theme.name %></div>
   </div>
   <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">

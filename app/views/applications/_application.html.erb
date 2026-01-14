@@ -6,7 +6,8 @@
   <% end %>
   <%= icon_tag application.icon, class: "size-10 fill-primary my-auto" %>
   <div class="list-col-grow my-auto">
-    <%= turbo_stream_from application %>
+    <%# Disabling for now, there is an issue with redirects + broadcasts. %>
+    <%# turbo_stream_from application %>
     <div class="line-clamp-1"><%= application.name %></div>
     <div class="text-xs line-clamp-1 text-base-content/48">
       <%= tag.span(application.description, class: "group-hover:hidden") if application.description.present? %>
