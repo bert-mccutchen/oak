@@ -16,7 +16,7 @@ class DaisyFormBuilder < ActionView::Helpers::FormBuilder
     options[:include_hidden] = false
 
     safe_join [
-      hidden_field(:enabled, id: self.field_id(method), value: 0),
+      hidden_field(method, id: self.field_id(method), value: 0),
       super
     ]
   end
