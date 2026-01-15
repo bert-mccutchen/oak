@@ -27,7 +27,7 @@ _100% opinionated — based on [Flame](https://github.com/pawelmalak/flame) and 
   - Configurable hotkey and search engine.
 - Theme
   - Create your own themes using a custom theme builder.
-  - Clone existing themes and tweak theme.
+  - Clone existing themes and tweak them.
   - Disable any theme you don't want to see.
 - Migrate
   - Move from [Flame](https://github.com/pawelmalak/flame) to Oak easily with a built-in import utility.
