@@ -6,8 +6,7 @@
   <% end %>
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
   <div class="list-col-grow my-auto">
-    <%# Disabling for now, there is an issue with redirects + broadcasts. %>
-    <%# turbo_stream_from category %>
+    <%= turbo_stream_from category %>
     <div class="line-clamp-1"><%= category.name %></div>
   </div>
   <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">

@@ -25,8 +25,7 @@
     </div>
   </div>
 
-  <%# Disabling for now, there is an issue with redirects + broadcasts. %>
-  <%# turbo_stream_from :categories %>
+  <%= turbo_stream_from :categories %>
   <% if @categories.any? %>
     <ul
       class="list bg-base-200 rounded-box shadow-md"

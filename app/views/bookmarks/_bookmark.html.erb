@@ -6,8 +6,7 @@
   <% end %>
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
   <div class="list-col-grow my-auto">
-    <%# Disabling for now, there is an issue with redirects + broadcasts. %>
-    <%# turbo_stream_from bookmark %>
+    <%= turbo_stream_from bookmark %>
     <div class="line-clamp-1"><%= bookmark.name %></div>
     <div class="text-xs line-clamp-1 text-base-content/48"><%= bookmark.url %></div>
   </div>

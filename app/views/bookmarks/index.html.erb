@@ -25,15 +25,13 @@
     </div>
   </div>
 
-  <%# Disabling for now, there is an issue with redirects + broadcasts. %>
-  <%# turbo_stream_from :categories %>
-  <%# turbo_stream_from :bookmarks %>
+  <%= turbo_stream_from :categories %>
+  <%= turbo_stream_from :bookmarks %>
   <% if @categories.any? %>
     <div class="flex flex-col gap-8">
       <% @categories.each do |category| %>
         <div>
-          <%# Disabling for now, there is an issue with redirects + broadcasts. %>
-          <%# turbo_stream_from category %>
+          <%= turbo_stream_from category %>
           <h2 class="font-bold text-2xl mb-2"><%= category.name %></h2>
           <% if category.bookmarks.any? %>
             <ul

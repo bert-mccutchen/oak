@@ -13,15 +13,30 @@ class DaisyFormBuilder < ActionView::Helpers::FormBuilder
 
   def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
     options[:class] = token_list(options[:class], "toggle toggle-primary")
-    super
+    options[:include_hidden] = false
+
+    safe_join [
+      hidden_field(:enabled, id: self.field_id(method), value: 0),
+      super
+    ]
   end
 
-  def text_field(method, options = {})
-    options[:class] = token_list(options[:class], "input")
+  def range_field(method, options = {})
+    options[:class] = token_list(options[:class], "range")
     super
   end
 
   def url_field(method, options = {})
+    options[:class] = token_list(options[:class], "input")
+    super
+  end
+
+  def number_field(method, options = {})
+    options[:class] = token_list(options[:class], "input")
+    super
+  end
+
+  def text_field(method, options = {})
     options[:class] = token_list(options[:class], "input")
     super
   end
