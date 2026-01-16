@@ -2,7 +2,7 @@
   <%= link_to "#", id: "theme_select", tabindex: 0, role: "button", class: "group btn btn-ghost btn-sm" do %>
     <%= render "layouts/shared/theme_icon" %>
     <%# I don't like the look of the Font Awesome chevron here. %>
-    <%= inline_svg_tag("daisy_ui/chevron_down.svg", class: "inline-block h-2 w-2 fill-current opacity-60") %>
+    <%= inline_svg_tag "daisy_ui/chevron_down.svg", class: "inline-block h-2 w-2 fill-current opacity-60" %>
   <% end %>
   <div id="theme_select_dropdown" class="dropdown-content backdrop-blur-xl rounded-box shadow-2xl border border-neutral">
     <ul tabindex="0" class="menu menu-vertical flex-nowrap max-h-100 overflow-y-auto">
@@ -13,7 +13,7 @@
           <%= render "layouts/shared/theme_icon" %>
           <%= Current.theme.name %>
           <%# I don't like the look of the Font Awesome checkmark here. %>
-          <%= inline_svg_tag("daisy_ui/checkmark.svg", class: "ml-auto h-3 w-3 shrink-0") %>
+          <%= inline_svg_tag "daisy_ui/checkmark.svg", class: "ml-auto h-3 w-3 shrink-0" %>
         </div>
       </li>
       <li></li>

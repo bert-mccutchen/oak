@@ -1,21 +1,40 @@
-<%= button_tag button_content, type: :button, class: button_classes, onclick: show_script %>
+<div data-controller="oklch-picker-form">
+  <%= @form.hidden_field @method, data: { oklch_picker_form_target: "input" }.merge(@options[:data]) %>
+  <%= button_tag button_content, type: :button, class: button_classes, data: { action: "click->oklch-picker-form#showModal" } %>
 
-<%= tag.dialog id:, class: "modal", data: { theme: "dark" } do %>
-  <div class="modal-box max-w-4xl p-0 bg-base-100/50 backdrop-blur">
-    <div class="overflow-x-auto m-4">
-      <div class="grid grid-cols-22 gap-1 min-w-3xl">
-        <% TAILWIND_COLOR_VALUES.each do |color, value| %>
-          <%= @form.radio_button @method, value, class: "btn p-0 size-auto aspect-square bg-#{color} outline-white checked:outline checked:border-base-100 checked:shadow-none hover:scale-150 hover:outline-none", data: @options[:data] %>
-        <% end %>
+  <%= tag.dialog class: "modal", data: { oklch_picker_form_target: "modal" } do %>
+    <div class="modal-box max-w-lg p-0 bg-white/60 backdrop-blur text-black">
+      <div class="flex flex-col m-4 gap-1">
+        <fieldset class="fieldset p-4 bg-white/10 rounded-box border border-black/10">
+          <legend class="fieldset-legend text-slate-700">Lightness</legend>
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
+            <%= range_field in: 0..1, step: 0.0001, target: "lightness" %>
+            <%= number_field in: 0..1, step: 0.0001, target: "lightness" %>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset p-4 bg-white/10 rounded-box border border-black/10">
+          <legend class="fieldset-legend text-slate-700">Chroma</legend>
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
+            <%= range_field in: 0..0.4, step: 0.0001, target: "chroma" %>
+            <%= number_field in: 0..0.4, step: 0.0001, target: "chroma" %>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset p-4 bg-white/10 rounded-box border border-black/10">
+          <legend class="fieldset-legend text-slate-700">Hue</legend>
+          <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
+            <%= range_field in: 0..360, step: 0.0001, target: "hue" %>
+            <%= number_field in: 0..360, step: 0.0001, target: "hue" %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-action m-0 p-4 bg-white/20">
+        <div class="mr-auto">
+          <div class="btn aspect-square border border-black/10 pointer-events-none" data-oklch-picker-form-target="preview"></div>
+          <%= button_tag "Reset", type: :button, class: "btn text-slate-700 bg-white/20 hover:bg-white/40 border border-black/10", data: { action: "click->oklch-picker-form#reset" } %>
+        </div>
+        <%= button_tag "Close", type: :button, class: "btn text-slate-700 bg-white/40 hover:bg-white/60 border border-black/10", data: { action: "click->oklch-picker-form#close" } %>
       </div>
     </div>
-    <div class="modal-action m-0 p-4 bg-base-100/20">
-      <%# Not only does this allow for resetting colors, but it also allows for cloning DaisyUI themes that do not use Tailwind color steps. %>
-      <div class="mr-auto tooltip tooltip-right" data-tip="Reset">
-        <%= @form.radio_button @method, @value, class: "btn aspect-square checked:outline-none checked:border-base-100 checked:shadow-none hover:scale-110", style: "background-color: #{@value}", data: @options[:data] %>
-      </div>
-      <%= button_tag "Close", type: :button, class: "btn", onclick: close_script %>
-    </div>
-  </div>
-  <%= tag.div class: "modal-backdrop", onclick: close_script %>
-<% end %>
+    <%= tag.div class: "modal-backdrop", data: { action: "click->oklch-picker-form#close" } %>
+  <% end %>
+</div>

@@ -8,6 +8,10 @@ export default class ThemeEditorController extends Controller {
 
   static targets = ["preview"]
 
+  connect() {
+    this.previewTimeout = null
+  }
+
   setting(key) {
     return this.settingsValue[key]
   }
@@ -29,7 +33,8 @@ export default class ThemeEditorController extends Controller {
   settingsValueChanged() {
     document.getElementById(this.styleIdValue).innerText = this.styles
 
-    this.#preview()
+    if (this.previewTimeout) clearTimeout(this.previewTimeout)
+    this.previewTimeout = setTimeout(() => this.#preview(), 1000)
   }
 
   #preview() {
