@@ -15,7 +15,7 @@
   <% end %>
 
   <% if theme.custom? %>
-    <%= link_to edit_theme_path(theme), class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+    <%= button_to edit_theme_path(theme), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
       <i class="fa-solid fa-pen"></i>
     <% end %>
 
@@ -23,7 +23,7 @@
       <i class="fa-solid fa-trash"></i>
     <% end %>
   <% else %>
-    <%= link_to new_theme_path(clone: theme), class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+    <%= button_to new_theme_path(clone: theme), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
       <i class="fa-solid fa-clone"></i>
     <% end %>
   <% end %>
