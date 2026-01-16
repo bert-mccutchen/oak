@@ -23,7 +23,7 @@
       <i class="fa-solid fa-trash"></i>
     <% end %>
   <% else %>
-    <%= button_to new_theme_path(clone: theme), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+    <%= button_to new_theme_path, method: :get, params: { clone: theme }, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
       <i class="fa-solid fa-clone"></i>
     <% end %>
   <% end %>
