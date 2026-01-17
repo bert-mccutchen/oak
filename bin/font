@@ -1,0 +1,91 @@
+#!/usr/bin/env ruby
+
+require "open-uri"
+require "fileutils"
+
+FONTS_PATH = "app/assets/fonts"
+
+module Font
+  class Stylesheet
+    FILE_URL_REGEX = /src: url\((?<url>\S+)\)/i.freeze
+
+    def initialize(url, name)
+      @url = url
+      @name = name.downcase.gsub(/\s/, "_")
+      @file_path = "#{FONTS_PATH}/#{@name}.css"
+      @styles = fetch(@url)
+    end
+
+    def files
+      file_urls.map { |url| Font::File.new(url) }
+    end
+
+    def download
+      files.each do |file|
+        file.download("#{FONTS_PATH}/#{@name}")
+
+        @styles = @styles.map do |line|
+          line.gsub(file.url, file.path.gsub("#{FONTS_PATH}/", ""))
+        end
+      end
+
+      @styles.prepend("/* @source: #{@url} */\n\n")
+
+      ::File.write(@file_path, @styles.join)
+    end
+
+    private
+
+    def fetch(url)
+      URI.open(url).readlines
+    end
+
+    def file_urls
+      urls = []
+
+      @styles.each do |line|
+        matches = line.match(FILE_URL_REGEX)
+        urls << matches[:url] if matches
+      end
+
+      urls
+    end
+  end
+
+  class File
+    attr_reader :url, :path
+
+    def initialize(url)
+      @url = url
+      @file_name = url.split("/").last
+      @path = nil
+    end
+
+    def download(destination)
+      @path = "#{destination}/#{@file_name}"
+      return if ::File.exist?(@path)
+
+      FileUtils.mkdir_p(destination)
+      IO.copy_stream(URI.open(@url), @path)
+    end
+  end
+end
+
+NAME = ARGV[1]
+URL = ARGV[2]
+
+def print_usage
+  puts "Usage:\n  bin/font install [NAME] [STYLESHEET URL]"
+end
+
+begin
+  case ARGV[0]
+  when "install"
+    Font::Stylesheet.new(URL, NAME).download
+  else
+    print_usage
+  end
+rescue StandardError => e
+  puts e.full_message
+  exit 1
+end

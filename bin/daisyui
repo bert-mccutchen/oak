@@ -104,4 +104,5 @@ begin
   end
 rescue GitHub::UnknownRelease => e
   puts e.message
+  exit 1
 end
