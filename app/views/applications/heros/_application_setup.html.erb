@@ -4,10 +4,10 @@
       <p>You don't have any applications yet, lets add one.</p>
       <div class="flex flex-wrap justify-center gap-2">
         <%= link_to new_application_path, class: "btn btn-primary btn-soft" do %>
-          <i class="fa-solid fa-plus"></i> New Application
+          <%= solid_icon_tag "plus" %> New Application
         <% end %>
         <%= link_to new_import_path, class: "btn btn-primary btn-soft" do %>
-          <i class="fa-solid fa-file-import"></i> Import from Flame
+          <%= solid_icon_tag "file_import" %> Import from Flame
         <% end %>
       </div>
     </div>

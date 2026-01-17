@@ -1,6 +1,6 @@
 <li id="<%= quote.token %>" class="list-row hover:bg-base-300" data-sortable-update-url="<%= quote_path(quote) %>">
   <div class="flex cursor-grab">
-    <i class="fa-solid fa-grip-vertical my-auto"></i>
+    <%= solid_icon_tag("grip-vertical", class: "my-auto") %>
   </div>
   <% if quote.daily_pick? %>
     <div class="tooltip my-auto" data-tip="Daily Quote">
@@ -19,13 +19,13 @@
   <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
     <div class="tooltip" data-tip="Edit">
       <%= link_to edit_quote_path(quote), class: "btn btn-soft hover:btn-primary" do %>
-        <i class="fa-solid fa-pen"></i>
+        <%= solid_icon_tag("pen") %>
       <% end %>
     </div>
 
     <div class="tooltip" data-tip="Delete">
       <%= button_to quote, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of a #{quote.author} quote.", confirm_button: "Delete" } do %>
-        <i class="fa-solid fa-trash"></i>
+        <%= solid_icon_tag("trash") %>
       <% end %>
     </div>
   </div>

@@ -1,17 +1,29 @@
+# frozen_string_literal: true
+
+require_relative "font_awesome_helper"
+
 module WeatherHelper
+  include FontAwesomeHelper
+
   def temperature_tag(**opts)
     return unless Setting[:weather_enabled]
 
     content_tag(:span, **opts) do
-      "#{current_conditions.temperature_2m}#{temperature_unit}"
+      "#{current_conditions&.temperature_2m || "— "}#{temperature_unit}"
     end
   end
 
   def weather_icon_tag(**opts)
     return unless Setting[:weather_enabled]
 
-    content_tag(:span, class: token_list("tooltip tooltip-bottom", opts[:class]), **opts.reverse_merge(data: { tip: weather_icon_title })) do
-      tag.i(class: "fa-solid fa-#{weather_icon}")
+    content_tag(
+      :span,
+      class: class_names("tooltip tooltip-bottom", opts[:class]),
+      data: { tip: weather_icon_title }.merge(opts[:data] || {}),
+      aria: { label: weather_icon.titleize }.merge(opts[:aria] || {}),
+      **opts.except(:class, :data, :aria)
+    ) do
+      solid_icon_tag(weather_icon)
     end
   end
 
@@ -19,6 +31,9 @@ module WeatherHelper
 
   def current_conditions
     @current_conditions ||= WeatherService.current
+  rescue StandardError => e
+    Rails.logger.error(e.full_message)
+    nil
   end
 
   def temperature_unit
@@ -31,6 +46,8 @@ module WeatherHelper
   end
 
   def weather_icon
+    return "wifi" unless current_conditions
+
     icon =
       case current_conditions.weather_code_symbol
       when :clear_sky
@@ -57,6 +74,8 @@ module WeatherHelper
   end
 
   def weather_icon_title
+    return "Network error, check logs." unless current_conditions
+
     current_conditions.weather_code_symbol.to_s.titleize
   end
 end

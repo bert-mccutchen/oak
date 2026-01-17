@@ -1,30 +1,30 @@
 <%# locals: (theme:) %>
 <div class="action-button action-button-flower relative z-0 bottom-auto inset-0">
   <div tabindex="0" role="button" class="btn btn-circle border border-base-content/50">
-    <i class="fa-solid fa-bars-progress"></i>
+    <%= solid_icon_tag("bars-progress") %>
   </div>
 
   <span class="btn btn-circle border border-base-content/50">✕</span>
 
   <%= button_to theme, method: :patch, params: { theme: { enabled: !theme.enabled } }, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
     <% if theme.enabled %>
-      <i class="fa-solid fa-circle-check"></i>
+      <%= solid_icon_tag("circle-check") %>
     <% else %>
-      <i class="fa-regular fa-circle"></i>
+      <%= regular_icon_tag("circle") %>
     <% end %>
   <% end %>
 
   <% if theme.custom? %>
     <%= button_to edit_theme_path(theme), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
-      <i class="fa-solid fa-pen"></i>
+      <%= solid_icon_tag("pen") %>
     <% end %>
 
     <%= button_to theme, method: :delete, class: "btn shadow-lg btn-circle btn-soft btn-error border border-base-content/25", data: { turbo_confirm: "Confirm deletion of #{theme.name}.", confirm_button: "Delete" } do %>
-      <i class="fa-solid fa-trash"></i>
+      <%= solid_icon_tag("trash") %>
     <% end %>
   <% else %>
     <%= button_to new_theme_path, method: :get, params: { clone: theme }, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
-      <i class="fa-solid fa-clone"></i>
+      <%= solid_icon_tag("clone") %>
     <% end %>
   <% end %>
 </div>

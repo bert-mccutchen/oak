@@ -1,7 +1,7 @@
 <div data-search-target="selfSearch">
   <%= search_form_for @q, url: search_path, id: "self_search", class: "w-full p-4", data: { controller: "debounce", turbo: true, turbo_permanent: true } do |f| %>
     <label class="input w-full">
-      <i class="fa-solid fa-magnifying-glass text-base-content/48"></i>
+      <%= solid_icon_tag("magnifying-glass", class: "text-base-content/48") %>
       <%= f.search_field :name_cont,
         placeholder: "Search",
         autofocus: true,

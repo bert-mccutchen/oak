@@ -18,7 +18,7 @@ class OklchPickerFormComponent < ViewComponent::Base
   end
 
   def button_classes
-    token_list(BUTTON_CLASSES, @options[:class])
+    class_names(BUTTON_CLASSES, @options[:class])
   end
 
   def range_field(in:, step:, target:)

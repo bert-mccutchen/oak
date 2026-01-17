@@ -1,4 +1,4 @@
-<div class="flex w-full flex-col">
+<section class="flex w-full flex-col">
   <%= link_to "Applications", applications_path, class: "text-2xl font-bold mb-4 uppercase" %>
 
   <%= turbo_stream_from :applications %>
@@ -10,4 +10,4 @@
   <% else %>
     <%= render "applications/heros/application_setup" %>
   <% end %>
-</div>
+</section>

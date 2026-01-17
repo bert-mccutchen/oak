@@ -16,19 +16,19 @@
     <% if theme.custom? %>
       <div class="tooltip" data-tip="Edit">
         <%= link_to edit_theme_path(theme), class: "btn btn-soft hover:btn-primary" do %>
-          <i class="fa-solid fa-pen"></i>
+          <%= solid_icon_tag("pen") %>
         <% end %>
       </div>
 
       <div class="tooltip" data-tip="Delete">
         <%= button_to theme, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{theme.name}.", confirm_button: "Delete" } do %>
-          <i class="fa-solid fa-trash"></i>
+          <%= solid_icon_tag("trash") %>
         <% end %>
       </div>
     <% else %>
       <div class="tooltip" data-tip="Clone">
         <%= link_to new_theme_path(clone: theme), class: "btn btn-soft hover:btn-primary" do %>
-          <i class="fa-solid fa-clone"></i>
+          <%= solid_icon_tag("clone") %>
         <% end %>
       </div>
     <% end %>

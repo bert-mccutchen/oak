@@ -11,6 +11,6 @@ class IconAssetFileLoader < InlineSvg::AssetFile
 end
 
 InlineSvg.configure do |config|
-  config.svg_not_found_css_class = "!w-8 !h-4 py-2 fa-solid fa-question border border-dashed text-primary border-primary rounded-box"
+  config.svg_not_found_css_class = "size-full aspect-square py-2 border border-dashed border-error rounded-box"
   config.asset_file = IconAssetFileLoader
 end

@@ -1,16 +1,16 @@
 <%# locals: (quote:) %>
 <div class="action-button action-button-flower relative z-0 bottom-auto inset-0">
   <div tabindex="0" role="button" class="btn btn-circle border border-base-content/50">
-    <i class="fa-solid fa-bars-progress"></i>
+    <%= solid_icon_tag("bars-progress") %>
   </div>
 
   <span class="btn btn-circle border border-base-content/50">✕</span>
 
   <%= button_to edit_quote_path(quote), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
-    <i class="fa-solid fa-pen"></i>
+    <%= solid_icon_tag("pen") %>
   <% end %>
 
   <%= button_to quote, method: :delete, class: "btn shadow-lg btn-circle btn-soft btn-error border border-base-content/25", data: { turbo_confirm: "Confirm deletion of a #{quote.author} quote.", confirm_button: "Delete" } do %>
-    <i class="fa-solid fa-trash"></i>
+    <%= solid_icon_tag("trash") %>
   <% end %>
 </div>

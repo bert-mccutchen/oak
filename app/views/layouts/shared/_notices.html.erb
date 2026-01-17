@@ -3,5 +3,9 @@
     <% flash.each_with_index do |(type, message), i| -%>
       <%= notice_tag(type, message, duration: (flash.count - i) * 4000) %>
     <%- end -%>
+
+    <noscript>
+      <%= notice_tag(:warning, "Enable JavaScript!", duration: nil) %>
+    </noscript>
   </div>
 </div>

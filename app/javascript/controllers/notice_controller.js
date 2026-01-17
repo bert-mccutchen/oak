@@ -8,6 +8,8 @@ export default class NoticeController extends Controller {
   }
 
   connect() {
+    if (!this.durationValue) return;
+
     setTimeout(() => this.#hide(), this.durationValue)
   }
 

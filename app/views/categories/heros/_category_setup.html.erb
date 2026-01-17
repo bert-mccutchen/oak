@@ -3,7 +3,7 @@
     <div class="max-w-lg flex flex-col gap-6">
       <p>Bookmarks are organized by categories. You don't have any categories yet, so why not create one?</p>
       <%= link_to new_category_path, class: "btn btn-primary btn-soft mx-auto" do %>
-        <i class="fa-solid fa-plus"></i> New Category
+        <%= solid_icon_tag "plus" %> New Category
       <% end %>
       <p class="font-extralight italic">
         The bookmarks feature can be disabled in settings &ndash;

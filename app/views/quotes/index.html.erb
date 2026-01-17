@@ -6,17 +6,17 @@
     <div class="flex flex-row justify-between gap-4">
       <div class="tooltip tooltip-bottom" data-tip="New Quote">
         <%= link_to new_quote_path, class: "btn btn-primary btn-soft" do %>
-          <i class="fa-solid fa-plus"></i>
+          <%= solid_icon_tag("plus") %>
         <% end %>
       </div>
       <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
         <%= link_to reroll_daily_quotes_path, method: :patch, class: "btn hover:btn-primary", data: { turbo_method: :patch, turbo_prefetch: false } do %>
-          <i class="fa-solid fa-dice-d20 fill-primary"></i>
+          <%= solid_icon_tag("dice-d20") %>
         <% end %>
       </div>
       <div class="tooltip tooltip-bottom" data-tip="Back">
         <%= link_to settings_path, class: "btn hover:btn-primary" do %>
-          <i class="fa-solid fa-arrow-left"></i>
+          <%= solid_icon_tag("arrow-left") %>
         <% end %>
       </div>
     </div>

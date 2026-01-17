@@ -1,7 +1,7 @@
 <li id="<%= bookmark.token %>" class="list-row hover:bg-base-300" data-url="<%= bookmark_path(bookmark) %>">
   <% if bookmark.positionable? %>
     <div class="flex cursor-grab">
-      <i class="fa-solid fa-grip-vertical my-auto"></i>
+      <%= solid_icon_tag("grip-vertical", class: "my-auto") %>
     </div>
   <% end %>
   <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
@@ -19,13 +19,13 @@
 
     <div class="tooltip" data-tip="Edit">
       <%= link_to edit_bookmark_path(bookmark), class: "btn btn-soft hover:btn-primary" do %>
-        <i class="fa-solid fa-pen"></i>
+        <%= solid_icon_tag("pen") %>
       <% end %>
     </div>
 
     <div class="tooltip" data-tip="Delete">
       <%= button_to bookmark, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{bookmark.name}.", confirm_button: "Delete" } do %>
-        <i class="fa-solid fa-trash"></i>
+        <%= solid_icon_tag("trash") %>
       <% end %>
     </div>
   </div>

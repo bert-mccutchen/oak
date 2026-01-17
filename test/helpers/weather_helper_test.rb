@@ -52,6 +52,6 @@ class WeatherHelperTest < ActionView::TestCase
   end
 
   test "should render extra provided class attributes the weather icon" do
-    assert_includes weather_icon_tag(class: "foo-bar"), "class=\"foo-bar\""
+    assert_includes weather_icon_tag(class: "foo-bar"), "class=\"tooltip tooltip-bottom foo-bar\""
   end
 end

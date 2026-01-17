@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
 require "rmagick"
 require_relative "color_helper"
+require_relative "font_awesome_helper"
 
 module IconsHelper
   include ActionView::Helpers::AssetUrlHelper
   include InlineSvg::ActionView::Helpers
   include ColorHelper
+  include FontAwesomeHelper
 
   def icon_tag(icon, **opts)
     return no_icon_tag(**opts) unless icon
@@ -24,8 +28,8 @@ module IconsHelper
   end
 
   def no_icon_tag(**opts)
-    content_tag(:div, class: token_list("flex border border-primary rounded-box", opts[:class])) do
-      tag.i(**opts, class: "fa-solid fa-question m-auto text-primary")
+    content_tag(:div, class: class_names("flex border border-primary rounded-box", opts[:class])) do
+      solid_icon_tag("question", class: "m-auto fill-primary", **opts.except(:class))
     end
   end
 

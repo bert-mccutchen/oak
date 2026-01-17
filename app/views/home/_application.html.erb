@@ -13,7 +13,7 @@
         <h2 class="block card-title text-nowrap overflow-hidden text-ellipsis"><%= application.name %></h2>
         <p class="block text-nowrap overflow-hidden text-ellipsis text-base-content/48">
           <%= tag.span(application.description, class: "group-hover:hidden") if application.description.present? %>
-          <%= tag.span(application.url, class: token_list("hidden group-hover:inline" => application.description.present?)) %>
+          <%= tag.span(application.url, class: class_names("hidden group-hover:inline" => application.description.present?)) %>
         </p>
       </div>
     </div>

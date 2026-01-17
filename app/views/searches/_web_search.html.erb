@@ -1,7 +1,7 @@
 <div class="hidden" data-search-target="webSearch">
   <%= form_with url: web_search_provider_url, method: :get, id: "web_search", class: "w-full p-4", html: { target: "_blank" }, data: { turbo: true, turbo_permanent: true } do |f| %>
     <label class="input w-full">
-      <i class="fa-solid fa-globe  text-base-content/48"></i>
+      <%= solid_icon_tag("globe", class: " text-base-content/48") %>
       <%= f.search_field :q,
         placeholder: "Search #{web_search_provider_name}",
         autofocus: true,

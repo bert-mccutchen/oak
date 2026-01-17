@@ -6,7 +6,7 @@
     <div class="flex flex-row justify-between gap-4">
       <div class="tooltip tooltip-bottom" data-tip="New Category">
         <%= link_to new_category_path, class: "btn btn-primary btn-soft" do %>
-          <i class="fa-solid fa-plus"></i>
+          <%= solid_icon_tag("plus") %>
         <% end %>
       </div>
 
@@ -14,12 +14,12 @@
 
       <div class="tooltip tooltip-bottom" data-tip="Manage Bookmarks">
         <%= link_to bookmarks_path, class: "btn hover:btn-primary" do %>
-          <i class="fa-regular fa-bookmark fill-primary"></i>
+          <%= regular_icon_tag("bookmark") %>
         <% end %>
       </div>
       <div class="tooltip tooltip-bottom" data-tip="Home">
         <%= link_to root_path, class: "btn hover:btn-primary" do %>
-          <i class="fa-regular fa-house fill-primary"></i>
+          <%= regular_icon_tag("house") %>
         <% end %>
       </div>
     </div>

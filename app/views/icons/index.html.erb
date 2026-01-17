@@ -3,7 +3,7 @@
 <%= turbo_frame_tag :icons, class: "w-full" do %>
   <%= search_form_for @q, class: "w-full p-4", data: { controller: "debounce", turbo: true, turbo_permanent: true } do |f| %>
     <label class="input w-full">
-      <i class="fa-solid fa-magnifying-glass text-base-content/48"></i>
+      <%= solid_icon_tag("magnifying-glass", class: "text-base-content/48") %>
       <%= f.search_field :name_or_tags_cont,
         placeholder: "Search",
         autofocus: true,
@@ -24,7 +24,7 @@
     <% else %>
       <tfoot>
         <div class="text-center mx-4 mb-4">
-          <p class="text-lg pb-2"><i class="fa-solid fa-heart-crack"></i> No icons found.</p>
+          <p class="text-lg pb-2"><%= solid_icon_tag("heart-crack") %> No icons found.</p>
           <p>Consider contributing to <a href="https://github.com/selfhst/icons" target="_blank" class="hover:underline hover:text-primary">selfh.st/icons</a>.</p>
         </div>
       </tfoot>

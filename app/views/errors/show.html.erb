@@ -4,6 +4,6 @@
 <div class="fixed left-0 top-0 w-full h-full justify-center items-center flex flex-col gap-8">
   <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center font-extrabold"><%= error_message(status: @status_code) %></h2>
   <%= link_to root_path, class: "btn btn-primary" do %>
-    <i class="fa-regular fa-house fill-primary"></i> Go Home
+    <%= regular_icon_tag("house") %> Go Home
   <% end %>
 </div>

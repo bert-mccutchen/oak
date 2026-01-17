@@ -1,4 +1,4 @@
-<div class="flex w-full flex-col">
+<section class="flex w-full flex-col">
   <% if Setting[:bookmarks_enabled] %>
     <%= link_to "Bookmarks", bookmarks_path, class: "text-2xl font-bold mt-12 mb-4 uppercase" %>
 
@@ -13,4 +13,4 @@
       <%= render "categories/heros/category_setup" %>
     <% end %>
   <% end %>
-</div>
+</section>

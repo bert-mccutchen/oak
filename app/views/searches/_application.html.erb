@@ -5,7 +5,7 @@
       <div class="line-clamp-1"><%= application.name %></div>
       <div class="text-xs line-clamp-1 text-base-content/48">
         <%= tag.span(application.description, class: "group-hocus:hidden") if application.description.present? %>
-        <%= tag.span(application.url, class: token_list("hidden group-hocus:inline" => application.description.present?)) %>
+        <%= tag.span(application.url, class: class_names("hidden group-hocus:inline" => application.description.present?)) %>
       </div>
     </div>
   <% end %>
