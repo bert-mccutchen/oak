@@ -1,11 +1,11 @@
 <% content_for :title, "Bookmarks" %>
 
 <div class="w-full">
-  <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
-    <h1 class="font-bold text-4xl">Bookmarks</h1>
+  <div class="mb-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
+    <h1 class="text-4xl font-bold">Bookmarks</h1>
     <div class="flex flex-row justify-between gap-4">
       <div class="tooltip tooltip-bottom" data-tip="New Bookmark">
-        <%= link_to new_bookmark_path, class: "btn btn-primary btn-soft", disabled: @categories.none? do %>
+        <%= link_to new_bookmark_path, class: "btn btn-soft btn-primary", disabled: @categories.none? do %>
           <%= solid_icon_tag("plus") %>
         <% end %>
       </div>
@@ -32,10 +32,10 @@
       <% @categories.each do |category| %>
         <div>
           <%= turbo_stream_from category %>
-          <h2 class="font-bold text-2xl mb-2"><%= category.name %></h2>
+          <h2 class="mb-2 text-2xl font-bold"><%= category.name %></h2>
           <% if category.bookmarks.any? %>
             <ul
-              class="list bg-base-200 rounded-box shadow-md"
+              class="list rounded-box bg-base-200 shadow-md"
               data-controller="sortable-bookmark"
               data-sortable-bookmark-handle-value=".cursor-grab"
               data-id="<%= category.id %>"
