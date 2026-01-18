@@ -3,7 +3,7 @@
   <div class="flex flex-col gap-2">
     <%= turbo_stream_from category, class: "hidden" %>
 
-    <%= link_to category.name, category_path(category), class: "text-lg text-base-content/32 font-bold uppercase line-clamp-1" %>
+    <%= link_to category.name, category_path(category), class: "line-clamp-1 text-lg font-bold text-base-content/32 uppercase" %>
 
     <% if category.bookmarks.any? %>
     <%= render partial: "bookmark", collection: category.bookmarks.enabled.order(Setting[:bookmarks_order]), as: :bookmark %>

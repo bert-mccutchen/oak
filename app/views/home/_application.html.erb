@@ -2,16 +2,16 @@
 <%= link_to application.url, target: :_blank do %>
   <%= turbo_stream_from application %>
 
-  <div class="group card card-side w-full bg-base-100 hover:bg-base-200 card-xs hover:shadow hover:noise">
-    <figure class="flex-shrink-[0]">
-      <div class="size-8 ml-4 mr-2">
+  <div class="group card card-side w-full bg-base-100 card-xs hover:bg-base-200 hover:noise hover:shadow">
+    <figure class="shrink-0">
+      <div class="mr-2 ml-4 size-8">
         <%= icon_tag application.icon, class: "size-8 fill-primary" %>
       </div>
     </figure>
     <div class="card-body overflow-hidden">
       <div class="my-auto">
-        <h2 class="block card-title text-nowrap overflow-hidden text-ellipsis"><%= application.name %></h2>
-        <p class="block text-nowrap overflow-hidden text-ellipsis text-base-content/48">
+        <h2 class="card-title block overflow-hidden text-nowrap text-ellipsis"><%= application.name %></h2>
+        <p class="block overflow-hidden text-nowrap text-ellipsis text-base-content/48">
           <%= tag.span(application.description, class: "group-hover:hidden") if application.description.present? %>
           <%= tag.span(application.url, class: class_names("hidden group-hover:inline" => application.description.present?)) %>
         </p>

@@ -1,10 +1,10 @@
 <section class="flex w-full flex-col">
-  <%= link_to "Applications", applications_path, class: "text-2xl font-bold mb-4 uppercase" %>
+  <%= link_to "Applications", applications_path, class: "mb-4 text-2xl font-bold uppercase" %>
 
   <%= turbo_stream_from :applications %>
 
   <% if @applications.any? %>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <%= render partial: "application", collection: @applications, as: :application %>
     </div>
   <% else %>
