@@ -1,8 +1,8 @@
-<div class="fixed left-0 top-0 w-full h-full justify-center items-center flex flex-col">
-  <h1 class="text-[40vw] sm:text-[35vw] lg:text-[35vw] xl:text-[30vw] font-extrabold opacity-10"><%= @status_code %></h1>
+<div class="fixed top-0 left-0 flex h-full w-full flex-col items-center justify-center">
+  <h1 class="text-[40vw] font-extrabold opacity-10 sm:text-[35vw] lg:text-[35vw] xl:text-[30vw]"><%= @status_code %></h1>
 </div>
-<div class="fixed left-0 top-0 w-full h-full justify-center items-center flex flex-col gap-8">
-  <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center font-extrabold"><%= error_message(status: @status_code) %></h2>
+<div class="fixed top-0 left-0 flex h-full w-full flex-col items-center justify-center gap-8">
+  <h2 class="text-center text-2xl font-extrabold sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"><%= error_message(status: @status_code) %></h2>
   <%= link_to root_path, class: "btn btn-primary" do %>
     <%= regular_icon_tag("house") %> Go Home
   <% end %>
