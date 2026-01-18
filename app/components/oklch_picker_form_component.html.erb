@@ -27,9 +27,9 @@
           </div>
         </fieldset>
       </div>
-      <div class="m-0 modal-action bg-white/20 p-4">
-        <div class="mr-auto">
-          <div class="btn pointer-events-none aspect-square border border-black/10" data-oklch-picker-form-target="preview"></div>
+      <div class="m-0 modal-action flex justify-between bg-white/20 p-4">
+        <div class="flex gap-2">
+          <%= hex_field target: "hex" %>
           <%= button_tag "Reset", type: :button, class: "btn border border-black/10 bg-white/20 text-slate-700 hover:bg-white/40", data: { action: "click->oklch-picker-form#reset" } %>
         </div>
         <%= button_tag "Close", type: :button, class: "btn border border-black/10 bg-white/40 text-slate-700 hover:bg-white/60", data: { action: "click->oklch-picker-form#close" } %>

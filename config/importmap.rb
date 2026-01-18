@@ -10,3 +10,4 @@ pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.13
 pin "sortablejs" # @1.15.6
 pin "strftime" # @0.10.3
 pin "@rolemodel/turbo-confirm", to: "@rolemodel--turbo-confirm.js" # @2.2.0
+pin "colorizr" # @4.0.1

@@ -34,4 +34,12 @@ class OklchPickerFormComponent < ViewComponent::Base
       data: { oklch_picker_form_target: target, action: "oklch-picker-form##{target}" }
     )
   end
+
+  def hex_field(target:)
+    @form.text_field(
+      "hex_#{SecureRandom.base58}", pattern: "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$",
+      class: "validator w-[5.2rem] border border-black/10",
+      data: { oklch_picker_form_target: "hex", action: "input->oklch-picker-form##{target}" }
+    )
+  end
 end

@@ -1,15 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
+import { oklch2hex, hex2oklch } from "colorizr";
 
 export default class OklchPickerFormController extends Controller {
   static oklchRegex = /oklch\s*\(\s*(?<l>[0-9.]+)%?\s+(?<c>[0-9.]+)\s+(?<h>[0-9.]+)(?:deg)?\s*\)/i
 
-  static targets = ["modal", "input", "lightness", "chroma", "hue", "preview"]
+  static targets = ["modal", "input", "lightness", "chroma", "hue", "preview", "hex"]
 
   static values = {
     oklch: { tyle: String, default: "oklch(0 0 0)" },
     lightness: { type: Number, default: 0 },
     chroma: { type: Number, default: 0 },
-    hue: { type: Number, default: 0 }
+    hue: { type: Number, default: 0 },
+    hex: { type: String, default: "#000000" }
   }
 
   inputTargetConnected(element) {
@@ -22,14 +24,25 @@ export default class OklchPickerFormController extends Controller {
 
   lightnessValueChanged() {
     this.#update(this.lightnessTargets, this.lightnessValue)
+    this.#updateHex()
   }
 
   chromaValueChanged() {
     this.#update(this.chromaTargets, this.chromaValue)
+    this.#updateHex()
   }
 
   hueValueChanged() {
     this.#update(this.hueTargets, this.hueValue)
+    this.#updateHex()
+  }
+
+  hexValueChanged() {
+    this.hexTarget.value = this.hexValue
+    this.hexTarget.style = `
+      background-color: ${this.#buildOklch()};
+      color: ${this.#foregroundColor()};
+    `
   }
 
   reset() {
@@ -60,6 +73,18 @@ export default class OklchPickerFormController extends Controller {
     this.hueValue = event.target.value
   }
 
+  hex(event) {
+    try {
+      const { l, c, h } = hex2oklch(event.target.value)
+
+      this.lightnessValue = l
+      this.chromaValue = c
+      this.hueValue = h
+    } catch {
+      // No-op, ignore.
+    }
+  }
+
   #parseOklch(value) {
     const matches = value.match(OklchPickerFormController.oklchRegex)
 
@@ -80,11 +105,14 @@ export default class OklchPickerFormController extends Controller {
     return `oklch(${l} ${c} ${h})`
   }
 
+  #foregroundColor() {
+    return this.#buildOklch({ l: Math.round(1 - this.lightnessValue), c: 0, h: 0 })
+  }
+
   #update(targets, value) {
     this.#updateTargets(targets, value)
     this.#updateRanges()
     this.#updateOklch()
-    this.#updatePreview()
   }
 
   #updateTargets(targets, value) {
@@ -104,8 +132,12 @@ export default class OklchPickerFormController extends Controller {
     this.inputTarget.dispatchEvent(new Event("input", { bubbles: true }))
   }
 
-  #updatePreview() {
-    this.previewTarget.style = `background-color: ${this.#buildOklch()}`
+  #updateHex() {
+    this.hexValue = oklch2hex({
+      l: this.lightnessValue,
+      c: this.chromaValue,
+      h: this.hueValue
+    })
   }
 
   #rangeStyle(steps) {
@@ -115,7 +147,7 @@ export default class OklchPickerFormController extends Controller {
       --range-fill: 0;
       --range-bg: unset;
       --range-thumb: ${this.#buildOklch({ l: Math.round(this.lightnessValue), c: 0, h: 0 })};
-      color: ${this.#buildOklch({ l: Math.round(1 - this.lightnessValue), c: 0, h: 0 })};
+      color: ${this.#foregroundColor()};
       background: linear-gradient(to right, ${oklchColors.join(", ")})
     `
   }
