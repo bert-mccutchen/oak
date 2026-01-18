@@ -15,7 +15,7 @@
     </label>
   <% end %>
 
-  <ul class="list rounded-box max-h-[50vh] overflow-scroll" data-action="keydown@document->search#navigate">
+  <ul class="list max-h-[50vh] overflow-scroll rounded-box" data-action="keydown@document->search#navigate">
     <%= render partial: "application", collection: @applications %>
     <%= render partial: "bookmark", collection: @bookmarks %>
   <ul>

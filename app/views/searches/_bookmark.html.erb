@@ -1,9 +1,9 @@
 <li>
-  <%= link_to bookmark.url, id: bookmark.token, class: "list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer", target: "_blank", data: { search_target: "result" } do %>
+  <%= link_to bookmark.url, id: bookmark.token, class: "list-row cursor-pointer py-1 outline-none hocus:bg-white/10 hocus:font-semibold", target: "_blank", data: { search_target: "result" } do %>
     <%= regular_icon_tag("bookmark", class: "m-auto fill-primary text-lg") %>
     <div class="my-auto">
       <div><%= bookmark.name %></div>
-      <div class="text-xs font-semibold opacity-60 text-base-content/48"><%= bookmark.url %></div>
+      <div class="text-xs font-semibold text-base-content/48 opacity-60"><%= bookmark.url %></div>
     </div>
   <% end %>
 </li>
