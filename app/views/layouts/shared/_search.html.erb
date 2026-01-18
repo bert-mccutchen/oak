@@ -1,5 +1,5 @@
 <dialog class="modal" data-controller="search" data-search-target="modal" data-action="keydown.<%= Setting[:search_hotkey] %>@document->search#hotkey">
-  <div class="modal-box p-0 bg-base-100/80 backdrop-blur w-full max-w-xl">
+  <div class="modal-box w-full max-w-xl bg-base-100/80 p-0 backdrop-blur">
     <%= turbo_frame_tag :search, src: search_path, data: { search_target: "frame", url: search_path } %>
   </div>
   <div class="modal-backdrop" data-action="click->search#hide"></div>

@@ -1,15 +1,15 @@
-<div class="dropdown dropdown-bottom dropdown-end">
+<div class="dropdown dropdown-end dropdown-bottom">
   <%= link_to "#", id: "theme_select", tabindex: 0, role: "button", class: "group btn btn-ghost btn-sm" do %>
     <%= render "layouts/shared/theme_icon" %>
     <%# I don't like the look of the Font Awesome chevron here. %>
     <%= inline_svg_tag "daisy_ui/chevron_down.svg", class: "inline-block h-2 w-2 fill-current opacity-60" %>
   <% end %>
-  <div id="theme_select_dropdown" class="dropdown-content backdrop-blur-xl rounded-box shadow-2xl border border-neutral">
-    <ul tabindex="0" class="menu menu-vertical flex-nowrap max-h-100 overflow-y-auto">
+  <div id="theme_select_dropdown" class="dropdown-content rounded-box border border-neutral shadow-2xl backdrop-blur-xl">
+    <ul tabindex="0" class="menu menu-vertical max-h-100 flex-nowrap overflow-y-auto">
       <li class="menu-title text-xs">Theme</li>
       <li></li>
       <li class="group">
-        <div class="flex flex-row gap-2 w-42">
+        <div class="flex w-42 flex-row gap-2">
           <%= render "layouts/shared/theme_icon" %>
           <%= Current.theme.name %>
           <%# I don't like the look of the Font Awesome checkmark here. %>
@@ -21,7 +21,7 @@
       <% Theme.enabled.where.not(id: Current.theme).order(:name).each do |theme| %>
         <%= form_with(model: setting) do |form| %>
           <li>
-            <%= form.button :value, class: "flex flex-row gap-2 w-42", value: theme.token do %>
+            <%= form.button :value, class: "flex w-42 flex-row gap-2", value: theme.token do %>
               <%= render "layouts/shared/theme_icon", theme: theme.token %>
               <%= theme.name %>
             <% end %>

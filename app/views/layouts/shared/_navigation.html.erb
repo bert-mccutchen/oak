@@ -1,8 +1,8 @@
-<nav class="dropdown dropdown-bottom dropdown-start">
+<nav class="dropdown dropdown-start dropdown-bottom">
   <%= link_to "#", id: "navigation", tabindex: 0, role: "button", class: "group btn btn-ghost btn-sm" do %>
     <%= inline_svg_tag "icon.svg", class: "size-6 fill-primary/25 group-hover:fill-primary" %>
   <% end %>
-  <ul id="navigation_dropdown" tabindex="-1" class="menu dropdown-content backdrop-blur-xl rounded-box shadow-2xl border border-neutral">
+  <ul id="navigation_dropdown" tabindex="-1" class="dropdown-content menu rounded-box border border-neutral shadow-2xl backdrop-blur-xl">
     <% unless current_controller?(:home) %>
       <li class="first:font-bold"><%= link_to "Home", root_path %></li>
     <% end %>

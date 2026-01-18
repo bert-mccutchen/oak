@@ -1,7 +1,7 @@
 <%# locals: (theme: nil) %>
-<span data-theme="<%= theme || Setting[:theme] %>" class="my-auto bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-4 gap-0.5 rounded-box border p-1 transition-colors">
-  <span class="bg-base-content h-2 w-1 rounded-box"></span>
-  <span class="bg-primary h-2 w-1 rounded-box"></span>
-  <span class="bg-secondary h-2 w-1 rounded-box"></span>
-  <span class="bg-accent h-2 w-1 rounded-box"></span>
+<span data-theme="<%= theme || Setting[:theme] %>" class="my-auto grid shrink-0 grid-cols-4 gap-0.5 rounded-box border border-base-content/10 bg-base-100 p-1 transition-colors group-hover:border-base-content/20">
+  <span class="h-2 w-1 rounded-box bg-base-content"></span>
+  <span class="h-2 w-1 rounded-box bg-primary"></span>
+  <span class="h-2 w-1 rounded-box bg-secondary"></span>
+  <span class="h-2 w-1 rounded-box bg-accent"></span>
 </span>
