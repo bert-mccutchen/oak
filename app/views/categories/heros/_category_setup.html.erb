@@ -1,8 +1,8 @@
-<div class="hero bg-base-200 rounded-box shadow-md border border-neutral">
+<div class="hero rounded-box border border-neutral bg-base-200 shadow-md">
   <div class="hero-content text-center">
-    <div class="max-w-lg flex flex-col gap-6">
+    <div class="flex max-w-lg flex-col gap-6">
       <p>Bookmarks are organized by categories. You don't have any categories yet, so why not create one?</p>
-      <%= link_to new_category_path, class: "btn btn-primary btn-soft mx-auto" do %>
+      <%= link_to new_category_path, class: "btn mx-auto btn-soft btn-primary" do %>
         <%= solid_icon_tag "plus" %> New Category
       <% end %>
       <p class="font-extralight italic">

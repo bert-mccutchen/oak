@@ -4,12 +4,12 @@
       <%= solid_icon_tag("grip-vertical", class: "my-auto") %>
     </div>
   <% end %>
-  <div class="text-4xl font-ubuntu font-light opacity-30 tabular-nums my-auto counter"></div>
+  <div class="counter my-auto font-ubuntu text-4xl font-light tabular-nums opacity-30"></div>
   <div class="list-col-grow my-auto">
     <%= turbo_stream_from category %>
     <div class="line-clamp-1"><%= category.name %></div>
   </div>
-  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="my-auto hidden flex-col gap-4 sm:flex sm:flex-row">
     <%= form_with(model: category, class: "my-auto") do |form| %>
       <div class="tooltip" data-tip="Enabled">
         <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
@@ -23,12 +23,12 @@
     </div>
 
     <div class="tooltip" data-tip="Delete">
-      <%= button_to category, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{category.name}.", confirm_button: "Delete" } do %>
+      <%= button_to category, method: :delete, class: "btn btn-soft btn-error hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{category.name}.", confirm_button: "Delete" } do %>
         <%= solid_icon_tag("trash") %>
       <% end %>
     </div>
   </div>
-  <div class="sm:hidden flex items-center">
+  <div class="flex items-center sm:hidden">
     <%= render "fab", category: %>
   </div>
 </li>

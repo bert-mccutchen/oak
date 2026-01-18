@@ -2,13 +2,13 @@
 
 <% if setting.parsed_value == "position" %>
   <div class="tooltip tooltip-bottom" data-tip="Sort Alphabetically">
-    <%= button_to setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-secondary btn-soft" do %>
+    <%= button_to setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-soft btn-secondary" do %>
       <%= solid_icon_tag("arrow-down-a-z") %>
     <% end %>
   </div>
 <% else %>
   <div class="tooltip tooltip-bottom" data-tip="Sort Numerically">
-    <%= button_to setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-secondary btn-soft" do %>
+    <%= button_to setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-soft btn-secondary" do %>
       <%= solid_icon_tag("arrow-down-1-9") %>
     <% end %>
   </div>
