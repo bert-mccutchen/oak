@@ -6,7 +6,7 @@ class ThemesController < ApplicationController
   end
 
   def show
-    redirect_to themes_path(anchor: @theme.token)
+    redirect_to themes_path
   end
 
   def new

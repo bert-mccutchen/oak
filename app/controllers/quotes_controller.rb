@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
   end
 
   def show
-    redirect_to quotes_path(anchor: @quote.token)
+    redirect_to quotes_path
   end
 
   def new

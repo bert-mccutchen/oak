@@ -36,7 +36,7 @@ class BookmarksControllerTest < ActionDispatch::IntegrationTest
   test "should redirect to index with an anchor" do
     get bookmark_url(@bookmark)
 
-    assert_redirected_to bookmarks_path(anchor: @bookmark.token)
+    assert_redirected_to bookmarks_path
   end
 
   test "should get edit" do

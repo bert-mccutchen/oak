@@ -22,10 +22,6 @@
     <%= form.text_field :author, required: true, class: "validator w-full" %>
 
     <%= form.submit class: "btn mt-4 btn-primary" %>
-    <% if quote.new_record? %>
-      <%= link_to "Back", quotes_path, class: "btn btn-outline" %>
-    <% else %>
-      <%= link_to "Back", quotes_path(anchor: quote.token), class: "btn btn-outline" %>
-    <% end %>
+    <%= link_to "Back", quotes_path, class: "btn btn-outline" %>
   <% end %>
 </fieldset>

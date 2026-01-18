@@ -19,10 +19,6 @@
     <%= form.text_field :name, required: true, class: "validator w-full" %>
 
     <%= form.submit class: "btn mt-4 btn-primary" %>
-    <% if category.new_record? %>
-      <%= link_to "Back", categories_path, class: "btn btn-outline" %>
-    <% else %>
-      <%= link_to "Back", categories_path(anchor: category.token), class: "btn btn-outline" %>
-    <% end %>
+    <%= link_to "Back", categories_path, class: "btn btn-outline" %>
   <% end %>
 </fieldset>

@@ -31,7 +31,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "should redirect to index with an anchor" do
     get category_url(@category)
 
-    assert_redirected_to categories_path(anchor: @category.token)
+    assert_redirected_to categories_path
   end
 
   test "should get edit" do

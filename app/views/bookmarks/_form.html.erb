@@ -26,10 +26,6 @@
     <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a category", required: true }, class: "validator w-full" %>
 
     <%= form.submit class: "btn mt-4 btn-primary" %>
-    <% if bookmark.new_record? %>
-      <%= link_to "Back", bookmarks_path, class: "btn btn-outline" %>
-    <% else %>
-      <%= link_to "Back", bookmarks_path(anchor: bookmark.token), class: "btn btn-outline" %>
-    <% end %>
+    <%= link_to "Back", bookmarks_path, class: "btn btn-outline" %>
   <% end %>
 </fieldset>

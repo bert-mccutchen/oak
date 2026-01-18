@@ -63,7 +63,7 @@ class ThemesControllerTest < ActionDispatch::IntegrationTest
   test "should redirect to index with an anchor" do
     get theme_url(@theme)
 
-    assert_redirected_to themes_path(anchor: @theme.token)
+    assert_redirected_to themes_path
   end
 
   test "should get edit" do

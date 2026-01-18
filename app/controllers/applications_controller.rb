@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    redirect_to applications_path(anchor: @application.token)
+    redirect_to applications_path
   end
 
   def new

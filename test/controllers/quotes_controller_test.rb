@@ -35,7 +35,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
   test "should redirect to index with an anchor" do
     get quote_url(@quote)
 
-    assert_redirected_to quotes_path(anchor: @quote.token)
+    assert_redirected_to quotes_path
   end
 
   test "should get edit" do

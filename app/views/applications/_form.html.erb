@@ -31,10 +31,6 @@
     <div class="divider"></div>
 
     <%= form.submit class: "btn btn-primary" %>
-    <% if application.new_record? %>
-      <%= link_to "Back", applications_path, class: "btn btn-outline" %>
-    <% else %>
-      <%= link_to "Back", applications_path(anchor: application.token), class: "btn btn-outline" %>
-    <% end %>
+    <%= link_to "Back", applications_path, class: "btn btn-outline" %>
   <% end %>
 </fieldset>

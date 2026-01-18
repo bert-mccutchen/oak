@@ -36,7 +36,7 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect to index with an anchor" do
     get application_url(@application)
 
-    assert_redirected_to applications_path(anchor: @application.token)
+    assert_redirected_to applications_path
   end
 
   test "should get edit" do

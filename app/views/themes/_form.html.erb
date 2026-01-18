@@ -222,11 +222,7 @@
         </div>
 
         <%= form.submit class: "btn mt-4 w-full btn-primary" %>
-        <% if theme.new_record? %>
-          <%= link_to "Back", themes_path, class: "btn w-full btn-outline" %>
-        <% else %>
-          <%= link_to "Back", themes_path(anchor: theme.token), class: "btn w-full btn-outline" %>
-        <% end %>
+        <%= link_to "Back", themes_path, class: "btn w-full btn-outline" %>
       <% end %>
     </div>
     <div class="-mt-3 hidden w-full rounded-box bg-base-100 p-8 lg:block">

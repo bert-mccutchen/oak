@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    redirect_to categories_path(anchor: @category.token)
+    redirect_to categories_path
   end
 
   def new
