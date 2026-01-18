@@ -1,12 +1,12 @@
 <li id="<%= theme.token %>" class="list-row hover:bg-base-300">
-  <div class="scale-150 my-auto mx-2">
+  <div class="mx-2 my-auto scale-150">
     <%= render "layouts/shared/theme_icon", theme: theme.token %>
   </div>
   <div class="my-auto">
     <%= turbo_stream_from theme %>
     <div><%= theme.name %></div>
   </div>
-  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="my-auto hidden flex-col gap-4 sm:flex sm:flex-row">
     <%= form_with(model: theme, class: "my-auto") do |form| %>
       <div class="tooltip" data-tip="Enabled">
         <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
@@ -21,7 +21,7 @@
       </div>
 
       <div class="tooltip" data-tip="Delete">
-        <%= button_to theme, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{theme.name}.", confirm_button: "Delete" } do %>
+        <%= button_to theme, method: :delete, class: "btn btn-soft btn-error hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{theme.name}.", confirm_button: "Delete" } do %>
           <%= solid_icon_tag("trash") %>
         <% end %>
       </div>
@@ -33,7 +33,7 @@
       </div>
     <% end %>
   </div>
-  <div class="sm:hidden flex items-center">
+  <div class="flex items-center sm:hidden">
     <%= render "fab", theme: %>
   </div>
 </li>
