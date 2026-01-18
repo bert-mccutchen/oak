@@ -6,14 +6,14 @@
       <% if icon %>
         <%= helpers.icon_tag icon %>
       <% else %>
-        <div class="glass size-full border rounded"></div>
+        <div class="size-full rounded border glass"></div>
       <% end %>
     </div>
     <%= button_tag "Change Icon", type: :button, class: "btn flex-grow border border-base-content/20", data: { action: "click->icon-picker-form#showModal" } %>
   </div>
 
   <dialog class="modal", data-icon-picker-form-target="modal">
-    <div class="modal-box p-0 bg-base-100/80 backdrop-blur max-w-xs">
+    <div class="modal-box max-w-xs bg-base-100/80 p-0 backdrop-blur">
       <%= helpers.turbo_frame_tag :icons, src: icons_path, loading: :lazy %>
     </div>
     <div class="modal-backdrop", data-action="click->icon-picker-form#closeModal"></div>

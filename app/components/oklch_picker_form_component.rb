@@ -23,14 +23,14 @@ class OklchPickerFormComponent < ViewComponent::Base
 
   def range_field(in:, step:, target:)
     @form.range_field(
-      "slider_#{SecureRandom.base58}", in:, step:, class: "w-full sm:w-auto flex-grow",
+      "slider_#{SecureRandom.base58}", in:, step:, class: "w-full flex-grow sm:w-auto",
       data: { oklch_picker_form_target: target, action: "oklch-picker-form##{target}" }
     )
   end
 
   def number_field(in:, step:, target:)
     @form.number_field(
-      "input_#{SecureRandom.base58}", in:, step:, class: "w-full sm:w-auto bg-white/10",
+      "input_#{SecureRandom.base58}", in:, step:, class: "w-full bg-white/10 sm:w-auto",
       data: { oklch_picker_form_target: target, action: "oklch-picker-form##{target}" }
     )
   end
