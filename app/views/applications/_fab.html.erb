@@ -1,12 +1,12 @@
 <%# locals: (application:) %>
-<div class="action-button action-button-flower relative z-0 bottom-auto inset-0">
+<div class="action-button action-button-flower relative inset-0 bottom-auto z-0">
   <div tabindex="0" role="button" class="btn btn-circle border border-base-content/50">
     <%= solid_icon_tag("bars-progress") %>
   </div>
 
   <span class="btn btn-circle border border-base-content/50">✕</span>
 
-  <%= button_to application, method: :patch, params: { application: { enabled: !application.enabled } }, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+  <%= button_to application, method: :patch, params: { application: { enabled: !application.enabled } }, class: "btn btn-circle border border-base-content/25 shadow-lg btn-soft btn-primary" do %>
     <% if application.enabled %>
       <%= solid_icon_tag("circle-check") %>
     <% else %>
@@ -14,11 +14,11 @@
     <% end %>
   <% end %>
 
-  <%= button_to edit_application_path(application), method: :get, class: "btn shadow-lg btn-circle btn-soft btn-primary border border-base-content/25" do %>
+  <%= button_to edit_application_path(application), method: :get, class: "btn btn-circle border border-base-content/25 shadow-lg btn-soft btn-primary" do %>
     <%= solid_icon_tag("pen") %>
   <% end %>
 
-  <%= button_to application, method: :delete, class: "btn shadow-lg btn-circle btn-soft btn-error border border-base-content/25", data: { turbo_confirm: "Confirm deletion of #{application.name}.", confirm_button: "Delete" } do %>
+  <%= button_to application, method: :delete, class: "btn btn-circle border border-base-content/25 shadow-lg btn-soft btn-error", data: { turbo_confirm: "Confirm deletion of #{application.name}.", confirm_button: "Delete" } do %>
     <%= solid_icon_tag("trash") %>
   <% end %>
 </div>

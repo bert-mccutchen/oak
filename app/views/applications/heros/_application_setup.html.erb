@@ -1,12 +1,12 @@
-<div class="hero bg-base-200 rounded-box shadow-md border border-neutral">
+<div class="hero rounded-box border border-neutral bg-base-200 shadow-md">
   <div class="hero-content text-center">
-    <div class="max-w-lg flex flex-col gap-6">
+    <div class="flex max-w-lg flex-col gap-6">
       <p>You don't have any applications yet, lets add one.</p>
       <div class="flex flex-wrap justify-center gap-2">
-        <%= link_to new_application_path, class: "btn btn-primary btn-soft" do %>
+        <%= link_to new_application_path, class: "btn btn-soft btn-primary" do %>
           <%= solid_icon_tag "plus" %> New Application
         <% end %>
-        <%= link_to new_import_path, class: "btn btn-primary btn-soft" do %>
+        <%= link_to new_import_path, class: "btn btn-soft btn-primary" do %>
           <%= solid_icon_tag "file_import" %> Import from Flame
         <% end %>
       </div>

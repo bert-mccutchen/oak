@@ -4,16 +4,16 @@
       <%= solid_icon_tag("grip-vertical", class: "my-auto") %>
     </div>
   <% end %>
-  <%= icon_tag application.icon, class: "size-10 fill-primary my-auto" %>
+  <%= icon_tag application.icon, class: "my-auto size-10 fill-primary" %>
   <div class="list-col-grow my-auto">
     <%= turbo_stream_from application %>
     <div class="line-clamp-1"><%= application.name %></div>
-    <div class="text-xs line-clamp-1 text-base-content/48">
+    <div class="line-clamp-1 text-xs text-base-content/48">
       <%= tag.span(application.description, class: "group-hover:hidden") if application.description.present? %>
       <%= tag.span(application.url, class: token_list("hidden group-hover:inline" => application.description.present?)) %>
     </div>
   </div>
-  <div class="hidden sm:flex flex-col sm:flex-row gap-4 my-auto">
+  <div class="my-auto hidden flex-col gap-4 sm:flex sm:flex-row">
     <%= form_with(model: application, class: "my-auto") do |form| %>
       <div class="tooltip" data-tip="Enabled">
         <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
@@ -27,12 +27,12 @@
     </div>
 
     <div class="tooltip" data-tip="Delete">
-      <%= button_to application, method: :delete, class: "btn btn-error btn-soft hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{application.name}.", confirm_button: "Delete" } do %>
+      <%= button_to application, method: :delete, class: "btn btn-soft btn-error hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{application.name}.", confirm_button: "Delete" } do %>
         <%= solid_icon_tag("trash") %>
       <% end %>
     </div>
   </div>
-  <div class="sm:hidden flex items-center">
+  <div class="flex items-center sm:hidden">
     <%= render "fab", application: %>
   </div>
 </li>
