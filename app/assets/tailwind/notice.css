@@ -1,11 +1,11 @@
 /* Toast for Rails alerts. */
 @layer components {
   .notice {
-    @apply alert mt-2 bg-base-100/20 text-base-content shadow-md backdrop-blur-xl transition-all duration-750 ease-in-out;
+    @apply mt-2 alert bg-base-100/20 text-base-content shadow-md backdrop-blur-xl transition-all duration-750 ease-in-out;
   }
 
   .notice-minimized {
-    @apply text-[0em] border-0 m-0 mt-0 p-0 h-0;
+    @apply m-0 mt-0 h-0 border-0 p-0 text-[0em];
   }
 
   .notice-error {

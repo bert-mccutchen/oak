@@ -4,7 +4,7 @@
     @apply join;
 
     a {
-      @apply join-item btn;
+      @apply btn join-item;
     }
 
     a[aria-current] {
