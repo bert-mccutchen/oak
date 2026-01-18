@@ -1,0 +1,18 @@
+@layer base {
+  /* Makes anchor links clear the header. */
+  [id]:target {
+    @apply scroll-mt-16;
+  }
+
+  /* Animates lazy-loaded Turbo frames. */
+  turbo-frame[busy] {
+    @apply animate-pulse;
+  }
+}
+
+@layer components {
+  /* Makes the Turbo progress bar match the current theme. */
+  .turbo-progress-bar {
+    @apply bg-primary!;
+  }
+}

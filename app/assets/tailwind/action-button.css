@@ -1,0 +1,10 @@
+/* Mobile action button that is inline. */
+@layer components {
+  .action-button {
+    @apply fab relative z-0 bottom-auto inset-0;
+  }
+
+  .action-button-flower {
+    @apply fab-flower;
+  }
+}

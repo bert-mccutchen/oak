@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@import "./action-button.css";
+@import "./counter.css";
+@import "./notice.css";
+@import "./pagy.css";
+@import "./turbo.css";
 
 @source not "./daisyui{,*}.mjs";
-@source inline("bg-{red,orange,amber,yellow,lime,green,emerald,teal,cyan,sky,blue,indigo,violet,purple,fuchsia,pink,rose,slate,gray,zinc,neutral,stone}-{50,{100..900..100},950}");
 
 @theme {
   --font-sans: "Montserrat";
@@ -16,87 +20,4 @@
 @utility noise {
   background-size: auto, calc(var(--noise) * 100%);
   background-image: none, var(--fx-noise);
-}
-
-/* Mobile action button that is inline. */
-@layer components {
-  .action-button {
-    @apply fab relative z-0 bottom-auto inset-0;
-  }
-
-  .action-button-flower {
-    @apply fab-flower;
-  }
-}
-
-/* Toast for Rails alerts. */
-@layer components {
-  .notice {
-    @apply alert mt-2 bg-base-100/20 text-base-content shadow-md backdrop-blur-xl transition-all duration-750 ease-in-out;
-  }
-
-  .notice-minimized {
-    @apply text-[0em] border-0 m-0 mt-0 p-0 h-0;
-  }
-
-  .notice-error {
-    @apply alert-error;
-  }
-
-  .notice-warning {
-    @apply alert-warning;
-  }
-
-  .notice-success {
-    @apply alert-success;
-  }
-
-  .notice-info {
-    @apply alert-info;
-  }
-
-  ul:has(.counter) {
-    counter-reset: list;
-  }
-
-  .counter {
-    counter-increment: list;
-  }
-
-  .counter::before {
-    content: counter(list, decimal-leading-zero) " ";
-  }
-}
-
-/* Makes anchor links clear the header. */
-[id]:target {
-  @apply scroll-mt-16;
-}
-
-/* Animates lazy-loaded Turbo frames. */
-turbo-frame[busy] {
-  @apply animate-pulse;
-}
-
-/* Makes the Turbo progress bar match the current theme. */
-.turbo-progress-bar {
-  @apply bg-primary;
-}
-
-/* Makes Pagy pagination match the current theme. */
-.pagy {
-  @apply join;
-
-  a {
-    @apply join-item btn;
-  }
-
-  a[aria-current] {
-    @apply btn-active;
-  }
-
-  a[role="separator"],
-  a[role="link"]:not([aria-current]) {
-    @apply btn-disabled;
-  }
 }

@@ -1,0 +1,26 @@
+/* Toast for Rails alerts. */
+@layer components {
+  .notice {
+    @apply alert mt-2 bg-base-100/20 text-base-content shadow-md backdrop-blur-xl transition-all duration-750 ease-in-out;
+  }
+
+  .notice-minimized {
+    @apply text-[0em] border-0 m-0 mt-0 p-0 h-0;
+  }
+
+  .notice-error {
+    @apply alert-error;
+  }
+
+  .notice-warning {
+    @apply alert-warning;
+  }
+
+  .notice-success {
+    @apply alert-success;
+  }
+
+  .notice-info {
+    @apply alert-info;
+  }
+}

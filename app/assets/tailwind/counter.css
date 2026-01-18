@@ -1,0 +1,14 @@
+/* List item visual counter. */
+@layer components {
+  ul:has(.counter) {
+    counter-reset: list;
+  }
+
+  .counter {
+    counter-increment: list;
+  }
+
+  .counter::before {
+    content: counter(list, decimal-leading-zero) " ";
+  }
+}

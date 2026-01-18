@@ -1,0 +1,19 @@
+/* Makes Pagy pagination match the current theme. */
+@layer components {
+  .pagy {
+    @apply join;
+
+    a {
+      @apply join-item btn;
+    }
+
+    a[aria-current] {
+      @apply btn-active;
+    }
+
+    a[role="separator"],
+    a[role="link"]:not([aria-current]) {
+      @apply btn-disabled;
+    }
+  }
+}
