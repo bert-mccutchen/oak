@@ -23,16 +23,16 @@
       </tbody>
     <% else %>
       <tfoot>
-        <div class="text-center mx-4 mb-4">
-          <p class="text-lg pb-2"><%= solid_icon_tag("heart-crack") %> No icons found.</p>
-          <p>Consider contributing to <a href="https://github.com/selfhst/icons" target="_blank" class="hover:underline hover:text-primary">selfh.st/icons</a>.</p>
+        <div class="mx-4 mb-4 text-center">
+          <p class="pb-2 text-lg"><%= solid_icon_tag("heart-crack") %> No icons found.</p>
+          <p>Consider contributing to <a href="https://github.com/selfhst/icons" target="_blank" class="hover:text-primary hover:underline">selfh.st/icons</a>.</p>
         </div>
       </tfoot>
     <% end %>
   </table>
 
   <% if @pagy.pages > 1 %>
-    <div class="my-2 p-2 w-full text-center">
+    <div class="my-2 w-full p-2 text-center">
       <%== @pagy.series_nav slots: 3, anchor_string: 'data-turbo="true"' %>
     </div>
   <% end %>
