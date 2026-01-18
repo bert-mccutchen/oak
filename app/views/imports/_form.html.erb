@@ -1,9 +1,9 @@
-<fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg w-full max-w-lg sm:w-lg mx-auto">
+<fieldset class="mx-auto fieldset w-full max-w-lg rounded-box border border-base-300 bg-base-200 p-4 shadow-lg sm:w-lg">
   <legend class="fieldset-legend"><%= content_for(:title) %></legend>
 
   <%= form_with(model: import, class: "contents", data: { turbo_confirm: "Confirm import of all applications, categories, and bookmarks from Flame.", confirm_button: "Continue" }) do |form| %>
     <%= form.label :host %>
-    <%= form.url_field :host, required: true, placeholder: "http://localhost:5030", class: "w-full validator" %>
+    <%= form.url_field :host, required: true, placeholder: "http://localhost:5030", class: "validator w-full" %>
 
     <div class="divider"></div>
 
