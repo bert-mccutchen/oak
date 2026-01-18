@@ -1,10 +1,10 @@
 <%# locals: (setting:, name: nil, description: nil) %>
 <%= form_with(model: setting, class: "w-full") do |form| %>
   <%= form.label :name, name || setting.name, class: "text-lg font-bold" %>
-  <div class="join join-vertical sm:join-horizontal w-full">
-    <%= form.url_field :value, placeholder: setting.default, class: "w-full validator" %>
+  <div class="join join-vertical w-full sm:join-horizontal">
+    <%= form.url_field :value, placeholder: setting.default, class: "validator w-full" %>
 
-    <%= form.submit class: "btn btn-primary btn-soft" %>
+    <%= form.submit class: "btn btn-soft btn-primary" %>
   </div>
   <span class="block text-base-content/48"><%= description || setting.description %></span>
 <% end %>

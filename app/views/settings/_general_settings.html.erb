@@ -1,4 +1,4 @@
-<fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 shadow-lg gap-4">
+<fieldset class="fieldset gap-4 rounded-box border border-base-300 bg-base-200 p-4 shadow-lg">
   <%= render "settings/inputs/toggle", setting: Setting.find_by(slug: :bookmarks_enabled) %>
 
   <div class="divider m-0"></div>
@@ -12,5 +12,5 @@
   <div class="divider m-0"></div>
 
   <%= render "settings/inputs/toggle", setting: Setting.find_by(slug: :quotes_enabled) %>
-  <%= link_to "Manage Quotes", quotes_path, class: "btn hover:btn-neutral btn-outline" %>
+  <%= link_to "Manage Quotes", quotes_path, class: "btn btn-outline hover:btn-neutral" %>
 </fieldset>

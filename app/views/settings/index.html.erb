@@ -1,8 +1,8 @@
 <% content_for :title, "Settings" %>
 
 <div class="w-full">
-  <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
-    <h1 class="font-bold text-4xl">Settings</h1>
+  <div class="mb-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
+    <h1 class="text-4xl font-bold">Settings</h1>
     <div class="flex flex-row justify-between gap-4">
       <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
         <%= link_to reroll_daily_quotes_path, method: :patch, class: "btn hover:btn-primary", data: { turbo_method: :patch, turbo_prefetch: false } do %>
@@ -29,14 +29,14 @@
     <%= render "search_settings" %>
   </div>
 
-  <p class="mt-2 text-xs text-center text-base-content/50">
+  <p class="mt-2 text-center text-xs text-base-content/50">
     Icons are modified and colored programatically to match the user's theme.
-    Icons are provided by <a href="https://github.com/selfhst/icons/blob/main/LICENSE" target="_blank" class="hover:underline hover:text-base-content">selfh.st/icons</a>,
-    and <a href="https://fontawesome.com/license/free" target="_blank" class="hover:underline hover:text-base-content">Font Awesome Free</a>
-    under <a href="https://creativecommons.org/licenses/by/4.0/deed" target="_blank" class="hover:underline hover:text-base-content">CC BY 4.0</a>.
+    Icons are provided by <a href="https://github.com/selfhst/icons/blob/main/LICENSE" target="_blank" class="hover:text-base-content hover:underline">selfh.st/icons</a>,
+    and <a href="https://fontawesome.com/license/free" target="_blank" class="hover:text-base-content hover:underline">Font Awesome Free</a>
+    under <a href="https://creativecommons.org/licenses/by/4.0/deed" target="_blank" class="hover:text-base-content hover:underline">CC BY 4.0</a>.
   </p>
 
-  <a href="https://www.github.com/bert-mccutchen/oak" target="_blank" class="block w-1/2 max-w-[100] mt-8 mx-auto">
-    <%= inline_svg_tag "icon.svg", class: "fill-base-content/50 hover:fill-base-content rounded-full" %>
+  <a href="https://www.github.com/bert-mccutchen/oak" target="_blank" class="mx-auto mt-8 block w-1/2 max-w-[100]">
+    <%= inline_svg_tag "icon.svg", class: "rounded-full fill-base-content/50 hover:fill-base-content" %>
   </a>
 </div>

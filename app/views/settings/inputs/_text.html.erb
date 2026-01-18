@@ -1,10 +1,10 @@
 <%# locals: (setting:) %>
 <%= form_with(model: setting, class: "w-full") do |form| %>
   <%= form.label :name, setting.name, class: "text-lg font-bold" %>
-  <div class="join join-vertical sm:join-horizontal w-full">
+  <div class="join join-vertical w-full sm:join-horizontal">
     <%= form.text_field :value, placeholder: setting.default, class: "w-full" %>
 
-    <%= form.submit class: "btn btn-primary btn-soft" %>
+    <%= form.submit class: "btn btn-soft btn-primary" %>
   </div>
   <span class="block text-base-content/48"><%= setting.description %></span>
 <% end %>
