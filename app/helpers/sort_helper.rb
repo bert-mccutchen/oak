@@ -32,7 +32,7 @@ module SortHelper
 
   def sort_alphabetically_tag(setting)
     tooltip_tag("Sort Alphabetically", position: :bottom) do
-      button_to(setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-secondary btn-soft") do
+      button_to(setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-soft btn-secondary") do
         solid_icon_tag("arrow-down-a-z")
       end
     end
@@ -40,7 +40,7 @@ module SortHelper
 
   def sort_numerically_tag(setting)
     tooltip_tag("Sort Numerically", position: :bottom) do
-      button_to(setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-secondary btn-soft") do
+      button_to(setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-soft btn-secondary") do
         solid_icon_tag("arrow-down-1-9")
       end
     end

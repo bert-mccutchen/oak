@@ -28,7 +28,7 @@ module IconsHelper
   end
 
   def no_icon_tag(**opts)
-    content_tag(:div, class: class_names("flex border border-primary rounded-box", opts[:class])) do
+    content_tag(:div, class: class_names("flex rounded-box border border-primary", opts[:class])) do
       solid_icon_tag("question", class: "m-auto fill-primary", **opts.except(:class))
     end
   end

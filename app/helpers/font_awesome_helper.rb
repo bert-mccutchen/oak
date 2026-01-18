@@ -8,7 +8,7 @@ module FontAwesomeHelper
   def font_awesome_icon_tag(name, variant = :regular, **opts)
     inline_svg_tag(
       "font_awesome/#{name.dasherize}-#{variant}-full.svg",
-      class: class_names("fa-#{name.dasherize} box-content inline-block size-[1.25em] align-[-0.25em] fill-current", opts[:class]),
+      class: class_names("fa-#{name.dasherize} box-content inline-block size-[1.25em] fill-current align-[-0.25em]", opts[:class]),
       fallback: FALLBACK_ICON,
       **opts.except(:class)
     )
