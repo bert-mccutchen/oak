@@ -3,18 +3,51 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "1d70067a8a38c6001518c5a750fd33b94d444ccda94530587f10c62f6a2e7d04",
+      "fingerprint": "52a1abaf52d992bd55a5ced500ece0795f20bd7fc73d1aec039997513bf684ef",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/searches/_bookmark.html.erb",
+      "line": 2,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"list-row cursor-pointer py-1 outline-none hocus:bg-white/10 hocus:font-semibold\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "searches/_self_search",
+          "line": 20,
+          "file": "app/views/searches/_self_search.html.erb",
+          "rendered": {
+            "name": "searches/_bookmark",
+            "file": "app/views/searches/_bookmark.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "searches/_bookmark"
+      },
+      "user_input": "(Unresolved Model).new.url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "Intentional feature of the application."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "83a13472e19035a1c332b617106ac908002b92781687b07a4806800f25435326",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
       "file": "app/views/home/_bookmark.html.erb",
       "line": 5,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to((Unresolved Model).new.name, (Unresolved Model).new.url, :target => :_blank, :class => \"block text-nowrap overflow-hidden text-ellipsis\")",
+      "code": "link_to((Unresolved Model).new.name, (Unresolved Model).new.url, :target => :_blank, :class => \"block overflow-hidden text-nowrap text-ellipsis\")",
       "render_path": [
         {
           "type": "template",
           "name": "home/_category",
-          "line": 8,
+          "line": 9,
           "file": "app/views/home/_category.html.erb",
           "rendered": {
             "name": "home/_bookmark",
@@ -36,13 +69,13 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
-      "fingerprint": "76c75c219fda9f7fdc706363f2d2446320a7c93c6190aea1730ed2bd39521b6a",
+      "fingerprint": "d3fffe863d110417864a04b691316eb6b3d67bbbf35e7ec48fd5b2b965da1538",
       "check_name": "LinkToHref",
       "message": "Potentially unsafe model attribute in `link_to` href",
       "file": "app/views/searches/_application.html.erb",
       "line": 2,
       "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"group list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
+      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"group list-row cursor-pointer py-1 outline-none hocus:bg-white/10 hocus:font-semibold\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
       "render_path": [
         {
           "type": "template",
@@ -58,39 +91,6 @@
       "location": {
         "type": "template",
         "template": "searches/_application"
-      },
-      "user_input": "(Unresolved Model).new.url",
-      "confidence": "Weak",
-      "cwe_id": [
-        79
-      ],
-      "note": "Intentional feature of the application."
-    },
-    {
-      "warning_type": "Cross-Site Scripting",
-      "warning_code": 4,
-      "fingerprint": "ba0e6d078356e4b028a72efcec1731e9ed4f80d2ea57b88f962a573900d909e5",
-      "check_name": "LinkToHref",
-      "message": "Potentially unsafe model attribute in `link_to` href",
-      "file": "app/views/searches/_bookmark.html.erb",
-      "line": 2,
-      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
-      "code": "link_to((Unresolved Model).new.url, :id => (Unresolved Model).new.token, :class => \"list-row py-1 hocus:bg-white/10 hocus:font-semibold outline-none cursor-pointer\", :target => \"_blank\", :data => ({ :search_target => \"result\" }))",
-      "render_path": [
-        {
-          "type": "template",
-          "name": "searches/_self_search",
-          "line": 20,
-          "file": "app/views/searches/_self_search.html.erb",
-          "rendered": {
-            "name": "searches/_bookmark",
-            "file": "app/views/searches/_bookmark.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "searches/_bookmark"
       },
       "user_input": "(Unresolved Model).new.url",
       "confidence": "Weak",
