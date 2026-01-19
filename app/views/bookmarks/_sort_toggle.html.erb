@@ -1,15 +1,15 @@
 <% setting = Setting.find_by(slug: :bookmarks_order) %>
 
 <% if setting.parsed_value == "position" %>
-  <div class="tooltip tooltip-bottom" data-tip="Sort Alphabetically">
+  <%= tooltip_tag "Sort Alphabetically", position: :bottom do %>
     <%= button_to setting, method: :patch, params: { setting: { value: "name" } }, class: "btn btn-soft btn-secondary" do %>
       <%= solid_icon_tag("arrow-down-a-z") %>
     <% end %>
-  </div>
+  <% end %>
 <% else %>
-  <div class="tooltip tooltip-bottom" data-tip="Sort Numerically">
+  <%= tooltip_tag "Sort Numerically", position: :bottom do %>
     <%= button_to setting, method: :patch, params: { setting: { value: "position" } }, class: "btn btn-soft btn-secondary" do %>
       <%= solid_icon_tag("arrow-down-1-9") %>
     <% end %>
-  </div>
+  <% end %>
 <% end %>

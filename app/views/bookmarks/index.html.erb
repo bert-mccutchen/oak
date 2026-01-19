@@ -4,24 +4,24 @@
   <div class="mb-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
     <h1 class="text-4xl font-bold">Bookmarks</h1>
     <div class="flex flex-row justify-between gap-4">
-      <div class="tooltip tooltip-bottom" data-tip="New Bookmark">
+      <%= tooltip_tag "New Bookmark", position: :bottom do %>
         <%= link_to new_bookmark_path, class: "btn btn-soft btn-primary", disabled: @categories.none? do %>
           <%= solid_icon_tag("plus") %>
         <% end %>
-      </div>
+      <% end %>
 
       <%= render "sort_toggle" %>
 
-      <div class="tooltip tooltip-bottom" data-tip="Manage Categories">
+      <%= tooltip_tag "Manage Categories", position: :bottom do %>
         <%= link_to categories_path, class: "btn hover:btn-primary" do %>
           <%= solid_icon_tag("list-ul") %>
         <% end %>
-      </div>
-      <div class="tooltip tooltip-bottom" data-tip="Home">
+      <% end %>
+      <%= tooltip_tag "Home", position: :bottom do %>
         <%= link_to root_path, class: "btn hover:btn-primary" do %>
           <%= regular_icon_tag("house") %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 

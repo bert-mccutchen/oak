@@ -4,21 +4,21 @@
   <div class="mb-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
     <h1 class="text-4xl font-bold">Quotes</h1>
     <div class="flex flex-row justify-between gap-4">
-      <div class="tooltip tooltip-bottom" data-tip="New Quote">
+      <%= tooltip_tag "New Quote", position: :bottom do %>
         <%= link_to new_quote_path, class: "btn btn-soft btn-primary" do %>
           <%= solid_icon_tag("plus") %>
         <% end %>
-      </div>
-      <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
+      <% end %>
+      <%= tooltip_tag "Reroll Daily Quote", position: :bottom do %>
         <%= link_to reroll_daily_quotes_path, method: :patch, class: "btn hover:btn-primary", data: { turbo_method: :patch, turbo_prefetch: false } do %>
           <%= solid_icon_tag("dice-d20") %>
         <% end %>
-      </div>
-      <div class="tooltip tooltip-bottom" data-tip="Back">
+      <% end %>
+      <%= tooltip_tag "Back", position: :bottom do %>
         <%= link_to settings_path, class: "btn hover:btn-primary" do %>
           <%= solid_icon_tag("arrow-left") %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 

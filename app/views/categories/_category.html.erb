@@ -11,22 +11,22 @@
   </div>
   <div class="my-auto hidden flex-col gap-4 sm:flex sm:flex-row">
     <%= form_with(model: category, class: "my-auto") do |form| %>
-      <div class="tooltip" data-tip="Enabled">
+      <%= tooltip_tag "Enabled" do %>
         <%= form.check_box :enabled, class: "toggle-lg", onchange: "this.form.requestSubmit()" %>
-      </div>
+      <% end %>
     <% end %>
 
-    <div class="tooltip" data-tip="Edit">
+    <%= tooltip_tag "Edit" do %>
       <%= link_to edit_category_path(category), class: "btn btn-soft hover:btn-primary" do %>
         <%= solid_icon_tag("pen") %>
       <% end %>
-    </div>
+    <% end %>
 
-    <div class="tooltip" data-tip="Delete">
+    <%= tooltip_tag "Delete" do %>
       <%= button_to category, method: :delete, class: "btn btn-soft btn-error hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{category.name}.", confirm_button: "Delete" } do %>
         <%= solid_icon_tag("trash") %>
       <% end %>
-    </div>
+    <% end %>
   </div>
   <div class="flex items-center sm:hidden">
     <%= render "fab", category: %>

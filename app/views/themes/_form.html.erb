@@ -35,89 +35,89 @@
         <div class="flex flex-col gap-2 font-ubuntu">
           <%= form.label :color_base, "Base" %>
           <div class="grid grid-cols-4 gap-2">
-            <div class="tooltip" data-tip="Background">
+            <%= tooltip_tag "Background" do %>
               <%= form.oklch_field :color_base_100, label: "100", class: "bg-base-100 text-base-content", data: { action: "theme-editor#update", setting: :color_base_100 } %>
-            </div>
-            <div class="tooltip" data-tip="Background">
+            <% end %>
+            <%= tooltip_tag "Background" do %>
               <%= form.oklch_field :color_base_200, label: "200", class: "bg-base-200 text-base-content", data: { action: "theme-editor#update", setting: :color_base_200 } %>
-            </div>
-            <div class="tooltip" data-tip="Background">
+            <% end %>
+            <%= tooltip_tag "Background" do %>
               <%= form.oklch_field :color_base_300, label: "300", class: "bg-base-300 text-base-content", data: { action: "theme-editor#update", setting: :color_base_300 } %>
-            </div>
-            <div class="tooltip" data-tip="Text">
+            <% end %>
+            <%= tooltip_tag "Text" do %>
               <%= form.oklch_field :color_base_content, label: "OAK", class: "bg-base-100 text-base-content", data: { action: "theme-editor#update", setting: :color_base_content } %>
-            </div>
+            <% end %>
           </div>
 
           <div class="flex flex-row">
             <div class="mx-auto grid grid-cols-2 gap-2">
               <%= form.label :color_primary, "Primary", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_primary, label: "", class: "bg-primary text-base-content", data: { action: "theme-editor#update", setting: :color_primary } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_primary_content, label: "P", class: "bg-primary text-primary-content", data: { action: "theme-editor#update", setting: :color_primary_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_accent, "Accent", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_accent, label: "", class: "bg-accent text-base-content", data: { action: "theme-editor#update", setting: :color_accent } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_accent_content, label: "A", class: "bg-accent text-accent-content", data: { action: "theme-editor#update", setting: :color_accent_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_secondary, "Secondary", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_secondary, label: "", class: "bg-secondary text-base-content", data: { action: "theme-editor#update", setting: :color_secondary } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_secondary_content, label: "S", class: "bg-secondary text-secondary-content", data: { action: "theme-editor#update", setting: :color_secondary_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_neutral, "Neutral", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_neutral, label: "", class: "bg-neutral text-base-content", data: { action: "theme-editor#update", setting: :color_neutral } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_neutral_content, label: "N", class: "bg-neutral text-neutral-content", data: { action: "theme-editor#update", setting: :color_neutral_content } %>
-              </div>
+              <% end %>
             </div>
 
             <div class="divider divider-horizontal"></div>
 
             <div class="mx-auto grid grid-cols-2 gap-2">
               <%= form.label :color_info, "Info", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_info, label: "", class: "bg-info text-base-content", data: { action: "theme-editor#update", setting: :color_info } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_info_content, label: ":o", class: "bg-info text-info-content", data: { action: "theme-editor#update", setting: :color_info_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_warning, "Warning", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_warning, label: "", class: "bg-warning text-base-content", data: { action: "theme-editor#update", setting: :color_warning } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_warning_content, label: ":|", class: "bg-warning text-warning-content", data: { action: "theme-editor#update", setting: :color_warning_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_success, "Success", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_success, label: "", class: "bg-success text-base-content", data: { action: "theme-editor#update", setting: :color_success } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_success_content, label: ":)", class: "bg-success text-success-content", data: { action: "theme-editor#update", setting: :color_success_content } %>
-              </div>
+              <% end %>
 
               <%= form.label :color_error, "Error", class: "col-span-2" %>
-              <div class="tooltip" data-tip="Background">
+              <%= tooltip_tag "Background" do %>
                 <%= form.oklch_field :color_error, label: "", class: "bg-error text-base-content", data: { action: "theme-editor#update", setting: :color_error } %>
-              </div>
-              <div class="tooltip" data-tip="Text">
+              <% end %>
+              <%= tooltip_tag "Text" do %>
                 <%= form.oklch_field :color_error_content, label: ":(", class: "bg-error text-error-content", data: { action: "theme-editor#update", setting: :color_error_content } %>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -128,11 +128,11 @@
           <%= form.label :radius_selector, "Selectors - checkbox, toggle, badge" %>
           <div class="my-2 grid grid-cols-5 gap-2 px-1">
             <% ThemesHelper::SELECTORS_RADIUSES.each do |value, appearance| %>
-              <div class="tooltip" data-tip="<%= value %>">
+              <%= tooltip_tag value do %>
                 <div class="m-auto size-14 overflow-hidden rounded-field bg-base-300">
                   <%= form.radio_button :radius_selector, value, class: "radio -mx-8 my-5 size-18 border-4 before:invisible #{appearance}", data: { action: "change->theme-editor#update", setting: :radius_selector } %>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -141,11 +141,11 @@
           <%= form.label :radius_field, "Fields - button, input, select, tab" %>
           <div class="my-2 grid grid-cols-5 gap-2 px-1">
             <% ThemesHelper::FIELDS_RADIUSES.each do |value, appearance| %>
-              <div class="tooltip" data-tip="<%= value %>">
+              <%= tooltip_tag value do %>
                 <div class="m-auto size-14 overflow-hidden rounded-field bg-base-300">
                   <%= form.radio_button :radius_field, value, class: "radio -mx-8 my-5 size-18 border-4 before:invisible #{appearance}", data: { action: "change->theme-editor#update", setting: :radius_field } %>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -154,11 +154,11 @@
           <%= form.label :radius_box, "Boxes - card, modal, alert" %>
           <div class="my-2 grid grid-cols-5 gap-2 px-1">
             <% ThemesHelper::BOX_RADIUSES.each do |value, appearance| %>
-              <div class="tooltip" data-tip="<%= value %>">
+              <%= tooltip_tag value do %>
                 <div class="m-auto size-14 overflow-hidden rounded-field bg-base-300">
                   <%= form.radio_button :radius_box, value, class: "radio -mx-8 my-5 size-18 border-4 before:invisible #{appearance}", data: { action: "change->theme-editor#update", setting: :radius_box } %>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>

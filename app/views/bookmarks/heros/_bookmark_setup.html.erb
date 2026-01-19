@@ -4,16 +4,16 @@
     <div class="flex max-w-lg flex-col gap-6">
       <p>This category does not have any bookmarks.</p>
       <div class="mx-auto flex flex-col gap-4 sm:flex-row">
-        <div class="tooltip tooltip-bottom" data-tip="New Bookmark">
+        <%= tooltip_tag "New Bookmark" do %>
           <%= link_to new_bookmark_path(category: category.token), class: "btn btn-soft hover:btn-primary" do %>
             <%= solid_icon_tag("plus") %>
           <% end %>
-        </div>
-        <div class="tooltip tooltip-bottom" data-tip="Delete Category">
+        <% end %>
+        <%= tooltip_tag "Delete Category" do %>
           <%= button_to category, method: :delete, class: "btn btn-soft btn-error hover:btn-error", data: { turbo_confirm: "Confirm deletion of #{category.name}.", confirm_button: "Delete" } do %>
             <%= solid_icon_tag("trash") %>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

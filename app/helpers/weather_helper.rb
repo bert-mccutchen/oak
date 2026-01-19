@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative "daisy_helper"
 require_relative "font_awesome_helper"
 
 module WeatherHelper
+  include DaisyHelper
   include FontAwesomeHelper
 
   def temperature_tag(**opts)
@@ -16,13 +18,7 @@ module WeatherHelper
   def weather_icon_tag(**opts)
     return unless Setting[:weather_enabled]
 
-    content_tag(
-      :span,
-      class: class_names("tooltip tooltip-bottom", opts[:class]),
-      data: { tip: weather_icon_title }.merge(opts[:data] || {}),
-      aria: { label: weather_icon.titleize }.merge(opts[:aria] || {}),
-      **opts.except(:class, :data, :aria)
-    ) do
+    tooltip_tag(weather_icon_title, position: :bottom, **opts) do
       solid_icon_tag(weather_icon)
     end
   end

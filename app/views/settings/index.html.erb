@@ -4,21 +4,21 @@
   <div class="mb-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
     <h1 class="text-4xl font-bold">Settings</h1>
     <div class="flex flex-row justify-between gap-4">
-      <div class="tooltip tooltip-bottom" data-tip="Reroll Daily Quote">
+      <%= tooltip_tag "Reroll Daily Quote", position: :bottom do %>
         <%= link_to reroll_daily_quotes_path, method: :patch, class: "btn hover:btn-primary", data: { turbo_method: :patch, turbo_prefetch: false } do %>
           <%= solid_icon_tag("dice-d20") %>
         <% end %>
-      </div>
-      <div class="tooltip tooltip-bottom" data-tip="Manage Themes">
+      <% end %>
+      <%= tooltip_tag "Manage Themes", position: :bottom do %>
         <%= link_to themes_path, class: "btn hover:btn-primary", data: { turbo_prefetch: false } do %>
           <%= solid_icon_tag("palette") %>
         <% end %>
-      </div>
-      <div class="tooltip tooltip-bottom" data-tip="Home">
+      <% end %>
+      <%= tooltip_tag "Home", position: :bottom do %>
         <%= link_to root_path, class: "btn hover:btn-primary" do %>
           <%= regular_icon_tag("house") %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 
