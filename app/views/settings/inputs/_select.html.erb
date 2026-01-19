@@ -1,5 +1,5 @@
 <%# locals: (setting:, options:, include_blank: nil) %>
-<%= form_with(model: setting, class: "w-full") do |form| %>
+<%= form_with(model: setting, class: "w-full", data: { turbo_permanent: true }) do |form| %>
   <%= form.label :name, setting.name, class: "text-lg font-bold" %>
   <%= form.select :value, options, { include_blank: }, class: "w-full", onchange: "this.form.requestSubmit()" %>
   <span class="block text-base-content/48"><%= setting.description %></span>

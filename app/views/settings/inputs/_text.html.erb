@@ -1,5 +1,5 @@
 <%# locals: (setting:) %>
-<%= form_with(model: setting, class: "w-full") do |form| %>
+<%= form_with(model: setting, class: "w-full", data: { turbo_permanent: true }) do |form| %>
   <%= form.label :name, setting.name, class: "text-lg font-bold" %>
   <div class="join join-vertical w-full sm:join-horizontal">
     <%= form.text_field :value, placeholder: setting.default, class: "w-full" %>
