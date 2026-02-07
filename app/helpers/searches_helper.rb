@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SearchesHelper
   DEFAULT_HOTKEYS = {
     "⌘ + K" => "meta+k",

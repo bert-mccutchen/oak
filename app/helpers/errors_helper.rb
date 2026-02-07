@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ErrorsHelper
   def handle_error(error, status:)
     Rails.logger.error(error.full_message)

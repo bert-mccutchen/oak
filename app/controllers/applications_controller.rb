@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
 

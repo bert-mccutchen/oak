@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DateTimeHelper
   def date_tag(**opts)
     return unless Setting[:date_enabled]

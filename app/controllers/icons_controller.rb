@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IconsController < ApplicationController
   include IconsHelper
 

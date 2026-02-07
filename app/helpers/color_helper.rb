@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rmagick"
 
 # There's a lot of magic numbers in this file.

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "daisy_helper"
 require_relative "font_awesome_helper"
 

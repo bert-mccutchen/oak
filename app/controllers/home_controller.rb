@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   def index
     @applications = Application.enabled.includes(:icon).order(applications_order)

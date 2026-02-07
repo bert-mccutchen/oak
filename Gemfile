@@ -44,6 +44,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# Dashboard for Active Job [https://github.com/rails/mission_control-jobs]
+gem "mission_control-jobs"
+
 # Model sorting [https://github.com/brendon/acts_as_list]
 gem "acts_as_list"
 
@@ -92,7 +95,7 @@ group :development do
 
   gem "openssl", "~> 4.0"
 
-  gem "puppeteer-ruby", "~> 0.45.6"
+  gem "puppeteer-ruby"
 end
 
 group :test do

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount MissionControl::Jobs::Engine, at: "/jobs"
+
   resources :applications, param: :token
   resources :bookmarks, param: :token
   resources :categories, param: :token

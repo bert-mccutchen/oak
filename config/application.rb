@@ -25,5 +25,8 @@ module Oak
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.exceptions_app = self.routes
+
+    config.mission_control.jobs.http_basic_auth_enabled = false
+    config.mission_control.jobs.show_console_help = false
   end
 end

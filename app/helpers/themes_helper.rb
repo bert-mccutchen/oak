@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ThemesHelper
   ELEMENT_SIZES = {
     0.1875 => "",

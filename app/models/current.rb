@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Current < ActiveSupport::CurrentAttributes
   attribute :theme, default: -> { defaulted_theme }
   attribute :greeting, default: -> { timed_greeting }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ThemesController < ApplicationController
   before_action :set_theme, only: %i[show edit update destroy]
 
