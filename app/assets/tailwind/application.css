@@ -21,3 +21,7 @@
   background-size: auto, calc(var(--noise) * 100%);
   background-image: none, var(--fx-noise);
 }
+
+::selection {
+  @apply bg-accent text-accent-content;
+}
