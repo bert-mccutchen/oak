@@ -1,5 +1,11 @@
 source "https://rubygems.org"
 
+##
+# Regarding Rails 8.1+
+# I am waiting for the Rails core team to resolve the issues with sorted schemas:
+# https://github.com/rails/rails/pull/56842
+#
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
 
@@ -104,6 +110,7 @@ group :test do
   gem "cuprite"
 
   # Test helpers
+  gem "minitest", "~> 5" # Locking down until Rails v8.0.5 released.
   gem "minitest-reporters"
   gem "simplecov"
   gem "webmock"
