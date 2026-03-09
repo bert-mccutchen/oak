@@ -22,12 +22,8 @@ module DateTimeHelper
   def date_time_controller(format)
     {
       controller: "date-time",
-      date_time_time_zone_value: time_zone_offset,
+      date_time_time_zone_value: Time.current.formatted_offset,
       date_time_format_value: Setting[format]
     }
-  end
-
-  def time_zone_offset
-    ActiveSupport::TimeZone[Setting[:time_zone]].formatted_offset
   end
 end

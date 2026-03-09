@@ -38,15 +38,39 @@ class DateTimeHelperTest < ActionView::TestCase
   end
 
   test "should render the date-time Stimulus controller values for dates" do
-    assert_includes date_tag, "data-controller=\"date-time\""
-    assert_includes date_tag, "data-date-time-time-zone-value=\"-05:00\""
-    assert_includes date_tag, "data-date-time-format-value=\"%A, %B %d %Y\""
+    Time.use_zone(Setting[:time_zone]) do
+      travel_to @significant_date do
+        assert_includes date_tag, "data-controller=\"date-time\""
+        assert_includes date_tag, "data-date-time-time-zone-value=\"-04:00\""
+        assert_includes date_tag, "data-date-time-format-value=\"%A, %B %d %Y\""
+      end
+    end
   end
 
   test "should render the date-time Stimulus controller values for times" do
-    assert_includes date_tag, "data-controller=\"date-time\""
-    assert_includes date_tag, "data-date-time-time-zone-value=\"-05:00\""
-    assert_includes date_tag, "data-date-time-format-value=\"%A, %B %d %Y\""
+    Time.use_zone(Setting[:time_zone]) do
+      travel_to @significant_date do
+        assert_includes date_tag, "data-controller=\"date-time\""
+        assert_includes date_tag, "data-date-time-time-zone-value=\"-04:00\""
+        assert_includes date_tag, "data-date-time-format-value=\"%A, %B %d %Y\""
+      end
+    end
+  end
+
+  test "should account for daylight saving when rendering dates" do
+    Time.use_zone(Setting[:time_zone]) do
+      travel_to @significant_date.beginning_of_year do
+        assert_includes date_tag, "data-date-time-time-zone-value=\"-05:00\""
+      end
+    end
+  end
+
+  test "should account for daylight saving when rendering times" do
+    Time.use_zone(Setting[:time_zone]) do
+      travel_to @significant_date.beginning_of_year do
+        assert_includes date_tag, "data-date-time-time-zone-value=\"-05:00\""
+      end
+    end
   end
 
   test "should render extra provided data attributes for date" do
