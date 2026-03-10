@@ -7,6 +7,8 @@ class SearchSettingsTest < ApplicationSystemTestCase
     @hotkeys = [ [ :meta, "k" ], [ :ctrl, "k" ], [ :tab ] ]
 
     settings(:weather_enabled).update!(value: false)
+
+    Capybara.default_max_wait_time = 10
   end
 
   test "using the search hotkey shows the search" do

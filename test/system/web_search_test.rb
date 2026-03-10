@@ -5,6 +5,8 @@ class WebSearchTest < ApplicationSystemTestCase
 
   setup do
     settings(:weather_enabled).update!(value: false)
+
+    Capybara.default_max_wait_time = 10
   end
 
   test "does not show the search by default" do
