@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-export default class NoticeController extends Controller {
+export default class SearchController extends Controller {
   static targets = [
     "modal",
     "frame",

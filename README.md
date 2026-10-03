@@ -38,6 +38,14 @@ Like many self-hosted applications, Oak is not intended to be hosted publicly. D
 
 ## Usage
 
+### Environment Variables
+
+| Variable | Description | Default |
+|---|---|---|
+| `HOSTS` | Allow connections from the provided hosts. You can provide a single host `oak.test`, or mutliple comma-separated hosts `oak.test, maple.test`. | All connections are allowed. |
+| `SSL` | Assume all access to the app is happening through a SSL-terminating reverse proxy. Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies. | `false` |
+| `LOG_LEVEL` | Only print logs from the set level or higher in criticality. Valid options are `debug`, `info`, `warn`, `error`, `fatal`, and `unknown`. | `info` |
+
 ### Docker
 
 This application uses SQLite for storage. You must mount your desired database storage path to `/rails/storage`.
@@ -208,3 +216,5 @@ Big thanks to [DaisyUI](https://github.com/saadeghi/daisyui) for the component l
 ### Legal Attributions
 
 Icons are modified and colored programatically to match the user's theme. Icons are provided by [selfh.st/icons](https://github.com/selfhst/icons/blob/main/LICENSE), and [Font Awesome Free](https://fontawesome.com/license/free) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed).
+
+_Absolutely no LLM (large language model) has, or ever will, contribute to this project in any capacity - directly or knowingly indirectly._
