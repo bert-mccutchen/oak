@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class SearchController extends Controller {
+  static PULL_TO_SEARCH_DISTANCE = 100.0
+
   static targets = [
+    "pull",
     "modal",
     "frame",
     "selfSearch",
@@ -14,6 +17,20 @@ export default class SearchController extends Controller {
   static values = {
     url: String,
     focusIndex: { type: Number, default: -1 }
+  }
+
+  connect() {
+    this.#pullToSearchReset()
+
+    this.touchStartListener = document.addEventListener('touchstart', this.#pullToSearchTouchStart.bind(this));
+    this.touchMoveListener = document.addEventListener('touchmove', this.#pullToSearchTouchMove.bind(this))
+    this.touchEndListener = document.addEventListener('touchend', this.#pullToSearchTouchEnd.bind(this))
+  }
+
+  disconnect() {
+    document.removeEventListener('touchstart', this.touchStartListener)
+    document.removeEventListener('touchmove', this.touchMoveListener)
+    document.removeEventListener('touchend', this.touchEndListener)
   }
 
   focusIndexValueChanged() {
@@ -96,5 +113,42 @@ export default class SearchController extends Controller {
 
   #focusPreviousResult() {
     this.focusIndexValue = Math.max(this.focusIndexValue - 1, -1)
+  }
+
+  #pullToSearchReset() {
+    this.touchstartY = 0
+    this.touchDiff = 0
+    this.pullTarget.style.opacity = 0
+  }
+
+  #pullToSearchTouchStart(event) {
+    if (this.modalTarget.open) return
+
+    this.touchstartY = event.touches[0].clientY;
+  }
+
+  #pullToSearchTouchMove(event) {
+    if (this.modalTarget.open) return
+
+    this.touchDiff = event.touches[0].clientY - this.touchstartY
+
+    if (this.touchDiff > 0 && window.scrollY === 0) {
+      this.pullTarget.style.opacity = this.touchDiff / (SearchController.PULL_TO_SEARCH_DISTANCE * 2)
+      event.preventDefault()
+    } else {
+      this.pullTarget.style.opacity = 0
+    }
+  }
+
+  #pullToSearchTouchEnd(event) {
+    if (this.modalTarget.open) return
+
+    if (this.touchDiff > SearchController.PULL_TO_SEARCH_DISTANCE && window.scrollY === 0) {
+      this.show()
+    } else {
+      this.hide()
+    }
+
+    this.#pullToSearchReset()
   }
 }
