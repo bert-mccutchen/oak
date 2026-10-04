@@ -52,10 +52,13 @@ export default class SearchController extends Controller {
   }
 
   hotkey(event) {
-    if (this.modalTarget.open) return
-
     event.preventDefault()
-    this.show()
+
+    if (this.modalTarget.open) {
+      if (event.keyCode !== 9) this.hide()
+    } else {
+      this.show()
+    }
   }
 
   switch(event) {

@@ -7,7 +7,7 @@ source "https://rubygems.org"
 #
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.4"
+gem "rails", "~> 8.1.4"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
@@ -75,7 +75,7 @@ gem "thruster", require: false
 gem "pagy", "~> 43.2"
 
 # Object-based searching [https://github.com/activerecord-hackery/ransack]
-gem "ransack", "~> 4.4"
+gem "ransack", "~> 5"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -89,6 +89,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "bundler", "~> 4.0"
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -107,7 +109,8 @@ group :test do
   gem "cuprite"
 
   # Test helpers
-  gem "minitest", "~> 5" # Locking down until Rails v8.0.5 released.
+  gem "minitest"
+  gem "minitest-mock"
   gem "minitest-reporters"
   gem "simplecov"
   gem "webmock"
