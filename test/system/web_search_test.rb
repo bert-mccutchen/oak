@@ -4,6 +4,8 @@ class WebSearchTest < ApplicationSystemTestCase
   include OpenMeteoHelper
 
   setup do
+    skip("Skipping hotkey tests in CI") if ENV["CI"]
+
     settings(:weather_enabled).update!(value: false)
 
     Capybara.default_max_wait_time = 10

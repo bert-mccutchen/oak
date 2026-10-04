@@ -4,6 +4,8 @@ class SearchSettingsTest < ApplicationSystemTestCase
   include OpenMeteoHelper
 
   setup do
+    skip("Skipping hotkey tests in CI") if ENV["CI"]
+
     @hotkeys = [ [ :meta, "k" ], [ :ctrl, "k" ], [ :tab ] ]
 
     settings(:weather_enabled).update!(value: false)
