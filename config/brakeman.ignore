@@ -1,6 +1,25 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 122,
+      "fingerprint": "21ab0fe00fdd5899ffc405cff75aadb91b805ee996a614f7e27b08a287e9062d",
+      "check_name": "EOLRails",
+      "message": "Support for Rails 8.0.4 ends on 2026-11-07",
+      "file": "Gemfile.lock",
+      "line": 369,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "Weak",
+      "cwe_id": [
+        1104
+      ],
+      "note": ""
+    },
+    {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
       "fingerprint": "52a1abaf52d992bd55a5ced500ece0795f20bd7fc73d1aec039997513bf684ef",
@@ -100,5 +119,5 @@
       "note": "Intentional feature of the application."
     }
   ],
-  "brakeman_version": "7.1.2"
+  "brakeman_version": "8.1.0"
 }
