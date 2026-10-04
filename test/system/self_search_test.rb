@@ -12,22 +12,20 @@ class SelfSearchTest < ApplicationSystemTestCase
   test "does not show the search by default" do
     [ root_url, settings_url, applications_url, bookmarks_url, categories_url, themes_url ].each do |url|
       visit url
+      assert_selector "body"
 
-      within find("#self_search", visible: :all) do
-        assert_not find("#q_name_cont", visible: :all).visible?
-      end
+      assert_no_selector "#self_search #q_name_cont", visible: true
     end
   end
 
   test "using the search hotkey shows the search" do
     [ root_url, settings_url, applications_url, bookmarks_url, categories_url, themes_url ].each do |url|
       visit url
+      assert_selector "body"
 
       page.send_keys [ :meta, "k" ]
 
-      within find("#self_search") do
-        assert find("#q_name_cont").visible?
-      end
+      assert_selector "#self_search #q_name_cont", visible: true
     end
   end
 
