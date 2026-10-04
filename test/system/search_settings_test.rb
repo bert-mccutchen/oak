@@ -16,12 +16,11 @@ class SearchSettingsTest < ApplicationSystemTestCase
       settings(:search_hotkey).update!(value: hotkey.join("+"))
 
       visit root_url
+      assert_selector "body"
 
       page.send_keys hotkey
 
-      within find("#self_search") do
-        assert find("#q_name_cont").visible?
-      end
+      assert_selector "#self_search #q_name_cont", visible: true
     end
   end
 
@@ -30,27 +29,18 @@ class SearchSettingsTest < ApplicationSystemTestCase
       settings(:search_hotkey).update!(value: hotkey.join("+"))
 
       visit root_url
+      assert_selector "body"
 
       page.send_keys hotkey
       find("#q_name_cont").send_keys [ :tab ]
 
-      within find("#self_search", visible: :all) do
-        assert_not find("#q_name_cont", visible: :all).visible?
-      end
-
-      within find("#web_search") do
-        assert find("#q").visible?
-      end
+      assert_no_selector "#self_search #q_name_cont", visible: true
+      assert_selector "#web_search #q", visible: true
 
       find("#web_search").send_keys [ :tab ]
 
-      within find("#self_search") do
-        assert find("#q_name_cont").visible?
-      end
-
-      within find("#web_search", visible: :all) do
-        assert_not find("#q", visible: :all).visible?
-      end
+      assert_selector "#self_search #q_name_cont", visible: true
+      assert_no_selector "#web_search #q", visible: true
     end
   end
 end
