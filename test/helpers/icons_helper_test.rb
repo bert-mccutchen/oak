@@ -6,7 +6,7 @@ class IconsHelperTest < ActionView::TestCase
   end
 
   test "should render themed SVG icons" do
-    assert_includes icon_tag(icons(:unifi)), "fill:var(--color-primary)"
+    assert_includes icon_tag(icons(:unifi)), "fill=\"var(--color-primary)\""
   end
 
   test "should link to themed PNG icons" do
